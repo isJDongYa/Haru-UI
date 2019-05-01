@@ -1,0 +1,46 @@
+{
+  "name": "dcompoment",
+  "version": "0.1.0",
+  "description": "Compoments or materials created with Vue",
+  "private": true,
+  "scripts": {
+    "start": "cross-env NODE_ENV=development && webpack-dev-server --open --config webpack.config.js",
+    "build": "cross-env NODE_ENV=production && webpack --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JDong-chen/DCompoment.git"
+  },
+  "keywords": [
+    "compoment",
+    "material",
+    "vue"
+  ],
+  "author": "JDong-chen@1312892125@qq.com",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/JDong-chen/DCompoment/issues"
+  },
+  "homepage": "https://github.com/JDong-chen/DCompoment#readme",
+  "dependencies": {
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^2.0.1",
+    "copy-webpack-plugin": "^5.0.3",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.1.1",
+    "style-loader": "^0.23.1",
+    "vue-loader": "^15.7.0",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.3.1"
+  }
+}
