@@ -7,13 +7,24 @@ const path = require('path')
 const publicDirInput = path.resolve(__dirname, 'public')
 const publicDirOutput = path.resolve(__dirname, 'dist')
 
-const mode = process.NODE_ENV === 'development' ? 'development' : "production"
-
+const mode = process.env.NODE_ENV === 'development' ? 'development' : "production"
+const jsLoader = process.env.NODE_ENV === 'development' ? {
+  test: /\.js$/,
+  exclude: /(node_modules|bower_components)/,
+  use: {
+    loader: 'babel-loader?cacheDirectory=true',
+    options: {
+      presets: ['@babel/preset-env'],
+    }
+  }
+} : {}
+console.log('-----------------------ENV:'+JSON.stringify(mode)+'-----------------------')
 module.exports = {
   mode,
   entry: './src/app.js',
   devServer: {
-    contentBase: './dist'
+    contentBase: publicDirInput,
+    noInfo: false
   },
   module: {
     rules: [
@@ -24,23 +35,25 @@ module.exports = {
         }
       },
       {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader?cacheDirectory=true',
-          options: {
-            presets: ['@babel/preset-env'],
-          }
-        }
-      },
-      {
         test: /\.scss$/,
         use: [
           'vue-style-loader',
           'css-loader',
           'sass-loader'
         ]
-      }
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
+      },
+      jsLoader
     ],
     
   },
@@ -57,7 +70,15 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.vue', '.json', '.scss', '.css'],
     alias: {
-
+      '@src': path.resolve('src'),
+      '@mixins': path.resolve('src/mixins'),
+      '@containers': path.resolve('src/components/ha-containers'),
+      '@stuffings': path.resolve('src/components/ha-stuffings'),
+      '@coordinater': path.resolve('src/coordinater'),
+      '@materials': path.resolve('src/materials'),
+      '@utils': path.resolve('src/utils'),
+      '@scss': path.resolve('src/scss'),
+      '@imgs': path.resolve('src/statics/imgs'),
     }
   }
 }
