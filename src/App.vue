@@ -15,7 +15,7 @@
         <!-- <ha-menu-vertical :color="['primary', 'lightPrimary']" width="220px" height="800px"  :menuList="menuList" :styleProp="styleProp"  :singleOpen="false" :coor="[[1,1], [5,50]]">
           <img :src='imgSrc' style="width:50%;height:100%;">
         </ha-menu-vertical> -->
-        <ha-menu-horizontal :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="false" :coor="[[1,1], [5,50]]">
+        <ha-menu-horizontal :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="false" :coor="[[10,1], [50,10]]">
           <img :src='imgSrc' style="width:100%;height:100%;">
         </ha-menu-horizontal>
         <ha-button title="primary"  :coor="[[33,19], [3,2]]"></ha-button>
@@ -34,7 +34,7 @@
         <ha-button color='blue' title="blue" :coor="[[33,31], [3,2]]"></ha-button>
         <ha-button color='white' title="white" :coor="[[33,34], [3,2]]" :styleProp="btnStyle"></ha-button>
         <ha-button color='black' title="black" :coor="[[36,34], [3,2]]"></ha-button>
-        <ha-table-base :color="['accentRed', 'lightRed', 'accentRed', 'lightGrey']" :datas="datas" :coor="[[10,18], [15,20]]"></ha-table-base>
+        <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[1,11], [15,20]]"></ha-table-base>
         <!-- <ha-card :color="['grey', 'white', 'lightGrey']" :coor="[10,18]" width="380px" height="320px">
           <span slot="head">卡片</span>
           <ha-button color='blue' title="确认" slot="foot" width="60px" height="28px"></ha-button>

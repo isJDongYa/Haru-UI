@@ -95,7 +95,7 @@ export default {
   },
   render() {
     return (
-      <div data-factor="ha-menu-list-horizontal" class="ha-menu-list-horizontal-default ha-menu-list-horizontal" style={ `width:${this.width==};height:${this.height}` }>
+      <div data-factor="ha-menu-list-horizontal" class="ha-menu-list-horizontal-default ha-menu-list-horizontal" style={ `width:${this.width};height:${this.height}` }>
         <div class="ha-menu-list-horizontal-head-default" route={ this.menuList.route }>{ this.menuList.menuTitle || this.$slots.default }</div>
         <div class="ha-menu-list-horizontal-body-default">{ this.createMenuList(this.menuList) }</div>
       </div>
@@ -134,13 +134,13 @@ export default {
 }
 .ha-menu-list-horizontal-group-default {
   line-height: 40px;
-  width: 200px;
+  width: 160px;
   height: 40px;
 }
 
 .ha-menu-list-horizontal-item-default {
   line-height: 50px;
-  width: 180px;
+  width: 140px;
   height: 50px;
 }
 </style>
