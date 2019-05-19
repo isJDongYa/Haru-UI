@@ -3,27 +3,28 @@ export default {
     width: {
       type: String,
       required: false,
-      default: '97%'
+      default: '100%'
     },
     height: {
       type: String,
       required: false,
-      default: '97%'
+      default: '100%'
     }
   },
   computed: {
     correctHeight() {
-      return function(factor, opt){
-        const h = new Number(this.height.replace('px',''))
+      return function(factor, opt, unit){
+        unit = unit ? unit : 'px'
+        const h = new Number(this.height.replace(unit,''))
         switch(opt) {
           case'+':
-            return `${h+factor}px`
+            return `${h+factor+unit}`
           case'-':
-            return `${h-factor}px`
+            return `${h-factor+unit}`
           case'*':
-            return `${h*factor}px`
+            return `${h*factor+unit}px`
           case'/':
-            return `${h/factor}px`
+            return `${h/factor+unit}px`
           default:
             return this.height
         }

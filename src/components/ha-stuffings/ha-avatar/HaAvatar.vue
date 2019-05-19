@@ -1,10 +1,10 @@
 <template>
-  <ha-rectangle :width="correctWidth(4, '+')" :height="correctHeight(4, '+')" :coor="coor">
+  <ha-rectangle :width="width" :height="height" :coor="coor">
     <div 
     :class="['ha-avatar-default', haColor, 'ha-avatar']"
-    :style="`${getStyleStr};width:${width};height:${height}`"
+    :style="`${getStyleStr}`"
     >
-      <img :src="url">
+      <img :src="url" :alt="alt" class="ha-avatar-img-default ha-avatar-img">
     </div>
   </ha-rectangle>
 </template>
@@ -24,6 +24,11 @@ export default {
       type: String,
       required: false,
       default: ''
+    },
+    alt: {
+      type: String,
+      required: false,
+      default: ''
     }
   }
 }
@@ -31,16 +36,10 @@ export default {
 <style lang="scss" scoped>
   @import '@scss/local/hovers.scss';
 
-  .ha-avatar-default {
-  //   display: inline-block;
-  //   -webkit-appearance: none;
-  //   text-align: center;
-  //   box-sizing: border-box;
-  //   outline: none;
-  //   cursor: pointer;
-  //   border-style: none;
-  //   border-radius: 4px;
-  //   @include hoverShadow;
+  .ha-avatar-default, .ha-avatar-img-default {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
   
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <ha-rectangle :width="correctWidth(4, '+')" :height="correctHeight(4, '+')" :coor="coor">
+  <ha-rectangle :width="correctWidth(4, '+', 'px')" :height="correctHeight(4, '+', 'px')" :coor="coor">
     <button 
     :class="['ha-btn-default', haColor, 'ha-btn']"
     :style="`${getStyleStr};width:${width};height:${height}`"

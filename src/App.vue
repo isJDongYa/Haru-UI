@@ -12,15 +12,16 @@
           <ha-button color='darkPrimary' title="darkPrimary" :coor="[2,2]"></ha-button>
           <ha-button color='lightPrimary' title="lightPrimary" :coor="[10,10]"></ha-button>
           <ha-button color='accentPrimary' title="accentPrimary" :coor="[60,50]"></ha-button> -->
-        <!-- <ha-menu-vertical :color="['primary', 'lightPrimary']" width="220px" height="800px"  :menuList="menuList" :styleProp="styleProp"  :singleOpen="false" :coor="[[1,1], [5,50]]">
+        <!-- <ha-menu-vertical :color="['primary', 'lightPrimary']" width="220px" height="800px"  :menuList="menuList" :styleProp="styleProp"  :singleOpen="false" :coor="[[[1,1], [5,50]]]">
           <img :src='imgSrc' style="width:50%;height:100%;">
         </ha-menu-vertical> -->
-        <!-- <ha-menu-horizontal :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[10,1], [50,3]], [[3,1], [50, 3]]]">
-          <img :src='imgSrc' style="width:70px;height:100%;">
-        </ha-menu-horizontal> -->
+        <ha-menu-horizontal :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[10,1], [50,4]], [[3,1], [50, 3]]]">
+          <!-- <img :src='imgSrc' style="width:70px;height:100%;"> -->
+          <ha-avatar :url="imgSrc" color='darkPrimary' width="50%"></ha-avatar>
+        </ha-menu-horizontal>
         <!-- <ha-button title="primary"  :coor="[[[33,19], [3,2]]]"></ha-button> -->
-        <!-- <ha-button title="darkPrimary" color='darkPrimary' :coor="[[[36,19], [3,2]], [[2,32], [3, 2]]]"></ha-button> -->
-        <ha-avatar :url="imgSrc" color='darkPrimary' :coor="[[[36,19], [3,2]], [[2,32], [3, 2]]]"></ha-avatar>
+        <ha-button title="darkPrimary" color='darkPrimary' :coor="[[[36,19], [3,2]], [[2,32], [3, 2]]]"></ha-button>
+        <!-- <ha-avatar :url="imgSrc" color='darkPrimary' :coor="[[[36,19], [2,3]], [[2,32], [2, 3]]]"></ha-avatar> -->
         <!-- <ha-button title="lightPrimary" color='lightPrimary' :coor="[[[39,19], [3,2]]]"></ha-button>
         <ha-button title="lightPrimary" color='accentPrimary' :coor="[[[42,19], [3,2]]]"></ha-button>
         <ha-button color='red' title="red" :coor="[[[33,22], [3,2]]]"></ha-button>
