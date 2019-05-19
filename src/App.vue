@@ -1,7 +1,7 @@
 <template>
   <div id="mainApp">
     <ha-rectangle height='99%' width='100%'>
-      <ha-coordinater :grid="[50, 50]">
+      <ha-coordinater :grid="[[1180, 50, 50], [580, 22, 50]]">
         <!-- 
         <ha-button title="primary"></ha-button>
         <ha-button color='darkPrimary' title="darkPrimary" :coor="[10,10]"></ha-button>
@@ -15,26 +15,26 @@
         <!-- <ha-menu-vertical :color="['primary', 'lightPrimary']" width="220px" height="800px"  :menuList="menuList" :styleProp="styleProp"  :singleOpen="false" :coor="[[1,1], [5,50]]">
           <img :src='imgSrc' style="width:50%;height:100%;">
         </ha-menu-vertical> -->
-        <ha-menu-horizontal :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="false" :coor="[[10,1], [50,10]]">
+        <ha-menu-horizontal :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[10,1], [50,10]], [[3,1], [50, 10]]]">
           <img :src='imgSrc' style="width:100%;height:100%;">
         </ha-menu-horizontal>
-        <ha-button title="primary"  :coor="[[33,19], [3,2]]"></ha-button>
-        <ha-button title="darkPrimary" color='darkPrimary' :coor="[[36,19], [3,2]]"></ha-button>
-        <ha-button title="lightPrimary" color='lightPrimary' :coor="[[39,19], [3,2]]"></ha-button>
-        <ha-button title="lightPrimary" color='accentPrimary' :coor="[[42,19], [3,2]]"></ha-button>
-        <ha-button color='red' title="red" :coor="[[33,22], [3,2]]"></ha-button>
-        <ha-button color='lightRed' title="lightRed" :coor="[[36,22], [3,2]]"></ha-button>
-        <ha-button color='darkRed' title="darkRed" :coor="[[39,22], [3,2]]"></ha-button>
-        <ha-button color='accentRed' title="accentRed" :coor="[[42,22], [3,2]]"></ha-button>
-        <ha-button color='grey' title="grey" :coor="[[33,25], [3,2]]"></ha-button>
-        <ha-button color='lightGrey' title="lightGrey" :coor="[[36,25], [3,2]]"></ha-button>
-        <ha-button color='darkGrey' title="darkGrey" :coor="[[39,25], [3,2]]"></ha-button>
-        <ha-button color='accentGrey' title="accentGrey" :coor="[[42,25], [3,2]]"></ha-button>
-        <ha-button color='yellow' title="yellow" :coor="[[33,28], [3,2]]"></ha-button>
-        <ha-button color='blue' title="blue" :coor="[[33,31], [3,2]]"></ha-button>
-        <ha-button color='white' title="white" :coor="[[33,34], [3,2]]" :styleProp="btnStyle"></ha-button>
-        <ha-button color='black' title="black" :coor="[[36,34], [3,2]]"></ha-button>
-        <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[1,11], [15,20]]"></ha-table-base>
+        <!-- <ha-button title="primary"  :coor="[[[33,19], [3,2]]]"></ha-button> -->
+        <ha-button title="darkPrimary" color='darkPrimary' :coor="[[[36,19], [3,2]], [[2,32], [3, 2]]]"></ha-button>
+        <!-- <ha-button title="lightPrimary" color='lightPrimary' :coor="[[[39,19], [3,2]]]"></ha-button>
+        <ha-button title="lightPrimary" color='accentPrimary' :coor="[[[42,19], [3,2]]]"></ha-button>
+        <ha-button color='red' title="red" :coor="[[[33,22], [3,2]]]"></ha-button>
+        <ha-button color='lightRed' title="lightRed" :coor="[[[36,22], [3,2]]]"></ha-button>
+        <ha-button color='darkRed' title="darkRed" :coor="[[[39,22], [3,2]]]"></ha-button>
+        <ha-button color='accentRed' title="accentRed" :coor="[[[42,22], [3,2]]]"></ha-button>
+        <ha-button color='grey' title="grey" :coor="[[[33,25], [3,2]]]"></ha-button>
+        <ha-button color='lightGrey' title="lightGrey" :coor="[[[36,25], [3,2]]]"></ha-button>
+        <ha-button color='darkGrey' title="darkGrey" :coor="[[[39,25], [3,2]]]"></ha-button>
+        <ha-button color='accentGrey' title="accentGrey" :coor="[[[42,25], [3,2]]]"></ha-button>
+        <ha-button color='yellow' title="yellow" :coor="[[[33,28], [3,2]]]"></ha-button>
+        <ha-button color='blue' title="blue" :coor="[[[33,31], [3,2]]]"></ha-button>
+        <ha-button color='white' title="white" :coor="[[[33,34], [3,2]]]" :styleProp="btnStyle"></ha-button>
+        <ha-button color='black' title="black" :coor="[[[36,34], [3,2]]]"></ha-button> -->
+        <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[10,11], [25,20]], [[1,11], [25, 20]]]"></ha-table-base>
         <!-- <ha-card :color="['grey', 'white', 'lightGrey']" :coor="[10,18]" width="380px" height="320px">
           <span slot="head">卡片</span>
           <ha-button color='blue' title="确认" slot="foot" width="60px" height="28px"></ha-button>
@@ -65,7 +65,7 @@ export default {
         'border-radius': '50%'
       },
       styleProp: {
-        margin: '0 0 2px 2px',
+        margin: '10px 0 0px 2px',
         borderRadius: '0px'
       },
       menuList: {

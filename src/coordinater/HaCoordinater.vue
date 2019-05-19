@@ -9,22 +9,23 @@ export default {
   data() {
     return {
       width: '100%',
-      height: '100%'
+      height: '100%',
+      gridDem: this.grid[0],
+      gridDemNum: 0,
     }
   },
   props: {
     grid: {
       type: Array,
       required: false,
-      default: () => [0, 0]
-    },
+      default: () => [[0, 0, 0]]
+    }
   },
   computed: {
     gridComputed() {
       return function (grid) {
-        let gridColumn = grid[0]
-        let gridRow = grid[1]
-
+        let gridColumn = this.gridDem[1]
+        let gridRow = this.gridDem[2]
         let row_culumn = ' 1fr '
 
         if( gridColumn === 0) {
@@ -44,10 +45,35 @@ export default {
           gridColumn--
         }
         return row_culumn 
-        
-
       }
     }
+  },
+  methods: {
+    getWinWidth() {
+          const winWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
+          return winWidth
+    },
+    onResize(vm) {
+      return function() {
+        const grid = vm.grid
+        const getWinWidth = vm.getWinWidth
+        if(grid.length === 1) return
+        const winWidth = getWinWidth()
+        let res = grid[0][0]
+        for(let i=0;i<grid.length;i++) {
+          if(grid[i][0]<winWidth) {
+            res = grid[i]
+            vm.gridDemNum = i
+            break 
+          }
+        }
+        vm.gridDem = res
+      }
+    }
+  },
+  mounted() {
+    this.onResize(this)()
+    window.addEventListener('resize', this.onResize(this))
   }
 }
 </script>

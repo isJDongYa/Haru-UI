@@ -5,32 +5,41 @@ export default {
     coor:{
       type: Array,
       required: false,
-      default: () => [[1, 1], [1, 1]]
+      default: () => [[[1, 1], [1, 1]]]
     }
   },
   computed: {
     gridColumnStart() {
-      let coor0 = this.coor[0][0]
+      console.log(this.coor.length)
+      const demNum = this.coor.length === 1 ? 0 : this.getDemNum()
+      const coor0 = this.coor[demNum][0][0]
       const n = this.compareCoorX(coor0)
       return n === 0 ? coor0 : n
     },
     gridRowStart() {
-      let coor1 = this.coor[0][1]
+      const demNum = this.coor.length === 1 ? 0 : this.getDemNum()
+      const coor1 = this.coor[demNum][0][1]
       const n = this.compareCoorY(coor1)
       return n === 0 ? coor1 : n
     },
     gridColumnEnd() {
-      let coor0 = this.coor[1][0]
-      //const n = this.compareCoorX(coor0)
-      return this.gridColumnStart+coor0//n === 0 ? coor0 : n
+      const demNum = this.coor.length === 1 ? 0 : this.getDemNum()
+      let coor0 = this.coor[demNum][1][0]
+      return this.gridColumnStart+coor0
     },
     gridRowEnd() {
-      let coor1 = this.coor[1][1]
-      //const n = this.compareCoorY(coor1)
-      return this.gridRowStart+coor1//n === 0 ? coor1 : n
+      const demNum = this.coor.length === 1 ? 0 : this.getDemNum()
+      let coor1 = this.coor[demNum][1][1]
+      return this.gridRowStart+coor1
     }
   },
   methods: {
+    getDemNum() {
+      const c = findNearestCoor(this)
+      if(!c) return 0
+      const demNum = c.$data.gridDemNum
+      return demNum
+    },
     compareCoorX(d) {
       const c = findNearestCoor(this)
       if(!c) return 0
@@ -50,14 +59,7 @@ export default {
       } else {
         return 0 //返回0表示组件纵坐标在正常范围内
       }
-    },
-    // GetRatios(wOld, hOld) {
-    //   const wNew = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
-    //   const hNew = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-    //   const wHatio =  wNew/wOld
-    //   const hHatio =  hNew/hOld
-    //   return [wHatio, hHatio]
-    // }
+    }
   }
 }
 
