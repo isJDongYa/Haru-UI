@@ -1,16 +1,14 @@
 <template>
   <ha-rectangle :width="width" :height="height" :coor="coor" :hover="hover" :style="getStyleStr">
-    <div :class="['ha-card-default', haColor, 'ha-card']"
-    
-    >
-      <div :class="['ha-card-head-default', haColor[0], 'ha-card-head']" v-if="$slots.header">
+    <div :class="['ha-card-default', haColor, 'ha-card']">
+      <div :class="['ha-card-head-default', haColor[0], 'ha-card-head']" v-if="$slots.header" :style="`height:${hcfHeight[0]}`">
         <slot name="header"></slot>
       </div>
-      <div :class="['ha-card-content-default', haColor[1], 'ha-card-content']" :style="`height:${contentHeight}%`">
+      <div :class="['ha-card-content-default', haColor[1], 'ha-card-content']" :style="`height:${hcfHeight[1]}`">
         <slot name="content"></slot>
         <slot></slot>
       </div>
-      <div :class="['ha-card-foot-default', haColor[2], 'ha-card-foot']" v-if="$slots.footer">
+      <div :class="['ha-card-foot-default', haColor[2], 'ha-card-foot']" v-if="$slots.footer" :style="`height:${hcfHeight[2]}`">
         <slot name="footer"></slot>
       </div>
     </div>
@@ -28,16 +26,13 @@ import '@containers/ha-rectangle'
 export default {
   name:'ha-card',
   mixins: [coorMixin, colorMixin, stylePropMixin, whMixin, hoverMixin],
-  computed: {
-    contentHeight() {
-      let h = 100
-      if(this.$slots.header) {
-        h = h - 20
+  props: {
+    hcfHeight: {
+      type: Array,
+      required: false,
+      default: () => {
+        return ['20%', '60%', '20%']
       }
-      if(this.$slots.footer) {
-        h = h - 20
-      }
-      return h
     }
   }
 }
@@ -51,7 +46,6 @@ export default {
   
 }
 .ha-card-head-default {
-  height: 20%;
   width: 94%;
   padding-left: 3%;
   padding-right: 3%;
@@ -65,7 +59,6 @@ export default {
   width: 100%;
 }
 .ha-card-foot-default {
-  height: 20%;
   width: 94%; 
   padding-left: 3%;
   padding-right: 3%;

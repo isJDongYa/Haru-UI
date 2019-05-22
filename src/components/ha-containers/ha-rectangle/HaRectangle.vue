@@ -30,7 +30,10 @@ export default {
   .ha-rectangle-default {
     display: inline-block;
     box-sizing: border-box;
+    position: relative;
+    z-index: 0;
     margin: 0;
     padding: 0;
+    border-style: none;
   }
 </style>
