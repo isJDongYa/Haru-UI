@@ -1,4 +1,4 @@
-const colors = {
+const colorsClassObject = {
   'red50': 'ha-color-red50',
   'red100': 'ha-color-red100',
   'red200': 'ha-color-red200',

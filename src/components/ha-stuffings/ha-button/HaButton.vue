@@ -1,9 +1,6 @@
 <template>
-  <ha-rectangle :width="correctWidth(4, '+', 'px')" :height="correctHeight(4, '+', 'px')" :coor="coor">
-    <button 
-    :class="['ha-btn-default', haColor, 'ha-btn']"
-    :style="`${getStyleStr};width:${width};height:${height}`"
-    >{{ title }}</button>
+  <ha-rectangle :width="width" :height="height" :coor="coor"  :hover="hover" :style="getStyleStr">
+    <button :class="['ha-btn-default', haColor, 'ha-btn']">{{ title }}</button>
   </ha-rectangle>
 </template>
 <script>
@@ -11,12 +8,14 @@ import coorMixin from '@mixins/coorMixin'
 import colorMixin from '@mixins/colorMixin'
 import stylePropMixin from '@mixins/stylePropMixin'
 import whMixin from '@mixins/whMixin'
+import hoverMixin from '@mixins/hoverMixin'
+
 
 import '@containers/ha-rectangle'
 
 export default {
   name: 'ha-button',
-  mixins: [coorMixin, colorMixin, stylePropMixin, whMixin],
+  mixins: [coorMixin, colorMixin, stylePropMixin, whMixin, hoverMixin],
   props: {
     title: {
       type: String,
@@ -28,18 +27,18 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  @import '@scss/local/hovers.scss';
 
   .ha-btn-default {
     display: inline-block;
+    width: 100%;
+    height: 100%;
     -webkit-appearance: none;
     text-align: center;
     box-sizing: border-box;
     outline: none;
     cursor: pointer;
     border-style: none;
-    border-radius: 4px;
-    @include hoverShadow;
+    padding: 0;
   }
   
 </style>

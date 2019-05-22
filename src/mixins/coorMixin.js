@@ -10,7 +10,6 @@ export default {
   },
   computed: {
     gridColumnStart() {
-      console.log(this.coor.length)
       const demNum = this.coor.length === 1 ? 0 : this.getDemNum()
       const coor0 = this.coor[demNum][0][0]
       const n = this.compareCoorX(coor0)
