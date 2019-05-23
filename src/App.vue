@@ -1,8 +1,8 @@
 <template>
   <div id="mainApp">
     <ha-scroll>
-      <ha-rectangle height='3000px' width='100%'>
-        <ha-coordinater :grid="[[1180, 50, 150], [580, 25, 50]]">
+      <ha-rectangle height='3000px' width='3000px'>
+        <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
           <!-- 
           <ha-button title="primary"></ha-button>
           <ha-button color='darkPrimary' title="darkPrimary" :coor="[10,10]"></ha-button>
