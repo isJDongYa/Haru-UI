@@ -29,6 +29,8 @@ import colorMixin from '@mixins/colorMixin'
 import '@containers/ha-rectangle'
 import stylePropMixin from '@mixins/stylePropMixin'
 
+import '@containers/ha-rectangle'
+
 export default {
   name: 'ha-table-base',
   mixins: [coorMixin, whMixin, colorMixin, stylePropMixin],

@@ -29,6 +29,7 @@ export default {
 <style lang="scss" scoped>
   .ha-rectangle-default {
     display: inline-block;
+    vertical-align: top;
     box-sizing: border-box;
     position: relative;
     z-index: 0;

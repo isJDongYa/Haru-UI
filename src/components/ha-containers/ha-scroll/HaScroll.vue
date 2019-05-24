@@ -125,12 +125,12 @@ export default {
       this.scrollContentScrollHeight = this.scrollContent.scrollHeight
     },
     toTopClick() {
-      this.barVeTop = 0
+      this.barVeTop = -1
       this.scrollContent.scrollTop = 0
       this.barVeTopTemp = this.barVeTop
     },
     toBottomClick() {
-      this.barVeTop = 100 - this.barVeHeight
+      this.barVeTop = 100 - this.barVeHeight + 1
       this.scrollContent.scrollTop = (this.barVeTop/100)*this.scrollContent.scrollHeight
       this.barVeTopTemp = this.barVeTop
     },

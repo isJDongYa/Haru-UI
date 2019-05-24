@@ -35,12 +35,12 @@ export default {
           gridRow = 20
         }
         
-        while (gridRow > 0) {
+        while (gridRow > 2) {
           row_culumn += ' 1fr '
           gridRow--
         }
         row_culumn += ' / ' 
-        while (gridColumn> 0) {
+        while (gridColumn> 2) {
           row_culumn += ' 1fr '
           gridColumn--
         }
@@ -80,6 +80,8 @@ export default {
 <style lang="scss" scoped>
 .ha-coordinater-default {
   display: grid;
+  margin: 0;
+  
 }
 </style>
 

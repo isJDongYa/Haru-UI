@@ -1,8 +1,23 @@
 <template>
   <div id="mainApp">
     <ha-scroll :toBottom="true" :toTop="true" :color="['primary', 'red', 'blue', 'yellow']">
-      <ha-rectangle height='3000px' width='3000px'>
-        <ha-coordinater :grid="[[1180, 50, 150], [580, 25, 50]]">
+      <ha-rectangle height='100%' width='100%'>
+        <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
+          <ha-mask :show.sync="show" :duration="3000">
+            <!-- <ha-coordinater :grid="[[1180, 50, 50]]"> -->
+              <!-- <ha-card :color="['lightRed', 'lightRed', 'lightRed']" :coor="[[[20,18], [10,16]]]" :styleProp="btnStyle" hover="shadow" :hcfHeight="['20%', '70%', '10%']">
+                <span slot="header">弹窗</span>
+                <ha-mask position="absolute" :show.sync="show" :duration="2000">
+                  <ha-button color='darkRed' title="取消" width="60px" height="28px" @click="cancelClick"></ha-button>
+                </ha-mask>
+                <ha-avatar :url="imgSrc" color='darkPrimary' width="100%" height="100%"></ha-avatar>
+                <ha-button color='blue' title="确认" slot="footer" width="60px" height="28px" @click="openMaskClick"></ha-button>
+                <ha-button color='darkRed' title="取消" slot="footer" width="60px" height="28px" @click="cancelClick"></ha-button>
+              </ha-card> -->
+              <!-- <ha-button title="关闭mask" color="red" :coor="[[[25,19], [3,2]]]" @click="cancelClick"></ha-button> -->
+              <!-- <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[5,11], [38,50]], [[6,11], [18, 20]]]"></ha-table-base>
+            </ha-coordinater> -->
+          </ha-mask>
           <!-- 
           <ha-button title="primary"></ha-button>
           <ha-button color='darkPrimary' title="darkPrimary" :coor="[10,10]"></ha-button>
@@ -19,8 +34,9 @@
             <ha-menu-horizontal :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[15,1], [50,4]], [[8,1], [50, 3]]]">
               <!-- <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar> -->
             </ha-menu-horizontal>
-            <!-- <ha-button title="primary"  :coor="[[[33,19], [3,2]]]"></ha-button> -->
-            <ha-button title="darkPrimary" color='darkPrimary' :coor="[[[55,19], [3,2]], [[2,32], [3, 2]]]" :styleProp="btnStyle" hover="shadow"></ha-button>
+            <ha-button title="打开mask" :coor="[[[33,19], [3,2]]]" @click="openMaskClick"></ha-button>
+            <!-- <ha-button title="darkPrimary" color='darkPrimary' :coor="[[[55,19], [3,2]], [[2,32], [3, 2]]]" :styleProp="btnStyle" hover="shadow"></ha-button> -->
+            
           <!-- <ha-avatar :url="imgSrc" color='darkPrimary' :coor="[[[36,19], [2,3]], [[2,32], [2, 3]]]"></ha-avatar> -->
           <!-- <ha-button title="lightPrimary" color='lightPrimary' :coor="[[[39,19], [3,2]]]"></ha-button>
           <ha-button title="lightPrimary" color='accentPrimary' :coor="[[[42,19], [3,2]]]"></ha-button>
@@ -36,7 +52,7 @@
           <ha-button color='blue' title="blue" :coor="[[[33,31], [3,2]]]"></ha-button>
           <ha-button color='white' title="white" :coor="[[[33,34], [3,2]]]" :styleProp="btnStyle"></ha-button>
           <ha-button color='black' title="black" :coor="[[[36,34], [3,2]]]"></ha-button> -->
-          <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[10,11], [38,50]], [[6,11], [18, 20]]]"></ha-table-base>
+          <!-- <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[10,11], [38,50]], [[6,11], [18, 20]]]"></ha-table-base> -->
           <!-- <ha-card :color="['grey', 'white', 'lightGrey']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :hcfHeight="['20%', '70%', '10%']">
             <span slot="header">卡片</span>
             <ha-button color='blue' title="确认" slot="footer" width="60px" height="28px"></ha-button>
@@ -51,8 +67,17 @@
 <script>
 export default {
   name: 'app',
+  methods: {
+    cancelClick() {
+      this.show = false
+    },
+    openMaskClick() {
+      this.show = true
+    }
+  },
   data() {
     return {
+      show: false,
       imgSrc: require('@imgs/scauLogo.jpg'),
       datas: [
           '表格标题',  //thead

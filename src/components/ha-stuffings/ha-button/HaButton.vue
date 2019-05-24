@@ -1,6 +1,6 @@
 <template>
   <ha-rectangle :width="width" :height="height" :coor="coor"  :hover="hover" :style="getStyleStr">
-    <button :class="['ha-btn-default', haColor, 'ha-btn']">{{ title }}</button>
+    <button :class="['ha-btn-default', haColor, 'ha-btn']" @click="click">{{ title }}</button>
   </ha-rectangle>
 </template>
 <script>
@@ -22,8 +22,12 @@ export default {
       default: "ha-button"
     }
     
+  },
+  methods: {
+    click() {
+      this.$emit('click')
+    }
   }
-
 }
 </script>
 <style lang="scss" scoped>
