@@ -96,8 +96,12 @@ export default {
   render() {
     return (
       <div data-factor="ha-menu-list-vertical" class="ha-menu-list-vertical-default ha-menu-list-vertical">
-        <div class="ha-menu-list-vertical-head-default" route={ this.menuList.route }>{ this.menuList.menuTitle || this.$slots.default }</div>
-        <div class="ha-menu-list-vertical-body-default">{ this.createMenuList(this.menuList) }</div>
+        <div ref="head" class="ha-menu-list-vertical-head-default" route={ this.menuList.route }>{ this.menuList.menuTitle || this.$slots.default }</div>
+        <div ref='body' style="height:90%">
+          <ha-scroll color={ ['grey', 'grey'] }>
+            <div ref='body' class="ha-menu-list-vertical-body-default">{ this.createMenuList(this.menuList) }</div>
+          </ha-scroll>
+        </div>
       </div>
     )
   }
@@ -112,17 +116,20 @@ export default {
   text-align: center;
   cursor: pointer;
   border-radius: 4px;
+  height: 100%;
+  width: 100%;
 }
 .ha-menu-list-vertical-head-default {
-  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  line-height: 100px;
+  height: 10%;
   font-size: 20px;
   font-weight:600;
 }
 .ha-menu-list-vertical-body-default {
   width: 100%;
-  height: 100%;
 }
 .ha-menu-list-vertical-group-default, .ha-menu-list-vertical-item-default {
   height: 50px;

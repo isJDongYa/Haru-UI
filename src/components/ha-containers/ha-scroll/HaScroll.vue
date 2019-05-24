@@ -1,27 +1,49 @@
 <template>
   <div class="ha-scroll-default ha-scroll">
-    <div ref="scrollContent" class="ha-scroll-content-default ha-scroll-content">
+    <div ref="scrollContent" class="ha-scroll-content-default ha-scroll-content"  @click="contentClick">
       <slot></slot>
     </div>
-    <div class="ha-scroll-bar-container-vertical-default ha-scroll-bar-container-vertical">
-      <div ref="barVe" class="ha-scroll-bar-default-vertical ha-scroll-bar-vertical" 
-      :style="`height:${barVeHeight}%;top:${barVeTop}%;`"
-      v-show="barVeShow"
+    <!-- 垂直滚动条 -->
+    <div class="ha-scroll-bar-container-vertical-default ha-scroll-bar-container-vertical" v-show="barVeConShow">
+      <div  ref="barVe" 
+            :class="['ha-scroll-bar-default-vertical', 'ha-scroll-bar-vertical', haColor[0]]" 
+            :style="`height:${barVeHeight}%;top:${barVeTop}%;`"
+            v-show="barVeShow"
       ></div>
     </div>
-    <div class="ha-scroll-bar-container-horizontal-default ha-scroll-bar-container-horizontal">
-      <div ref="barHo" class="ha-scroll-bar-horizontal-default ha-scroll-bar-horizontal" 
-      :style="`width:${barHoWidth}%;left:${barHoLeft}%;`"
-      v-show="barHoShow"
+    <!-- 水平滚动条 -->
+    <div class="ha-scroll-bar-container-horizontal-default ha-scroll-bar-container-horizontal" v-show="barHoConShow">
+      <div  ref="barHo" 
+            :class="['ha-scroll-bar-horizontal-default', 'ha-scroll-bar-horizontal', haColor[1]]" 
+            :style="`width:${barHoWidth}%;left:${barHoLeft}%;`"
+            v-show="barHoShow"
       ></div>
+    </div>
+
+    <div  class="ha-scroll-to-container-default ha-scroll-to-container"
+          :style="`height:${toTorBHeight}px;line-height:${toTorBHeight}px`"
+    >
+      <div  :class="['ha-scroll-toBottom-default', 'ha-scroll-toBottom', haColor[2]]" 
+            v-if="toBottom"
+            v-show="toBottomShow"
+            :style="`height:${toTorBHeight}px;line-height:${toTorBHeight}px`"
+            @click="toBottomClick"
+      >
+      <div>底部</div>
+      </div>
+      <div  :class="['ha-scroll-toTop-default', 'ha-scroll-toTop', haColor[3]]" 
+            v-if="toTop" 
+            v-show="toTopShow"
+            :style="`height:${toTorBHeight}px;line-height:${toTorBHeight}px`" 
+            @click="toTopClick"
+      >
+        <div>顶部</div>
+      </div>
     </div>
   </div>
 </template>
 <script>
 import colorMixin from '@mixins/colorMixin'
-
-import genNonDuplicateID from '@utils/genNonDuplicateID'
-import { setTimeout, clearTimeout } from 'timers';
 
 export default {
   name:'ha-scroll',
@@ -29,31 +51,102 @@ export default {
   data() {
     return {
       scrollContent: null,
+      scrollContentScrollHeight: 0,
+
+      barVeConShow: false,
       barVe: null,
       barVeTop: 0,
       barVeHeight: 0,
       barVeTopTemp: 0,
       barVeShow: false,
       mouseDownY: 0,
+
+      barHoConShow: false,
       barHo: null,
       barHoLeft: 0,
       barHoWidth: 0,
       barHoLeftTemp: 0,
       barHoShow: false,
       mouseDownX: 0,
+
       keyDown: null,
+
+      toTorBHeight: 0,
+      toTopShow: false,
+      toTSTemp: false,
+      toBottomShow: false,
+      toBSTemp: false,
+
+      mouseWheelVe: null,
+      mouseDownVe: null,
+      mouseWheelHo: null,
+      mouseDownHo: null,
+      mouseKeydownDoc: null,
+      mouseKeyupDoc: null,
+      mousemoveConPar: null,
+      mouseleaveConPar: null,
+    }
+  },
+  props: {
+    toBottom: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    toTop: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
+  },
+  watch: {
+    barVeTop() {
+      if(this.barVeTop>0) {
+        this.toTopShow = true
+      } else {
+        this.toTopShow = false
+      }
+      
+      if(this.barVeTop<100-this.barVeHeight) {
+        this.toBottomShow = true
+      } else {
+        this.toBottomShow = false
+      }
+
+      this.toTSTemp = this.toTopShow
+      this.toBSTemp = this.toBottomShow
+    },
+    scrollContentScrollHeight() { // 如果滚动高度变化,重新初始化滚动条
+      this.haScrollInit()
     }
   },
   methods: {
+    contentClick() {  // 监控发生在scrollContent的点击事件,更新滚动高度
+      this.scrollContentScrollHeight = this.scrollContent.scrollHeight
+    },
+    toTopClick() {
+      this.barVeTop = 0
+      this.scrollContent.scrollTop = 0
+      this.barVeTopTemp = this.barVeTop
+    },
+    toBottomClick() {
+      this.barVeTop = 100 - this.barVeHeight
+      this.scrollContent.scrollTop = (this.barVeTop/100)*this.scrollContent.scrollHeight
+      this.barVeTopTemp = this.barVeTop
+    },
     contentHover(vm) {
       let timer
       return function() {
         if(vm.barVe) vm.barVeShow = true
         if(vm.barHo) vm.barHoShow = true
+        vm.toTopShow = vm.toTSTemp
+        vm.toBottomShow = vm.toBSTemp
         if(timer) clearTimeout(timer)
         timer = setTimeout(() => {
-           if(vm.barVe) vm.barVeShow = false
-           if(vm.barHo) vm.barHoShow = false
+          if(vm.barVe) vm.barVeShow = false
+          if(vm.barHo) vm.barHoShow = false
+          if(vm.toTopShow) vm.toTopShow = false
+          if(vm.toBottomShow) vm.toBottomShow = false
         }, 3000)
       }
     },
@@ -61,10 +154,13 @@ export default {
       return function() {
         if(vm.barVe) vm.barVeShow = false
         if(vm.barHo) vm.barHoShow = false
+        vm.toTopShow = false
+        vm.toBottomShow = false
       }
     },
     contentMouseWheel(vm) { 
       return function(e) {
+        e.stopPropagation()
         if(!vm.keyDown) {
           const wheelY = e.wheelDeltaY || -e.detail // 兼容firefox
           if(wheelY<0) { // 向下滚动
@@ -100,6 +196,7 @@ export default {
     },
     contentHoScroll(vm) {
       return function(e) {
+        e.stopPropagation()
         if(vm.keyDown) {
           const wheelY = e.wheelDeltaY || -e.detail // 兼容firefox
           if(wheelY<0) { // 向右滚动
@@ -133,7 +230,7 @@ export default {
       return function bvmm(e) {
 
         const body = document.querySelector('body') 
-        vm.scrollContent.style.userSelect = 'none'  // 禁止拖动时选中文字
+        vm.scrollContent.parentNode.style.userSelect = 'none'  // 禁止拖动时选中文字
 
         const distanceY = e.clientY - vm.mouseDownY
         const bt = vm.barVeTopTemp + (distanceY / vm.scrollContent.offsetHeight) * 100
@@ -145,7 +242,7 @@ export default {
     },
     barVeMouseUp(vm, fun) {
       return function() {
-        vm.scrollContent.style.userSelect = 'text'  // 恢复选中文字效果
+        vm.scrollContent.parentNode.style.userSelect = 'text'  // 恢复选中文字效果
 
         vm.barVeTopTemp =  vm.barVeTop // 缓存垂直滚动条当前Top
 
@@ -162,7 +259,7 @@ export default {
     },
     barHoMouseMove(vm) {
       return function bhmm(e) {
-        vm.scrollContent.style.userSelect = 'none'  // 禁止拖动时选中文字
+        vm.scrollContent.parentNode.style.userSelect = 'none'  // 禁止拖动时选中文字
 
         const distanceX = e.clientX - vm.mouseDownX
         const bh = vm.barHoLeftTemp + (distanceX / vm.scrollContent.offsetWidth) * 100
@@ -174,47 +271,82 @@ export default {
     },
     barHoMouseUp(vm, fun) {
       return function() {
-        vm.scrollContent.style.userSelect = 'text'  // 恢复选中文字效果
+        vm.scrollContent.parentNode.style.userSelect = 'text'  // 恢复选中文字效果
 
         vm.barHoLeftTemp =  vm.barHoLeft // 缓存水平滚动条的Left
 
         document.removeEventListener('mousemove', fun)
       }
+    },
+    haScrollInit() {
+
+      let mousewheel = navigator.userAgent.indexOf('Firefox') > -1 ? 'DOMMouseScroll' : 'mousewheel' // 兼容firefox
+
+      // 如果内容高度大于可见高度
+      if(this.scrollContent.scrollHeight > this.scrollContent.offsetHeight) {
+        this.barVeConShow = true
+        this.barVe = this.$refs.barVe
+        this.toBottomShow = true
+        this.toBSTemp = true
+        this.barVeHeight = Math.floor((this.scrollContent.offsetHeight / this.scrollContent.scrollHeight) * 100) + 1
+
+        this.mouseWheelVe = this.contentMouseWheel(this)
+        this.mouseDownVe = this.barVeMouseDown(this)
+
+        // 将this作为dataBus
+        this.scrollContent.addEventListener(mousewheel,this. mouseWheelVe)
+        this.barVe.addEventListener('mousedown', this.mouseDownVe)
+      } else {
+        if(this.mouseWheelVe) this.scrollContent.removeEventListener(mousewheel, this.mouseWheelVe)
+        if(this.mouseDownVe) this.barVe.removeEventListener('mousedown', this.mouseDownVe)
+        this.barVeConShow = false
+        this.barVe = null
+      }
+      
+      // 如果内容宽度大于可见宽度
+      if(this.scrollContent.scrollWidth > this.scrollContent.offsetWidth) {
+        this.barHoConShow = true
+        this.barHo = this.$refs.barHo
+        this.barHoWidth = Math.floor((this.scrollContent.offsetWidth / this.scrollContent.scrollWidth) * 100) + 1
+        
+        this.mouseWheelHo = this.contentHoScroll(this)
+        this.mouseDownHo = this.barHoMouseDown(this)
+        this.mouseKeydownDoc = this.contentKeyDown(this)
+        this.mouseKeyupDoc = this.contentKeyUp(this)
+
+        // 将this作为dataBus
+        this.scrollContent.addEventListener(mousewheel, this.mouseWheelHo)
+        this.barHo.addEventListener('mousedown', this.mouseDownHo)
+        document.addEventListener('keydown',this. mouseKeydownDoc)
+        document.addEventListener('keyup',this. mouseKeyupDoc)
+      } else {
+        if(this.mouseWheelHo) this.scrollContent.removeEventListener(mousewheel, this.mouseWheelHo)
+        if(this.mouseDownHo) this.barHo.removeEventListener('mousedown', this.mouseDownHo)
+        if(this.mouseKeydownDoc) document.removeEventListener('keydown', this.mouseKeydownDoc)
+        if(this.mouseKeyupDoc) document.removeEventListener('keyup', this.mouseKeyupDoc)
+        this.barHoConShow = false
+        this.barHo = null
+      }
+
+      // 如果有滚动条
+      if(this.barVe || this.barHo) {
+        this.mousemoveConPar = this.contentHover(this)
+        this.mouseleaveConPar = this.contentLeave(this)
+
+        // 将this作为dataBus
+        this.scrollContent.parentNode.addEventListener('mousemove', this.mousemoveConPar)
+        this.scrollContent.parentNode.addEventListener('mouseleave', this.mouseleaveConPar)
+      } else {
+        if(this.mousemoveConPar) this.scrollContent.parentNode.removeEventListener('mousemove', this.mousemoveConPar)
+        if(this.mouseleaveConPar) this.scrollContent.parentNode.removeEventListener('mouseleave', this.mouseleaveConPar)
+      }
     }
   },
   mounted() {
     this.scrollContent = this.$refs.scrollContent
-
-    // 如果内容高度大于可见高度
-    if(this.scrollContent.scrollHeight > this.scrollContent.offsetHeight) {
-      this.barVe = this.$refs.barVe
-      this.barVeHeight = Math.floor((this.scrollContent.offsetHeight / this.scrollContent.scrollHeight) * 100) + 1
-
-      // 将this作为dataBus
-      this.scrollContent.addEventListener('DOMMouseScroll', this.contentMouseWheel(this)) // 兼容firefox
-      this.scrollContent.addEventListener('mousewheel', this.contentMouseWheel(this))
-      this.barVe.addEventListener('mousedown', this.barVeMouseDown(this))
-    }
-    
-    // 如果内容宽度大于可见宽度
-    if(this.scrollContent.scrollWidth > this.scrollContent.offsetWidth) {
-      this.barHo = this.$refs.barHo
-      this.barHoWidth = Math.floor((this.scrollContent.offsetWidth / this.scrollContent.scrollWidth) * 100) + 1
-      
-      // 将this作为dataBus
-      this.scrollContent.addEventListener('DOMMouseScroll', this.contentHoScroll(this)) // 兼容firefox
-      this.scrollContent.addEventListener('mousewheel', this.contentHoScroll(this))
-      this.barHo.addEventListener('mousedown', this.barHoMouseDown(this))
-      document.addEventListener('keydown', this.contentKeyDown(this))
-      document.addEventListener('keyup', this.contentKeyUp(this))
-    }
-
-    // 如果有滚动条
-    if(this.barVe || this.barHo) {
-      // 将this作为dataBus
-      this.scrollContent.parentNode.addEventListener('mousemove', this.contentHover(this))
-      this.scrollContent.parentNode.addEventListener('mouseleave', this.contentLeave(this))
-    }
+    this.scrollContentScrollHeight = this.$refs.scrollContent.scrollHeight
+    this.toTorBHeight = this.$refs.scrollContent.offsetHeight*0.05
+    this.haScrollInit()
   }
 
 }
@@ -248,7 +380,6 @@ export default {
   position: absolute;
   width: 100%;
   border-radius: 4px;
-  background: #bbb;
   cursor: pointer;
 }
 .ha-scroll-bar-container-horizontal-default {
@@ -263,9 +394,39 @@ export default {
   position: absolute;
   height: 100%;
   width: 200px;
-  background: #bbb;
   border-radius: 4px;
 }
+.ha-scroll-toBottom-default {
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  width: 50%;
+  max-width: 100px;
+  min-width: 50px;
+  left: 0;
+  bottom: 0;
+}
+.ha-scroll-toTop-default {
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  width: 50%;
+  max-width: 100px;
+  min-width: 50px;
+  right: 0;
+  bottom: 0;
+}
+.ha-scroll-to-container-default {
+  position: absolute;
+  width: 5%;
+  max-width: 200px;
+  min-width: 100px;
+  right: 4%;
+  bottom: 4%;
+}
+
 </style>
 
 

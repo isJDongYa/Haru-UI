@@ -17,7 +17,6 @@ export default {
 
         const rex = /px$|\%$/
         const unit = rex.exec(this.height)[0]
-        console.log(unit)
         const h = new Number(this.height.replace(unit,''))
         switch(opt) {
           case'+':

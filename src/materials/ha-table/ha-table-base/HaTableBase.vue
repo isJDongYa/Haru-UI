@@ -1,23 +1,25 @@
 <template>
-    <ha-rectangle :width="width" :height="correctHeight(26, '+')" :coor="coor">
-      <table class="ha-table-base-default ha-table-base" :style="`width:${width};height:${height};${getStyleStr}`">
-        <caption :class="['ha-table-base-caption-default', haColor[2], 'ha-table-base-caption']">{{ datas[0] }}</caption>
-        <tbody> 
-          <tr :class="[haColor[0]]">
-            <th v-for="(item, index) in datas[1]" :key="index">{{ item }}</th>
-          </tr>
-          <tr :class="[haColor[1]]" v-for="(data, index) in datas" :key="index" v-show="index&&index!==1&&index!==datas.length-1">
-            <td class="ha-table-base-td-default" v-for="(item, index) in data" :key="index">{{ item }}</td>
-          </tr>
-        </tbody>
-          <tr :class="[haColor[3]]">
-            <td :colspan="datas[2].length">
-              <ul>
-                <li v-for="(item, index) in datas[datas.length-1]" :key="index">{{ item }}</li>
-              </ul>
-            </td>
-          </tr>
-      </table>
+    <ha-rectangle :width="width" :height="height" :coor="coor">
+      <ha-scroll :color="['grey', 'grey', 'lightGrey', 'lightGrey']" :toBottom="true" :toTop="true">
+        <table ref="table" class="ha-table-base-default ha-table-base" :style="`width:${width};height:${tableHeight}px;${getStyleStr}`">
+          <caption :class="['ha-table-base-caption-default', haColor[2], 'ha-table-base-caption']">{{ datas[0] }}</caption>
+          <tbody> 
+            <tr :class="[haColor[0]]">
+              <th v-for="(item, index) in datas[1]" :key="index">{{ item }}</th>
+            </tr>
+            <tr :class="[haColor[1]]" v-for="(data, index) in datas" :key="index" v-show="index&&index!==1&&index!==datas.length-1">
+              <td class="ha-table-base-td-default" v-for="(item, index) in data" :key="index">{{ item }}</td>
+            </tr>
+          </tbody>
+            <tr :class="[haColor[3]]" v-if="datas[datas.length-1].length">
+              <td :colspan="datas[2].length">
+                <ul>
+                  <li v-for="(item, index) in datas[datas.length-1]" :key="index">{{ item }}</li>
+                </ul>
+              </td>
+            </tr>
+        </table>
+      </ha-scroll>
     </ha-rectangle>
 </template>
 <script>
@@ -30,6 +32,11 @@ import stylePropMixin from '@mixins/stylePropMixin'
 export default {
   name: 'ha-table-base',
   mixins: [coorMixin, whMixin, colorMixin, stylePropMixin],
+  data() {
+    return {
+      table: null
+    }
+  },
   props: {
     datas: {
       type: Array,
@@ -48,9 +55,14 @@ export default {
     }
   },
   computed: {
-    grid() {
-      return [this.data[1].length, this.data[2].length]
+    tableHeight() {
+      if(this.table) {
+        return this.table.parentNode.offsetHeight - this.table.firstChild.offsetHeight
+      }
     }
+  },
+  mounted() {
+    this.table = this.$refs.table
   }
 }
 </script>
