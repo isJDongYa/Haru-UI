@@ -3,7 +3,7 @@
     <ha-scroll :toBottom="true" :toTop="true" :color="['primary', 'red', 'blue', 'yellow']">
       <ha-rectangle height='100%' width='100%'>
         <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
-          <ha-mask :show.sync="show" :duration="3000">
+          <ha-mask :show.sync="show" :duration="3000" :clickHide="true">
             <!-- <ha-coordinater :grid="[[1180, 50, 50]]"> -->
               <!-- <ha-card :color="['lightRed', 'lightRed', 'lightRed']" :coor="[[[20,18], [10,16]]]" :styleProp="btnStyle" hover="shadow" :hcfHeight="['20%', '70%', '10%']">
                 <span slot="header">弹窗</span>
@@ -53,11 +53,15 @@
           <ha-button color='white' title="white" :coor="[[[33,34], [3,2]]]" :styleProp="btnStyle"></ha-button>
           <ha-button color='black' title="black" :coor="[[[36,34], [3,2]]]"></ha-button> -->
           <!-- <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[10,11], [38,50]], [[6,11], [18, 20]]]"></ha-table-base> -->
-          <!-- <ha-card :color="['grey', 'white', 'lightGrey']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :hcfHeight="['20%', '70%', '10%']">
+          <ha-card :color="['lightRed', 'lightRed', 'lightRed']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :lmrWidth="['20%', '30%', '50%']" type="Hor">
+            <span slot="left">卡片</span>
+            <ha-button color='blue' title="确认" slot="right" width="60px" height="28px"></ha-button>
+            <ha-button color='darkRed' title="取消" slot="right" width="60px" height="28px"></ha-button>
             <span slot="header">卡片</span>
+            <div style="text-indent:2em;">这里是ha-card的content区域,所有的元素都会被居中</div>
             <ha-button color='blue' title="确认" slot="footer" width="60px" height="28px"></ha-button>
             <ha-button color='darkRed' title="取消" slot="footer" width="60px" height="28px"></ha-button>
-          </ha-card> -->
+          </ha-card>
           
         </ha-coordinater>
       </ha-rectangle>

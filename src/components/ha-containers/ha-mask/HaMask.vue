@@ -38,7 +38,12 @@ export default {
       type: Number,
       required: false,
       default: 0
-    }
+    },
+    clickHide: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
   },
   watch: {
     show() {
@@ -56,8 +61,7 @@ export default {
   methods: {
     mouseDown(e) {
       e.stopPropagation()
-      console.log(e)
-      if(e.target === this.$refs.mask) {
+      if(e.target === this.$refs.mask && this.clickHide) {
         this.$emit('update:show', false)
       }
     }
