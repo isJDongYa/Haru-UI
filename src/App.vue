@@ -3,21 +3,7 @@
     <ha-scroll :toBottom="true" :toTop="true" :color="['primary', 'red', 'blue', 'yellow']">
       <ha-rectangle height='100%' width='100%'>
         <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
-          <ha-mask :show.sync="show" :duration="3000" :clickHide="true">
-            <!-- <ha-coordinater :grid="[[1180, 50, 50]]"> -->
-              <!-- <ha-card :color="['lightRed', 'lightRed', 'lightRed']" :coor="[[[20,18], [10,16]]]" :styleProp="btnStyle" hover="shadow" :hcfHeight="['20%', '70%', '10%']">
-                <span slot="header">弹窗</span>
-                <ha-mask position="absolute" :show.sync="show" :duration="2000">
-                  <ha-button color='darkRed' title="取消" width="60px" height="28px" @click="cancelClick"></ha-button>
-                </ha-mask>
-                <ha-avatar :url="imgSrc" color='darkPrimary' width="100%" height="100%"></ha-avatar>
-                <ha-button color='blue' title="确认" slot="footer" width="60px" height="28px" @click="openMaskClick"></ha-button>
-                <ha-button color='darkRed' title="取消" slot="footer" width="60px" height="28px" @click="cancelClick"></ha-button>
-              </ha-card> -->
-              <!-- <ha-button title="关闭mask" color="red" :coor="[[[25,19], [3,2]]]" @click="cancelClick"></ha-button> -->
-              <!-- <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[5,11], [38,50]], [[6,11], [18, 20]]]"></ha-table-base>
-            </ha-coordinater> -->
-          </ha-mask>
+          
           <!-- 
           <ha-button title="primary"></ha-button>
           <ha-button color='darkPrimary' title="darkPrimary" :coor="[10,10]"></ha-button>
@@ -53,12 +39,23 @@
           <ha-button color='white' title="white" :coor="[[[33,34], [3,2]]]" :styleProp="btnStyle"></ha-button>
           <ha-button color='black' title="black" :coor="[[[36,34], [3,2]]]"></ha-button> -->
           <!-- <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[10,11], [38,50]], [[6,11], [18, 20]]]"></ha-table-base> -->
-          <ha-card :color="['lightRed', 'lightRed', 'lightRed']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :lmrWidth="['20%', '30%', '50%']" type="Hor">
+          <ha-card :color="['blue', 'blue', 'black']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :lmrWidth="['20%', '60%', '20%']" type="Hor">
             <span slot="left">卡片</span>
-            <ha-button color='blue' title="确认" slot="right" width="60px" height="28px"></ha-button>
-            <ha-button color='darkRed' title="取消" slot="right" width="60px" height="28px"></ha-button>
+            <div slot="right" style="width:100%;height:100%">
+              <ha-card :color="['blue', 'blue', 'blue']" width="100%" height="100%" type="Ver" :hcfHeight="['20%', '80%', '0%']">
+                <div slot="header" style="width:100%;height:100%">
+                  <ha-button color='primary' title="确认" width="100%" height="30px" @click="notify"></ha-button>
+                  <ha-button color='darkRed' title="取消" width="100%" height="30px"></ha-button>
+                </div>
+              </ha-card>
+            </div>
             <span slot="header">卡片</span>
-            <div style="text-indent:2em;">这里是ha-card的content区域,所有的元素都会被居中</div>
+            <div style="text-indent:2em;">
+              <p>这里是ha-card的content区域,所有的元素都会被居中</p>
+              <p>这里是ha-card的content区域,所有的元素都会被居中</p>
+              <p>这里是ha-card的content区域,所有的元素都会被居中</p>
+              <p>这里是ha-card的content区域,所有的元素都会被居中</p>
+            </div>
             <ha-button color='blue' title="确认" slot="footer" width="60px" height="28px"></ha-button>
             <ha-button color='darkRed' title="取消" slot="footer" width="60px" height="28px"></ha-button>
           </ha-card>
@@ -66,6 +63,21 @@
         </ha-coordinater>
       </ha-rectangle>
     </ha-scroll>
+    <ha-mask :show.sync="show" :duration="3000" :clickHide="true">
+      <!-- <ha-coordinater :grid="[[1180, 50, 50]]"> -->
+        <!-- <ha-card :color="['lightRed', 'lightRed', 'lightRed']" :coor="[[[20,18], [10,16]]]" :styleProp="btnStyle" hover="shadow" :hcfHeight="['20%', '70%', '10%']">
+          <span slot="header">弹窗</span>
+          <ha-mask position="absolute" :show.sync="show" :duration="2000">
+            <ha-button color='darkRed' title="取消" width="60px" height="28px" @click="cancelClick"></ha-button>
+          </ha-mask>
+          <ha-avatar :url="imgSrc" color='darkPrimary' width="100%" height="100%"></ha-avatar>
+          <ha-button color='blue' title="确认" slot="footer" width="60px" height="28px" @click="openMaskClick"></ha-button>
+          <ha-button color='darkRed' title="取消" slot="footer" width="60px" height="28px" @click="cancelClick"></ha-button>
+        </ha-card> -->
+        <!-- <ha-button title="关闭mask" color="red" :coor="[[[25,19], [3,2]]]" @click="cancelClick"></ha-button> -->
+        <!-- <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[5,11], [38,50]], [[6,11], [18, 20]]]"></ha-table-base>
+      </ha-coordinater> -->
+    </ha-mask>
   </div>
 </template>
 <script>
@@ -77,10 +89,22 @@ export default {
     },
     openMaskClick() {
       this.show = true
+    },
+    notify() {
+      this.$haru.notify(this, {
+        msg: 'hello'+(++this.i),
+        duration: 3000,
+        location: 'topRight',
+        color: 'lightRed'
+      })
     }
+  },
+  mounted() {
+    
   },
   data() {
     return {
+      i: 0,
       show: false,
       imgSrc: require('@imgs/scauLogo.jpg'),
       datas: [

@@ -3,6 +3,7 @@ import app from './App.vue'
 import './components'
 import './coordinater'
 import './materials'
+import './plugins'
 import './scss'
 
 Vue.config.devtools = process.env.NODE_ENV === 'development'

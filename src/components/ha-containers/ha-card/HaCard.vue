@@ -16,14 +16,20 @@
     <!-- 水平card -->
     <div :class="['ha-card-Ho-default', 'ha-card-Ho']" v-if="type==='Hor'">
       <div :class="['ha-card-Ho-left-default', haColor[0], 'ha-card-Ho-left']" v-if="$slots.left" :style="`width:${lmrWidth[0]}`">
-        <slot name="left"></slot>
+        <div class="ha-card-Ho-left-con-default">
+          <slot name="left"></slot>
+        </div>
       </div>
       <div :class="['ha-card-Ho-middle-default', haColor[1], 'ha-card-Ho-middle']" :style="`width:${lmrWidth[1]}`">
-        <slot name="middle"></slot>
-        <slot></slot>
+        <div class="ha-card-Ho-middle-con-default">
+          <slot name="middle"></slot>
+          <slot></slot>
+        </div>
       </div>
       <div :class="['ha-card-Ho-right-default', haColor[2], 'ha-card-Ho-right']" v-if="$slots.right" :style="`width:${lmrWidth[2]}`">
-        <slot name="right"></slot>
+        <div class="ha-card-Ho-right-con-default">
+          <slot name="right"></slot>
+        </div>
       </div>
     </div>
   </ha-rectangle>
@@ -73,29 +79,15 @@ export default {
   width: 100%;
   height: 100%;
 }
-.ha-card-Ve-head-default {
+.ha-card-Ve-head-default,
+.ha-card-Ve-content-default,
+.ha-card-Ve-foot-default {
   width: 94%;
   padding-left: 3%;
   padding-right: 3%;
   display: flex;
   justify-content:center;
   align-items: center;
-  font-size: 20px;
-  font-weight:600; 
-}
-.ha-card-Ve-content-default {
-  width: 100%;
-  display: flex;
-  justify-content:center;
-  align-items: center; 
-}
-.ha-card-Ve-foot-default {
-  width: 94%; 
-  padding-left: 3%;
-  padding-right: 3%;
-  display: flex;
-  justify-content:center;
-  align-items: center;    
 }
 
 .ha-card-Ho-default {
@@ -104,23 +96,21 @@ export default {
   display: table;
   word-spacing:-1em;
 }
-.ha-card-Ho-left-default {
-  height: 100%;
-  text-align: center;
-  display: inline-block;
-  vertical-align: middle;
-}
-.ha-card-Ho-middle-default {
-  height: 100%;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
-}
+.ha-card-Ho-left-default,
+.ha-card-Ho-middle-default,
 .ha-card-Ho-right-default {
-  height: 100%; 
+  height: 100%;
   display: inline-block;
-  vertical-align: middle;
-  text-align: center;
+  vertical-align: top;
+}
+.ha-card-Ho-left-con-default, 
+.ha-card-Ho-middle-con-default,
+.ha-card-Ho-right-con-default {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content:center;
+  align-items: center; 
 }
 </style>
 
