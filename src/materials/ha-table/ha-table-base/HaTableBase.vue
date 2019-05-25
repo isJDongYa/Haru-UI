@@ -7,8 +7,9 @@
             <tr :class="[haColor[0]]">
               <th v-for="(item, index) in datas[1]" :key="index">{{ item }}</th>
             </tr>
-            <tr :class="[haColor[1]]" v-for="(data, index) in datas" :key="index" v-show="index&&index!==1&&index!==datas.length-1">
-              <td class="ha-table-base-td-default" v-for="(item, index) in data" :key="index">{{ item }}</td>
+            <tr :class="[haColor[1]]" v-for="(row, rowIndex) in datas" :key="rowIndex" v-show="rowIndex&&rowIndex!==1&&rowIndex!==datas.length-1">
+              <td class="ha-table-base-td-default" v-for="(item, itemIndex) in row" :key="itemIndex">{{ item }}</td>
+              <td class="ha-table-base-td-default" v-for="(d, i) in (datas[1].length-row.length)" :key="i+row.length"></td>
             </tr>
           </tbody>
             <tr :class="[haColor[3]]" v-if="datas[datas.length-1].length">
@@ -73,11 +74,12 @@ export default {
     box-sizing: border-box;
     padding:  0px;
     margin: 0px;
-    color: #212121;
+    border-collapse: collapse; 
   }
   .ha-table-base-caption-default{
     font-size: 20px;
     font-weight:600;
+
   }
   .ha-table-base-td-default {
     text-align: center;

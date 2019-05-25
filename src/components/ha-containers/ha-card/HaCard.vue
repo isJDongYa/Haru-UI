@@ -82,9 +82,7 @@ export default {
 .ha-card-Ve-head-default,
 .ha-card-Ve-content-default,
 .ha-card-Ve-foot-default {
-  width: 94%;
-  padding-left: 3%;
-  padding-right: 3%;
+  width: 100%;
   display: flex;
   justify-content:center;
   align-items: center;

@@ -38,13 +38,14 @@
           <ha-button color='blue' title="blue" :coor="[[[33,31], [3,2]]]"></ha-button>
           <ha-button color='white' title="white" :coor="[[[33,34], [3,2]]]" :styleProp="btnStyle"></ha-button>
           <ha-button color='black' title="black" :coor="[[[36,34], [3,2]]]"></ha-button> -->
-          <!-- <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[10,11], [38,50]], [[6,11], [18, 20]]]"></ha-table-base> -->
-          <ha-card :color="['blue', 'blue', 'black']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :lmrWidth="['20%', '60%', '20%']" type="Hor">
+          <!-- <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[10,11], [20,25]], [[6,11], [18, 20]]]"></ha-table-base> -->
+          <ha-table-advance :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[10,11], [20,30]], [[6,11], [18, 20]]]"></ha-table-advance>
+          <!-- <ha-card :color="['blue', 'blue', 'black']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :lmrWidth="['20%', '60%', '20%']" type="Hor">
             <span slot="left">卡片</span>
             <div slot="right" style="width:100%;height:100%">
-              <ha-card :color="['blue', 'blue', 'blue']" width="100%" height="100%" type="Ver" :hcfHeight="['20%', '80%', '0%']">
+              <ha-card :color="['blue', 'blue', 'blue']" width="100%" height="100%" type="Ver"  :hcfHeight="['20%', '80%', '0%']">
                 <div slot="header" style="width:100%;height:100%">
-                  <ha-button color='primary' title="确认" width="100%" height="30px" @click="notify"></ha-button>
+                  <ha-button color='primary' title="确认" width="100%" height="30px" @click="notify" ></ha-button>
                   <ha-button color='darkRed' title="取消" width="100%" height="30px"></ha-button>
                 </div>
               </ha-card>
@@ -58,7 +59,7 @@
             </div>
             <ha-button color='blue' title="确认" slot="footer" width="60px" height="28px"></ha-button>
             <ha-button color='darkRed' title="取消" slot="footer" width="60px" height="28px"></ha-button>
-          </ha-card>
+          </ha-card> -->
           
         </ha-coordinater>
       </ha-rectangle>
@@ -117,15 +118,15 @@ export default {
           [0,0,0,0],
           [0,0,0,0],
           [0,0,0,0],
-          [0,0,0,0],
-          [0,0,0,0],
-          [0,0,0,0],
-          [0,0,0,0],
-          [0,0,0,0],
-          [0,0,0,0],
-          [0,0,0,0],
-          [0,0,0,0],
-          [0,0,0,0],
+          // [0,0,0,0],
+          // [0,0,0,0],
+          // [0,0,0,0],
+          // [0,0,0,0],
+          // [0,0,0,0],
+          // [0,0,0,0],
+          // [0,0,0,0],
+          // [0,0,0,0],
+          // [0,0,0,0],
           [0,0,0,0],
           ['脚注',0,0,0,1,2],  //脚注
       ],
