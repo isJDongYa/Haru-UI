@@ -1,5 +1,12 @@
-import './ha-containers'
-import './ha-stuffings'
+import Containers from './ha-containers'
+import Stuffings from './ha-stuffings'
+
+export default {
+  install(Vue) {
+    Vue.use(Containers)
+    Vue.use(Stuffings)
+  }
+}
 
 
 

@@ -43,7 +43,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|svg)$/,
         use: [
           {
             loader: 'url-loader',
@@ -78,6 +78,7 @@ module.exports = {
       '@materials': path.resolve('src/materials'),
       '@utils': path.resolve('src/utils'),
       '@scss': path.resolve('src/scss'),
+      '@icons': path.resolve('src/icons'),
       '@imgs': path.resolve('src/statics/imgs'),
     }
   }

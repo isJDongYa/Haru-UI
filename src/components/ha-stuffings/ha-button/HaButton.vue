@@ -1,6 +1,10 @@
 <template>
   <ha-rectangle :width="width" :height="height" :coor="coor"  :hover="hover" :style="getStyleStr">
-    <button :class="['ha-btn-default', haColor, 'ha-btn']" @click="click">{{ title }}</button>
+    <button :class="['ha-btn-default', haColor, 'ha-btn']" @click="click">
+      <img class="ha-btn-icon-default ha-btn-icon" :src="icon" v-if="icon">
+      <span v-if="title">{{ title }}</span>
+    </button>
+    <div class="ha-btn-disabled-default ha-btn-disabled" v-show="disabled"></div>
   </ha-rectangle>
 </template>
 <script>
@@ -10,22 +14,36 @@ import stylePropMixin from '@mixins/stylePropMixin'
 import whMixin from '@mixins/whMixin'
 import hoverMixin from '@mixins/hoverMixin'
 
-
-import '@containers/ha-rectangle'
+import Vue from 'vue'
+import HaRectangle from '@containers/ha-rectangle'
+Vue.use(HaRectangle)
 
 export default {
   name: 'ha-button',
   mixins: [coorMixin, colorMixin, stylePropMixin, whMixin, hoverMixin],
   props: {
+   icon: {
+      type: String,
+      required: false,
+      default: ""
+    },
     title: {
       type: String,
-      default: "ha-button"
+      required: false,
+      default: ""
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false
     }
     
   },
   methods: {
     click() {
-      this.$emit('click')
+      if(!this.disabled) {
+        this.$emit('click')
+      }
     }
   }
 }
@@ -33,7 +51,7 @@ export default {
 <style lang="scss" scoped>
 
   .ha-btn-default {
-    display: inline-block;
+    display: flex;
     width: 100%;
     height: 100%;
     -webkit-appearance: none;
@@ -43,7 +61,23 @@ export default {
     cursor: pointer;
     border-style: none;
     padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ha-btn-disabled-default {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(170, 170, 170, 0.7);
+    top: 0;
+    left: 0;
   }
   
+  .ha-btn-icon-default {
+    display: inline-block;
+    width: 20%;
+    height: 60%;
+  }
 </style>
 

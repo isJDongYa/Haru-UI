@@ -1,5 +1,7 @@
-import Vue from 'vue'
-
 import HaMenuHorizontal from './ha-menu-horizontal.vue'
 
-Vue.component('ha-menu-horizontal', HaMenuHorizontal)
+export default {
+  install(Vue) {
+    Vue.component('ha-menu-horizontal', HaMenuHorizontal)
+  }
+}

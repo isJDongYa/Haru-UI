@@ -1,5 +1,9 @@
-import Vue from 'vue'
 
 import HaTableAdvance from './HaTableAdvance.vue'
 
-Vue.component('ha-table-advance', HaTableAdvance)
+export default {
+  install(Vue) {
+    Vue.component('ha-table-advance', HaTableAdvance)
+  }
+}
+

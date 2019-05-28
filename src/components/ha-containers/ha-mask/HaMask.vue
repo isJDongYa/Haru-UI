@@ -12,10 +12,6 @@
 </template>
 <script>
 
-
-import '@containers/ha-rectangle'
-import { setTimeout, clearTimeout } from 'timers';
-
 export default {
   data() {
     return {

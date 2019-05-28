@@ -31,7 +31,7 @@ function notify(Vue) {
 }
 
 export default {
-  install(Vue, options) {
+  install(Vue) {
     if(!Vue.prototype.$haru) {
       Vue.prototype.$haru = {}
     }

@@ -129,9 +129,6 @@ export default {
   user-select: none;
   @include hoverShadow;
 }
-.ha-menu-list-horizontal-groupParent {
-   
-}
 .ha-menu-list-horizontal-group-default {
   line-height: 40px;
   width: 160px;

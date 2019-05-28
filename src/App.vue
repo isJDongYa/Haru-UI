@@ -21,6 +21,7 @@
               <!-- <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar> -->
             </ha-menu-horizontal>
             <ha-button title="打开mask" :coor="[[[33,19], [3,2]]]" @click="openMaskClick"></ha-button>
+            <ha-button title="通知" :coor="[[[33,22], [3,2]]]" @click="notify"></ha-button>
             <!-- <ha-button title="darkPrimary" color='darkPrimary' :coor="[[[55,19], [3,2]], [[2,32], [3, 2]]]" :styleProp="btnStyle" hover="shadow"></ha-button> -->
             
           <!-- <ha-avatar :url="imgSrc" color='darkPrimary' :coor="[[[36,19], [2,3]], [[2,32], [2, 3]]]"></ha-avatar> -->
@@ -39,7 +40,7 @@
           <ha-button color='white' title="white" :coor="[[[33,34], [3,2]]]" :styleProp="btnStyle"></ha-button>
           <ha-button color='black' title="black" :coor="[[[36,34], [3,2]]]"></ha-button> -->
           <!-- <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[10,11], [20,25]], [[6,11], [18, 20]]]"></ha-table-base> -->
-          <ha-table-advance :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[10,11], [20,30]], [[6,11], [18, 20]]]"></ha-table-advance>
+          <ha-table-advance :color="['red', 'red', 'lightRed']" :colNoShow="['列一', '列三']" :datas="datas" :coor="[[[10,11], [20,30]], [[6,11], [18, 20]]]" :perPage="10"></ha-table-advance>
           <!-- <ha-card :color="['blue', 'blue', 'black']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :lmrWidth="['20%', '60%', '20%']" type="Hor">
             <span slot="left">卡片</span>
             <div slot="right" style="width:100%;height:100%">
@@ -108,9 +109,10 @@ export default {
       i: 0,
       show: false,
       imgSrc: require('@imgs/scauLogo.jpg'),
-      datas: [
-          '表格标题',  //thead
-          ['列一','列二','列三','列四', '列5','列6','列7','列8','列9'], // 表头，
+      datas: {
+        title: '表格标题',  //thead
+        head:  ['列一','列二','列三','列四', '列5','列6','列7','列8','列9'], // 表头，
+        data: [
           [1,2,3,4,5,6,7,8,9], 
           [1,2,3,4,5], 
           [1,2,3,4,5], 
@@ -118,18 +120,28 @@ export default {
           [0,0,0,0],
           [0,0,0,0],
           [0,0,0,0],
-          // [0,0,0,0],
-          // [0,0,0,0],
-          // [0,0,0,0],
-          // [0,0,0,0],
-          // [0,0,0,0],
-          // [0,0,0,0],
-          // [0,0,0,0],
-          // [0,0,0,0],
-          // [0,0,0,0],
           [0,0,0,0],
-          ['脚注',0,0,0,1,2],  //脚注
-      ],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0],
+          [0,0,0,0]
+        ],
+        foot: ['脚注',0,0,0,1,2],  //脚注
+      },
       btnStyle: {
         'border': 'solid 0px #ddd',
         'border-radius': '4px'

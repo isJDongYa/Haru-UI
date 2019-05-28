@@ -1,5 +1,7 @@
-import Vue from 'vue'
-
 import notify from'./notify'
 
-Vue.use(notify)
+export default {
+  install(Vue) {
+    Vue.use(notify)
+  }
+}

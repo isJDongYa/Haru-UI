@@ -25,6 +25,8 @@ export default {
           return 'ha-color-white'
         case'black':
           return 'ha-color-black'
+        case'primary':
+          return 'ha-color-primary'
         case'darkPrimary':
           return 'ha-color-darkPrimary'
         case'lightPrimary':
@@ -64,7 +66,7 @@ export default {
         case'accentBlue':
           return 'ha-color-accentBlue'  
         default:
-          return 'ha-color-primary'
+          return c
       }
     }
   },

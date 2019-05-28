@@ -41,7 +41,9 @@ import stylePropMixin from '@mixins/stylePropMixin'
 import whMixin from '@mixins/whMixin'
 import hoverMixin from '@mixins/hoverMixin'
 
-import '@containers/ha-rectangle'
+import Vue from 'vue'
+import HaRectangle from '@containers/ha-rectangle'
+Vue.use(HaRectangle)
 
 export default {
   name:'ha-card',

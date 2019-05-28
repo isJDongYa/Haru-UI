@@ -1,3 +1,3 @@
-import notify from './notify'
+import notify from './notify.js'
 
 export default notify

@@ -1,2 +1,9 @@
-import './ha-menu-vertical'
-import './ha-menu-horizontal'
+import HaMenuVertical from './ha-menu-vertical'
+import  HaMenuHorizontal from './ha-menu-horizontal'
+
+export default {
+  install(Vue) {
+    Vue.use(HaMenuVertical)
+    Vue.use(HaMenuHorizontal)
+  }
+}

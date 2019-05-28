@@ -1,5 +1,7 @@
-import Vue from 'vue'
-
 import HaCard from './HaCard.vue'
 
-Vue.component('ha-card', HaCard)
+export default {
+  install(Vue) {
+    Vue.component('ha-card', HaCard)
+  }
+}

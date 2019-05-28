@@ -6,13 +6,16 @@
   </ha-rectangle>
 </template>
 <script>
-import '@containers/ha-rectangle'
 import HaMenuListVertical from './ha-menu-list-vertical'
 import coorMixin from '@mixins/coorMixin'
 import colorMixin from '@mixins/colorMixin'
 import stylePropMixin from '@mixins/stylePropMixin'
 import singleOpenMixin from '@mixins/singleOpenMixin'
 import whMixin from '@mixins/whMixin'
+
+import Vue from 'vue'
+import HaRectangle from '@containers/ha-rectangle'
+Vue.use(HaRectangle)
 
 export default {
   name: 'ha-menu-vertical',
