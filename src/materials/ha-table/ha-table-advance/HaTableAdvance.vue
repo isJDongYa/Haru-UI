@@ -1,25 +1,24 @@
 <template>
     <ha-card  
       :width="width" :height="height" :coor="coor" 
-      :color="color"  
+      :color="[haColor[0], 'white', 'white']"  
       type="Ver"  
       :hcfHeight="selfHcfHeight"
       hover="shadow"
     >
-      <div slot="header" class="ha-table-advance-header-default ha-table-advance-header" v-show="!set">
+      <div slot="header" class="ha-table-advance-header-default ha-table-advance-header" v-if="datas.title" v-show="!set">
         {{ datas.title }}
       </div>
       <table class="ha-table-advance-content-table-default ha-table-advance-content-table" slot="content" v-show="!set">
-        <tr>
+        <tr :class="haColor[0]">
            <td class="ha-table-advance-content-td-default ha-table-advance-content-td" v-for="(item, itemIndex) in headShow" :key="itemIndex">{{ item }}</td>
         </tr>
-        <tr v-for="(row, rowIndex) in dataShow" :key="rowIndex">
+        <tr :class="{[haColor[1]]: rowIndex%2!==0, [haColor[2]]: rowIndex%2===0}" v-for="(row, rowIndex) in dataShow" :key="rowIndex">
           <td class="ha-table-advance-content-td-default ha-table-advance-content-td" v-for="(item, itemIndex) in row" :key="itemIndex">{{ item }}</td>
           <td class="ha-table-advance-content-td-default ha-table-advance-content-td" v-for="(d, i) in (headShow.length-row.length)" :key="i+row.length"></td>
         </tr>
       </table>
-      <ha-button color='blue' title="上一页" :disabled="lastDisabled" height="100%" slot="footer"  @click="lastPage" v-show="!set"></ha-button>
-      <ha-button color='red' title="下一页" :disabled="nextDisabled" height="100%" slot="footer" @click="nextPage" v-show="!set"></ha-button>
+      <ha-page :page="Math.floor(datas.data.length/perPage)+1" slot="footer" v-show="!set" @pageChange="gotoPage" @pageError="alert"></ha-page>
       <ha-button color='grey' height="100%" :icon="iconSet" slot="footer" @click="setTable" v-show="!set"></ha-button>
 
 
@@ -39,6 +38,7 @@ import colorMixin from '@mixins/colorMixin'
 import stylePropMixin from '@mixins/stylePropMixin'
 
 import HaCard from '@containers/ha-card/HaCard.vue'
+import HaPage from '@materials/ha-page/HaPage.vue'
 import HaScroll from '@containers/ha-scroll/HaScroll.vue'
 import HaCheck from '@stuffings/ha-check/HaCheck.vue'
 
@@ -48,21 +48,9 @@ export default {
   components: {
     'ha-card': HaCard,
     'ha-check': HaCheck,
-    'ha-scroll': HaScroll
+    'ha-scroll': HaScroll,
+    'ha-page': HaPage
   },
-  data() {
-    return {
-      selfHcfHeight: ['10%', '85%', '5%'],
-      colNoShowData: this.colNoShow,
-      page: 0,
-      set: false,
-      nextDisabled: false,
-      lastDisabled: true,
-      iconSet: require('@icons/设置.svg'),
-      iconReturn: require('@icons/返回.svg'),
-    }
-  },
-  mounted() {console.log(this.haColor[3])},
   props: {
     perPage: {
       type: Number,
@@ -90,6 +78,18 @@ export default {
           foot:['ha-table-base-foot'],  //脚注
         }
       }
+    }
+  },
+  data() {
+    return {
+      selfHcfHeight: ['10%', '85%', '5%'],
+      colNoShowData: this.colNoShow,
+      page: 0,
+      set: false,
+      nextDisabled: false,
+      lastDisabled: true,
+      iconSet: require('@icons/设置.svg'),
+      iconReturn: require('@icons/返回.svg'),
     }
   },
   computed: {
@@ -133,23 +133,11 @@ export default {
 
   },
   methods: {
-    lastPage() {
-      if(this.page !== 0) {
-        this.page--
-        this.nextDisabled = false
-      }
-      if(this.page === 0) {
-        this.lastDisabled = true
-      }
+    alert(p) {
+      this.$emit('pageError', p)
     },
-    nextPage() {
-      if((this.page+1)*this.perPage <= this.datas.data.length) {
-        this.page++
-        this.lastDisabled = false
-      } 
-      if((this.page+1)*this.perPage >= this.datas.data.length) {
-        this.nextDisabled = true
-      }
+    gotoPage(p) {
+      this.page = p - 1
     },
     setTable() {
       this.selfHcfHeight = ['0%', '100%', '0%']
