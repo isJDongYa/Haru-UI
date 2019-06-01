@@ -14,14 +14,14 @@
             <ha-button color='darkPrimary' title="darkPrimary" :coor="[2,2]"></ha-button>
             <ha-button color='lightPrimary' title="lightPrimary" :coor="[10,10]"></ha-button>
             <ha-button color='accentPrimary' title="accentPrimary" :coor="[60,50]"></ha-button> -->
-            <ha-menu-vertical :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="false" :coor="[[[1,1], [6,50]], [[1,1], [4,50]]]">
+            <!-- <ha-menu-vertical :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="false" :coor="[[[1,1], [6,50]], [[1,1], [4,50]]]">
               <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar>
             </ha-menu-vertical>
             <ha-menu-horizontal :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[15,1], [50,4]], [[8,1], [50, 3]]]">
-              <!-- <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar> -->
+              <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar>
             </ha-menu-horizontal>
             <ha-button title="打开mask" :coor="[[[33,19], [3,2]]]" @click="openMaskClick"></ha-button>
-            <ha-button title="通知" :coor="[[[33,22], [3,2]]]" @click="notify"></ha-button>
+            <ha-button title="通知" :coor="[[[33,22], [3,2]]]" @click="notify"></ha-button> -->
             <!-- <ha-button title="darkPrimary" color='darkPrimary' :coor="[[[55,19], [3,2]], [[2,32], [3, 2]]]" :styleProp="btnStyle" hover="shadow"></ha-button> -->
             
           <!-- <ha-avatar :url="imgSrc" color='darkPrimary' :coor="[[[36,19], [2,3]], [[2,32], [2, 3]]]"></ha-avatar> -->
@@ -40,7 +40,7 @@
           <ha-button color='white' title="white" :coor="[[[33,34], [3,2]]]" :styleProp="btnStyle"></ha-button>
           <ha-button color='black' title="black" :coor="[[[36,34], [3,2]]]"></ha-button> -->
           <!-- <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[10,11], [20,25]], [[6,11], [18, 20]]]"></ha-table-base> -->
-          <ha-table-advance @pageError="show=true" :color="['red', 'white', 'lightRed']" :colNoShow="['列一', '列三']" :datas="datas" :coor="[[[10,11], [20,30]], [[6,11], [18, 20]]]" :perPage="10"></ha-table-advance>
+          <!-- <ha-table-advance @pageError="show=true" :color="['primary', 'white', 'lightGrey']" :colNoShow="['列一', '列三']" :datas="datas" :coor="[[[10,11], [20,30]], [[6,11], [18, 20]]]" :perPage="10"></ha-table-advance> -->
           <!-- <ha-card :color="['blue', 'blue', 'black']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :lmrWidth="['20%', '60%', '20%']" type="Hor">
             <span slot="left">卡片</span>
             <div slot="right" style="width:100%;height:100%">
@@ -61,7 +61,9 @@
             <ha-button color='blue' title="确认" slot="footer" width="60px" height="28px"></ha-button>
             <ha-button color='darkRed' title="取消" slot="footer" width="60px" height="28px"></ha-button>
           </ha-card> -->
-          
+          <ha-input type="text" name="input" :checkFun="checkFun" lable="输入框:" :color="['blue', 'primary', 'red']" :coor="[[[10,18], [8,3]]]"></ha-input>
+          <ha-input type="text" name="input" :checkFun="checkFun" lable="输入框:" :color="['blue', 'primary', 'red']" :coor="[[[10,22], [8,3]]]"></ha-input>
+          <ha-input type="text" name="input" :checkFun="checkFun" lable="输入框:" :color="['blue', 'primary', 'red']" :coor="[[[10,26], [8,3]]]"></ha-input>
         </ha-coordinater>
       </ha-rectangle>
     </ha-scroll>
@@ -86,6 +88,21 @@
 export default {
   name: 'app',
   methods: {
+    checkFun(val) {
+      if(!val) {
+        return {
+          msg: '输入值不能为空',
+          isError: true,
+          isCorrect: false
+        }
+      } else {
+        return {
+          msg: '输入值不为空,正确',
+          isError: false,
+          isCorrect: true
+        }
+      }
+    },
     cancelClick() {
       this.show = false
     },

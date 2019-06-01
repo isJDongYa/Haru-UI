@@ -19,7 +19,7 @@
         </tr>
       </table>
       <ha-page :page="Math.floor(datas.data.length/perPage)+1" slot="footer" v-show="!set" @pageChange="gotoPage" @pageError="alert"></ha-page>
-      <ha-button color='grey' height="100%" :icon="iconSet" slot="footer" @click="setTable" v-show="!set"></ha-button>
+      <ha-button color='white' height="100%" :icon="iconSet" slot="footer" @click="setTable" v-show="!set"></ha-button>
 
 
       <ha-card type="Hor" :lmrWidth="['0%', '70%', '30%']" class="ha-table-advance-set-default ha-table-advance-set" slot="content" v-show="set">
