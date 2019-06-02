@@ -56,21 +56,30 @@ export default {
         return menuList.menuList.map( listItem => {
           if(listItem.groupId) { //代表是group
             this.groupMap.set(listItem.groupId, 'display: none')
+            let groupIcon
+            if(listItem.icon) {
+              groupIcon = ( <img data-groupItem='true' class="ha-menu-list-ver-icon" src={ listItem.icon }></img> )
+            }
             return (
               <div>
                 <div onclick={ (e) => {
+                  let target = e.target
+                  if(target.getAttribute('data-groupItem') === 'true') {
+                    target = e.target.parentNode
+                  }
                   if(this.singleOpen) {
-                    const parent = findDomParent(e.target)
+                    const parent = findDomParent(target)
                     this.closeOthers(parent, listItem.groupId)
                   } else {
-                    const sibling = findDomNextSibling(e.target)
+                    const sibling = findDomNextSibling(target)
                     this.changeDisplayState(sibling)
                   }
                 }} 
                 class={ ["ha-menu-list-vertical-group-default", this.haColor[0], "ha-menu-list-vertical-group"] }
                 style={ this.getStyleStr }
                 >
-                  { listItem.menuTitle }
+                  { groupIcon }
+                  <span data-groupItem='true'>{ listItem.menuTitle }</span>
                   </div>
                 <div data-groupId={ listItem.groupId } style={ this.displayState(listItem.groupId) }>
                   { this.createMenuList(listItem) }
@@ -79,13 +88,18 @@ export default {
             )
           } 
           if(listItem.title) { //代表是item
-              return(
-                <div style={ this.getStyleStr } 
-                class={ ["ha-menu-list-vertical-item-default", this.haColor[1]||this.haColor[0], "ha-menu-list-vertical-item"] } 
-                route={ listItem.route }>
-                  { listItem.title }
-                </div>
-              )
+            let itemIcon
+            if(listItem.icon) {
+              itemIcon = ( <img class="ha-menu-list-ver-icon" src={ listItem.icon }></img> )
+            }
+            return(
+              <div style={ this.getStyleStr } 
+              class={ ["ha-menu-list-vertical-item-default", this.haColor[1]||this.haColor[0], "ha-menu-list-vertical-item"] } 
+              route={ listItem.route }>
+                { itemIcon }
+                <span>{ listItem.title }</span>
+              </div>
+            )
           }
         } )
       } else {
@@ -132,9 +146,10 @@ export default {
   width: 100%;
 }
 .ha-menu-list-vertical-group-default, .ha-menu-list-vertical-item-default {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 50px;
-  line-height: 50px;
-  user-select: none;
   @include hoverShadow;
 }
 
@@ -144,6 +159,11 @@ export default {
 
 .ha-menu-list-vertical-item-default {
   width: 90%;
+}
+
+.ha-menu-list-ver-icon {
+  width: 10%;
+  height: 30%;
 }
 </style>
 

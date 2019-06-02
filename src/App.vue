@@ -4,24 +4,14 @@
       <ha-rectangle height='100%' width='100%'>
         <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
           
-          <!-- 
-          <ha-button title="primary"></ha-button>
-          <ha-button color='darkPrimary' title="darkPrimary" :coor="[10,10]"></ha-button>
-          <ha-button color='lightPrimary' title="lightPrimary" :coor="[70,20]"></ha-button>
-          <ha-button color='accentPrimary' title="accentPrimary" :coor="[60,50]"></ha-button>
-          -->
-          <!-- <ha-button title="primary"></ha-button>
-            <ha-button color='darkPrimary' title="darkPrimary" :coor="[2,2]"></ha-button>
-            <ha-button color='lightPrimary' title="lightPrimary" :coor="[10,10]"></ha-button>
-            <ha-button color='accentPrimary' title="accentPrimary" :coor="[60,50]"></ha-button> -->
-            <!-- <ha-menu-vertical :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="false" :coor="[[[1,1], [6,50]], [[1,1], [4,50]]]">
+            <ha-menu-vertical :color="['blue', 'lightBlue']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="false" :coor="[[[1,1], [6,50]], [[1,1], [4,50]]]">
               <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar>
             </ha-menu-vertical>
-            <ha-menu-horizontal :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[15,1], [50,4]], [[8,1], [50, 3]]]">
+            <!-- <ha-menu-horizontal :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[15,1], [50,4]], [[8,1], [50, 3]]]">
               <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar>
             </ha-menu-horizontal>
-            <ha-button title="打开mask" :coor="[[[33,19], [3,2]]]" @click="openMaskClick"></ha-button>
-            <ha-button title="通知" :coor="[[[33,22], [3,2]]]" @click="notify"></ha-button> -->
+            <ha-button title="打开mask" :coor="[[[33,19], [3,2]]]" @click="openMaskClick"></ha-button>-->
+            <ha-button title="通知" :coor="[[[33,22], [2,2]]]" @click="notify"></ha-button> 
             <!-- <ha-button title="darkPrimary" color='darkPrimary' :coor="[[[55,19], [3,2]], [[2,32], [3, 2]]]" :styleProp="btnStyle" hover="shadow"></ha-button> -->
             
           <!-- <ha-avatar :url="imgSrc" color='darkPrimary' :coor="[[[36,19], [2,3]], [[2,32], [2, 3]]]"></ha-avatar> -->
@@ -61,9 +51,8 @@
             <ha-button color='blue' title="确认" slot="footer" width="60px" height="28px"></ha-button>
             <ha-button color='darkRed' title="取消" slot="footer" width="60px" height="28px"></ha-button>
           </ha-card> -->
-          <ha-input type="text" name="input" v-model="inputVal"  :checkFun="checkFun" lable="输入框:" color="blue" :coor="[[[10,18], [8,3]]]"></ha-input>
-          <ha-input type="text" name="input" v-model="inputVal" :checkFun="checkFun" lable="输入框:" color="blue" :coor="[[[10,22], [8,3]]]"></ha-input>
-          <ha-input type="text" name="input" v-model="inputVal" :checkFun="checkFun" lable="输入框:" color="blue" :coor="[[[10,26], [8,3]]]"></ha-input>
+          <ha-input type="text" name="input" v-model="inputVal"  :checkFun="checkFun" lable="输入框:" color="black" :coor="[[[10,18], [8,3]]]"></ha-input>
+ 
         </ha-coordinater>
       </ha-rectangle>
     </ha-scroll>
@@ -97,7 +86,7 @@ export default {
       } else {
         return {
           msg: '输入值不为空,正确',
-          color: 'primary'
+          color: 'green'
         }
       }
     },
@@ -109,10 +98,11 @@ export default {
     },
     notify() {
       this.$haru.notify(this, {
-        msg: 'hello'+(++this.i),
+        msg: '这是一个haru UI的通知'+(++this.i),
         duration: 3000,
         location: 'topRight',
-        color: 'lightRed'
+        color: 'lightBlue',
+        icon: require('@icons/信息.svg')
       })
     }
   },
@@ -120,13 +110,11 @@ export default {
     
   },
   watch: {
-    inputVal() {
-      console.log(this.inputVal)
-    }
+    
   },
   data() {
     return {
-      inputVal: '222',
+      inputVal: '',
       i: 0,
       show: false,
       imgSrc: require('@imgs/scauLogo.jpg'),
@@ -179,6 +167,7 @@ export default {
           {
             groupId: '1',
             menuTitle: 'Start',
+            icon: require('@icons/菜单.svg'),
             menuList: [
               {
                 groupId: '2',
@@ -244,7 +233,8 @@ export default {
                 menuList: [
                   {
                     title: 'list1',
-                    route: '/list1'
+                    route: '/list1',
+                    icon: require('@icons/首页.svg')
                   },
                   {
                     title: 'list1',

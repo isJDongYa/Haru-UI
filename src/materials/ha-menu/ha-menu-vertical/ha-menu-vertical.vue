@@ -41,7 +41,8 @@ export default {
                   menuList: [
                     {
                       title: 'list1',
-                      route: '/list1'
+                      route: '/list1',
+                      icon: require('@icons/信息.svg')
                     },
                     {
                       title: 'list1',

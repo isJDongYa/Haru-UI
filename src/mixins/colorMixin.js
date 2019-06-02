@@ -15,7 +15,7 @@ export default {
     color: {
       type: [String, Array],
       required: false,
-      default: 'primary'
+      default: 'blue'
     }
   },
   methods: {
@@ -25,14 +25,14 @@ export default {
           return 'ha-color-white'
         case'black':
           return 'ha-color-black'
-        case'primary':
-          return 'ha-color-primary'
-        case'darkPrimary':
-          return 'ha-color-darkPrimary'
-        case'lightPrimary':
-          return 'ha-color-lightPrimary'
-        case'accentPrimary':
-          return 'ha-color-accentPrimary'
+        case'green':
+          return 'ha-color-green'
+        case'darkGreen':
+          return 'ha-color-darkGreen'
+        case'lightGreen':
+          return 'ha-color-lightGreen'
+        case'accentGreen':
+          return 'ha-color-accentGreen'
         case'red':
           return 'ha-color-red' 
         case'lightRed':

@@ -1,5 +1,6 @@
 <template>
   <div :class="['ha-notify-default', 'ha-notify', haColor]" :style="locationComputed">
+    <img class="ha-notify-icon-default ha-notify-icon" :src="icon">
     <span>{{ msg }}</span>
   </div>
 </template>
@@ -14,6 +15,11 @@ export default {
       type: String,
       required: false,
       default: 'A notification of Haru UI'
+    },
+    icon: {
+      type: String,
+      required: false,
+      default: ''
     },
     location: {
        type: String,
@@ -65,6 +71,11 @@ export default {
   max-height: 200px;
   min-width: 100px;
   max-width: 300px;
+}
+
+.ha-notify-icon-default {
+  height: 30%;
+  width: 10%;
 }
 </style>
 
