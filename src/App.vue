@@ -61,9 +61,9 @@
             <ha-button color='blue' title="确认" slot="footer" width="60px" height="28px"></ha-button>
             <ha-button color='darkRed' title="取消" slot="footer" width="60px" height="28px"></ha-button>
           </ha-card> -->
-          <ha-input type="text" name="input" :checkFun="checkFun" lable="输入框:" :color="['blue', 'primary', 'red']" :coor="[[[10,18], [8,3]]]"></ha-input>
-          <ha-input type="text" name="input" :checkFun="checkFun" lable="输入框:" :color="['blue', 'primary', 'red']" :coor="[[[10,22], [8,3]]]"></ha-input>
-          <ha-input type="text" name="input" :checkFun="checkFun" lable="输入框:" :color="['blue', 'primary', 'red']" :coor="[[[10,26], [8,3]]]"></ha-input>
+          <ha-input type="text" name="input" v-model="inputVal"  :checkFun="checkFun" lable="输入框:" color="blue" :coor="[[[10,18], [8,3]]]"></ha-input>
+          <ha-input type="text" name="input" v-model="inputVal" :checkFun="checkFun" lable="输入框:" color="blue" :coor="[[[10,22], [8,3]]]"></ha-input>
+          <ha-input type="text" name="input" v-model="inputVal" :checkFun="checkFun" lable="输入框:" color="blue" :coor="[[[10,26], [8,3]]]"></ha-input>
         </ha-coordinater>
       </ha-rectangle>
     </ha-scroll>
@@ -92,14 +92,12 @@ export default {
       if(!val) {
         return {
           msg: '输入值不能为空',
-          isError: true,
-          isCorrect: false
+          color: 'red'
         }
       } else {
         return {
           msg: '输入值不为空,正确',
-          isError: false,
-          isCorrect: true
+          color: 'primary'
         }
       }
     },
@@ -121,8 +119,14 @@ export default {
   mounted() {
     
   },
+  watch: {
+    inputVal() {
+      console.log(this.inputVal)
+    }
+  },
   data() {
     return {
+      inputVal: '222',
       i: 0,
       show: false,
       imgSrc: require('@imgs/scauLogo.jpg'),

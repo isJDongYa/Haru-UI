@@ -1,7 +1,7 @@
 <template>
   <ha-card
   :width="width" :height="height" :coor="coor" 
-  :color="[selfColor, selfColor, 'white']"  
+  :color="[checkObj.color, checkObj.color, 'white']"  
   type="Ver"  
   :hcfHeight="hcfHeight"
   :hover="hover"
@@ -10,7 +10,7 @@
       <label class="ha-input-lable-default ha-input-lable" :for="name">
         <div class="ha-input-lable-lable-default ha-input-lable-lable">{{ lable }}</div>
       </label>
-      <input class="ha-input-input-default ha-input-input" :name="name" :type="type" v-model="value" @blur="checkVal">
+      <input class="ha-input-input-default ha-input-input" :name="name" :type="type" :value="value" @input="handleInput" @blur="checkVal">
     </div>
     <div class="ha-input-error-default ha-input-error" slot="content">
       {{ checkObj.msg }}
@@ -36,6 +36,11 @@ export default {
       required: false,
       default: 'text'
     },
+    value: {
+      type: String,
+      required: false,
+      default: ''
+    },
     lable: {
       type: String,
       required: false,
@@ -59,26 +64,23 @@ export default {
   },
   data() {
     return {
-      value: '',
       hcfHeight: ['60%', '40%', '0%'],
       checkObj: {
         msg: '',
-        isError: false,
-        isCorrect: false,
+        color: ''
       },
-    }
-  },
-  computed: {
-    selfColor() {
-      if(this.checkObj.isError) return this.haColor[2]
-      if(this.checkObj.isCorrect) return this.haColor[1]
-      return this.haColor[0]
     }
   },
   methods: {
     checkVal() {
       this.checkObj = this.checkFun(this.value) 
+    },
+    handleInput(e) {
+      this.$emit('input', e.target.value)
     }
+  },
+  mounted() {
+    this.checkObj.color = this.haColor
   }
 }
 </script>
