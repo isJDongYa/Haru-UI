@@ -1,7 +1,5 @@
 <script>
-import whMixin from '@mixins/whMixin'
 import colorMixin from '@mixins/colorMixin'
-import stylePropMixin from '@mixins/stylePropMixin'
 import singleOpenMixin from '@mixins/singleOpenMixin'
 
 import findDomParent from '@utils/findDomParent'
@@ -12,7 +10,7 @@ import findDomAllSiblings from '@utils/findDomAllSiblings'
 
 export default {
   name: 'ha-menu-list-vertical',
-  mixins:[colorMixin, stylePropMixin, singleOpenMixin],
+  mixins:[colorMixin, singleOpenMixin],
   data() {
     return {
       groupMap: new Map()
@@ -76,7 +74,6 @@ export default {
                   }
                 }} 
                 class={ ["ha-menu-list-vertical-group-default", this.haColor[0], "ha-menu-list-vertical-group"] }
-                style={ this.getStyleStr }
                 >
                   { groupIcon }
                   <span data-groupItem='true'>{ listItem.menuTitle }</span>
@@ -93,7 +90,7 @@ export default {
               itemIcon = ( <img class="ha-menu-list-ver-icon" src={ listItem.icon }></img> )
             }
             return(
-              <div style={ this.getStyleStr } 
+              <div 
               class={ ["ha-menu-list-vertical-item-default", this.haColor[1]||this.haColor[0], "ha-menu-list-vertical-item"] } 
               route={ listItem.route }>
                 { itemIcon }
@@ -108,10 +105,17 @@ export default {
     }
   },
   render() {
+    let head
+    let bodyHeight = '90%'
+    if(this.menuList.menuTitle || this.$slots.default) {
+      head = (<div ref="head" class="ha-menu-list-vertical-head-default" route={ this.menuList.route }>{ this.menuList.menuTitle || this.$slots.default }</div>)
+    } else {
+      bodyHeight = '100%'
+    }
     return (
       <div data-factor="ha-menu-list-vertical" class="ha-menu-list-vertical-default ha-menu-list-vertical">
-        <div ref="head" class="ha-menu-list-vertical-head-default" route={ this.menuList.route }>{ this.menuList.menuTitle || this.$slots.default }</div>
-        <div ref='body' style="height:90%">
+        { head }
+        <div ref='body' style={ `height:${ bodyHeight }` }>
           <ha-scroll color={ ['grey', 'grey'] }>
             <div ref='body' class="ha-menu-list-vertical-body-default">{ this.createMenuList(this.menuList) }</div>
           </ha-scroll>

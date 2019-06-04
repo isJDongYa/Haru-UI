@@ -3,11 +3,11 @@
     <ha-scroll :toBottom="true" :toTop="true" :color="['primary', 'red', 'blue', 'yellow']">
       <ha-rectangle height='100%' width='100%'>
         <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
-          
-            <ha-menu-vertical :color="['blue', 'lightBlue']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="false" :coor="[[[1,1], [6,50]], [[1,1], [4,50]]]">
+            <ha-avatar :url="imgSrc" color='darkPrimary' :coor="[[[1,1], [5,7]], [[1,1], [4,5]]]"></ha-avatar>
+            <ha-menu-vertical :color="['blue', 'lightBlue']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[1,8], [5,42]], [[1,6], [4,45]]]">
               <!-- <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar> -->
             </ha-menu-vertical>
-            <ha-menu-horizontal :color="['blue', 'lightBlue']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[1,1], [49,3]], [[1,1], [49, 3]]]">
+            <ha-menu-horizontal :color="['blue', 'lightBlue']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[6,8], [44,3]], [[5,6], [44, 3]]]">
               <!-- <ha-avatar :url="imgSrc" color='darkPrimary' width="30%" height="70%"></ha-avatar> -->
             </ha-menu-horizontal>
             <!-- <ha-button title="打开mask" :coor="[[[33,19], [3,2]]]" @click="openMaskClick"></ha-button>-->

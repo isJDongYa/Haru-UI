@@ -1,7 +1,5 @@
 <script>
-import whMixin from '@mixins/whMixin'
 import colorMixin from '@mixins/colorMixin'
-import stylePropMixin from '@mixins/stylePropMixin'
 import singleOpenMixin from '@mixins/singleOpenMixin'
 
 import findDomParent from '@utils/findDomParent'
@@ -12,7 +10,7 @@ import findDomAllSiblings from '@utils/findDomAllSiblings'
 
 export default {
   name: 'ha-menu-list-horizontal',
-  mixins:[colorMixin, stylePropMixin, singleOpenMixin, whMixin],
+  mixins:[colorMixin, singleOpenMixin],
   props: {
     menuList: {
       type: Object,
@@ -57,21 +55,29 @@ export default {
         return menuList.menuList.map( listItem => {
           if(listItem.groupId) { //代表是group
             this.groupMap.set(listItem.groupId, 'display: none')
+            let groupIcon
+            if(listItem.icon) {
+              groupIcon = ( <img data-groupItem='true' class="ha-menu-list-ver-icon" src={ listItem.icon }></img> )
+            }
             return (
               <div class="ha-menu-list-horizontal-groupParent-default ha-menu-list-horizontal-groupParent">
                 <div onclick={ (e) => {
+                  let target = e.target
+                  if(target.getAttribute('data-groupItem') === 'true') {
+                    target = e.target.parentNode
+                  }
                   if(this.singleOpen) {
-                    const parent = findDomParent(e.target)
+                    const parent = findDomParent(target)
                     this.closeOthers(parent, listItem.groupId)
                   } else {
-                    const sibling = findDomNextSibling(e.target)
+                    const sibling = findDomNextSibling(target)
                     this.changeDisplayState(sibling)
                   }
                 }} 
                 class={ ["ha-menu-list-horizontal-group-default", this.haColor[0], "ha-menu-list-horizontal-group"] }
-                style={ this.getStyleStr }
                 >
-                  { listItem.menuTitle }
+                  { groupIcon }
+                  <span data-groupItem='true'>{ listItem.menuTitle }</span>
                 </div>
                 <div 
                 class="ha-menu-list-horizontal-itemParent-default ha-menu-list-horizontal-itemParent" 
@@ -84,33 +90,42 @@ export default {
             )
           } 
           if(listItem.title) { //代表是item
-              return(
-                <div
-                class={ ["ha-menu-list-horizontal-item-default", this.haColor[1]||this.haColor[0], "ha-menu-list-horizontal-item"] }  
-                style={ this.getStyleStr } 
-                route={ listItem.route }
-                >
-                  { listItem.title }
-                </div>
-              )
+            let itemIcon
+            if(listItem.icon) {
+              itemIcon = ( <img class="ha-menu-list-ver-icon" src={ listItem.icon }></img> )
+            }
+            return(
+              <div
+              class={ ["ha-menu-list-horizontal-item-default", this.haColor[1]||this.haColor[0], "ha-menu-list-horizontal-item"] }  
+              route={ listItem.route }
+              >
+                { itemIcon }
+                <span data-groupItem='true'>{ listItem.title }</span>
+              </div>
+            )
           }
         } )
       } else {
         return null
       }
+    },
+    setWH(vm) {
+      return function() {
+        const groups = vm.$refs.haMenuHor.querySelectorAll('.ha-menu-list-horizontal-group')
+        groups.forEach( group => {
+          group.style.height = vm.$refs.haMenuHor.offsetHeight + 'px'
+        })
+        const items = vm.$refs.haMenuHor.querySelectorAll('.ha-menu-list-horizontal-item')
+        items.forEach( item => {
+          item.style.height = 0.9 * vm.$refs.haMenuHor.offsetHeight + 'px'
+          item.style.width = 0.9 * groups[0].offsetWidth + 'px' 
+        })
+      }
     }
   },
   mounted() {
-    const groups = this.$refs.haMenuHor.querySelectorAll('.ha-menu-list-horizontal-group')
-    groups.forEach( group => {
-      group.style.height = this.$refs.haMenuHor.offsetHeight + 'px'
-    })
-    const items = this.$refs.haMenuHor.querySelectorAll('.ha-menu-list-horizontal-item')
-    items.forEach( item => {
-      item.style.height = 0.9 * this.$refs.haMenuHor.offsetHeight + 'px'
-      item.style.width = 0.9 * groups[0].offsetWidth + 'px' 
-    })
-    console.log(groups[0].offsetWidth)
+    this.setWH(this)()
+    window.addEventListener('resize', this.setWH(this))
   },
   render() {
     let head
@@ -130,7 +145,6 @@ export default {
 @import '@scss/local/hovers.scss';
 
 .ha-menu-list-horizontal-default {
-  border-radius: 4px;
   display: flex;
   justify-content: flex-start;
   height: 100%;
@@ -159,6 +173,10 @@ export default {
   display: inline-block;
   flex-direction: column;
   height: 100%;
+}
+.ha-menu-list-ver-icon {
+  width: 10%;
+  height: 30%;
 }
 </style>
 
