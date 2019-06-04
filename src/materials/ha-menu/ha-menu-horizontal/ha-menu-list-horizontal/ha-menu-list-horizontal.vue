@@ -13,18 +13,18 @@ import findDomAllSiblings from '@utils/findDomAllSiblings'
 export default {
   name: 'ha-menu-list-horizontal',
   mixins:[colorMixin, stylePropMixin, singleOpenMixin, whMixin],
-  data() {
-    return {
-      groupMap: new Map()
-    }
-  },
   props: {
     menuList: {
       type: Object,
       required: false,
       default: () => {}
     }
-  }, 
+  },
+  data() {
+    return {
+      groupMap: new Map()
+    }
+  },
   methods: {
     closeOthers(domEl, groupId) {
       const siblings = findDomAllSiblings(domEl)
@@ -48,10 +48,11 @@ export default {
     },
     changeDisplayState(sibling) {
       sibling.style.display === 'none'
-        ? sibling.style.display = 'block'
+        ? sibling.style.display = 'flex'
         : sibling.style.display = 'none'
     },
     createMenuList(menuList){
+      let itemId = 0
       if(menuList.menuList) {
         return menuList.menuList.map( listItem => {
           if(listItem.groupId) { //代表是group
@@ -71,8 +72,12 @@ export default {
                 style={ this.getStyleStr }
                 >
                   { listItem.menuTitle }
-                  </div>
-                <div data-groupId={ listItem.groupId } style={ this.displayState(listItem.groupId) }>
+                </div>
+                <div 
+                class="ha-menu-list-horizontal-itemParent-default ha-menu-list-horizontal-itemParent" 
+                data-groupId={ listItem.groupId } 
+                style={ this.displayState(listItem.groupId) }
+                >
                   { this.createMenuList(listItem) }
                 </div>
               </div>
@@ -80,9 +85,11 @@ export default {
           } 
           if(listItem.title) { //代表是item
               return(
-                <div style={ this.getStyleStr } 
-                class={ ["ha-menu-list-horizontal-item-default", this.haColor[1]||this.haColor[0], "ha-menu-list-horizontal-item"] } 
-                route={ listItem.route }>
+                <div
+                class={ ["ha-menu-list-horizontal-item-default", this.haColor[1]||this.haColor[0], "ha-menu-list-horizontal-item"] }  
+                style={ this.getStyleStr } 
+                route={ listItem.route }
+                >
                   { listItem.title }
                 </div>
               )
@@ -93,11 +100,27 @@ export default {
       }
     }
   },
+  mounted() {
+    const groups = this.$refs.haMenuHor.querySelectorAll('.ha-menu-list-horizontal-group')
+    groups.forEach( group => {
+      group.style.height = this.$refs.haMenuHor.offsetHeight + 'px'
+    })
+    const items = this.$refs.haMenuHor.querySelectorAll('.ha-menu-list-horizontal-item')
+    items.forEach( item => {
+      item.style.height = 0.9 * this.$refs.haMenuHor.offsetHeight + 'px'
+      item.style.width = 0.9 * groups[0].offsetWidth + 'px' 
+    })
+    console.log(groups[0].offsetWidth)
+  },
   render() {
+    let head
+    if(this.menuList.menuTitle || this.$slots.default) {
+      head = (<div class="ha-menu-list-horizontal-head-default" route={ this.menuList.route }>{ this.menuList.menuTitle || this.$slots.default }</div>)
+    }
     return (
-      <div data-factor="ha-menu-list-horizontal" class="ha-menu-list-horizontal-default ha-menu-list-horizontal" style={ `width:${this.width};height:${this.height}` }>
-        <div class="ha-menu-list-horizontal-head-default" route={ this.menuList.route }>{ this.menuList.menuTitle || this.$slots.default }</div>
-        <div class="ha-menu-list-horizontal-body-default">{ this.createMenuList(this.menuList) }</div>
+      <div ref="haMenuHor" class="ha-menu-list-horizontal-default ha-menu-list-horizontal" style={ `width:${this.width};height:${this.height}` }>
+        { head }
+        { this.createMenuList(this.menuList) }
       </div>
     )
   }
@@ -107,38 +130,35 @@ export default {
 @import '@scss/local/hovers.scss';
 
 .ha-menu-list-horizontal-default {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  cursor: pointer;
   border-radius: 4px;
   display: flex;
   justify-content: flex-start;
+  height: 100%;
 }
 .ha-menu-list-horizontal-head-default {
-  text-align: right;
-  line-height: 100px;
-  font-size: 20px;
-  font-weight:600;
-}
-.ha-menu-list-horizontal-body-default {
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
+  align-items: center;
 }
 .ha-menu-list-horizontal-group-default, .ha-menu-list-horizontal-item-default {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   user-select: none;
+  cursor: pointer;
   @include hoverShadow;
 }
-.ha-menu-list-horizontal-group-default {
-  line-height: 40px;
-  width: 160px;
-  height: 40px;
+.ha-menu-list-horizontal-itemParent-default {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
-
-.ha-menu-list-horizontal-item-default {
-  line-height: 50px;
-  width: 140px;
-  height: 50px;
+.ha-menu-list-horizontal-groupParent-default {
+  flex: 1;
+  display: inline-block;
+  flex-direction: column;
+  height: 100%;
 }
 </style>
 

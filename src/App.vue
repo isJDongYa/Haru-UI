@@ -5,13 +5,13 @@
         <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
           
             <ha-menu-vertical :color="['blue', 'lightBlue']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="false" :coor="[[[1,1], [6,50]], [[1,1], [4,50]]]">
-              <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar>
+              <!-- <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar> -->
             </ha-menu-vertical>
-            <!-- <ha-menu-horizontal :color="['primary', 'lightPrimary']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[15,1], [50,4]], [[8,1], [50, 3]]]">
-              <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar>
+            <ha-menu-horizontal :color="['blue', 'lightBlue']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[1,1], [49,3]], [[1,1], [49, 3]]]">
+              <!-- <ha-avatar :url="imgSrc" color='darkPrimary' width="30%" height="70%"></ha-avatar> -->
             </ha-menu-horizontal>
-            <ha-button title="打开mask" :coor="[[[33,19], [3,2]]]" @click="openMaskClick"></ha-button>-->
-            <ha-button title="通知" :coor="[[[33,22], [2,2]]]" @click="notify"></ha-button> 
+            <!-- <ha-button title="打开mask" :coor="[[[33,19], [3,2]]]" @click="openMaskClick"></ha-button>-->
+            <!-- <ha-button title="通知" :coor="[[[33,22], [2,2]]]" @click="notify"></ha-button>  -->
             <!-- <ha-button title="darkPrimary" color='darkPrimary' :coor="[[[55,19], [3,2]], [[2,32], [3, 2]]]" :styleProp="btnStyle" hover="shadow"></ha-button> -->
             
           <!-- <ha-avatar :url="imgSrc" color='darkPrimary' :coor="[[[36,19], [2,3]], [[2,32], [2, 3]]]"></ha-avatar> -->
@@ -51,7 +51,7 @@
             <ha-button color='blue' title="确认" slot="footer" width="60px" height="28px"></ha-button>
             <ha-button color='darkRed' title="取消" slot="footer" width="60px" height="28px"></ha-button>
           </ha-card> -->
-          <ha-input type="text" name="input" v-model="inputVal"  :checkFun="checkFun" lable="输入框:" color="black" :coor="[[[10,18], [8,3]]]"></ha-input>
+          <!-- <ha-input type="text" name="input" v-model="inputVal"  :checkFun="checkFun" lable="输入框:" color="black" :coor="[[[10,18], [8,3]]]"></ha-input> -->
  
         </ha-coordinater>
       </ha-rectangle>
@@ -157,7 +157,7 @@ export default {
       },
       styleProp: {
         margin: '0px 0 0px 0px',
-        borderRadius: '4px'
+        borderRadius: '0px'
       },
       
       menuList: {
@@ -339,7 +339,15 @@ export default {
                 ] 
               }
             ]
-          }
+          },
+          {
+            groupId: '112',
+            menuTitle: 'groupTitle',
+          },
+          {
+            groupId: '1122',
+            menuTitle: 'groupTitle',
+          },
         ]
       },
     }
