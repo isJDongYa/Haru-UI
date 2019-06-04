@@ -2,6 +2,8 @@ import HaButton from './ha-button'
 import HaAvatar from './ha-avatar'
 import HaCheck from './ha-check'
 import HaInput from './ha-input'
+import HaNumber from './ha-number'
+import HaLetter from './ha-letter'
 
 export default {
   install(Vue) {
@@ -9,5 +11,7 @@ export default {
     Vue.use(HaAvatar)
     Vue.use(HaCheck)
     Vue.use(HaInput)
+    Vue.use(HaNumber)
+    Vue.use(HaLetter)
   }
 } 

@@ -68,6 +68,56 @@ export default {
         default:
           return c
       }
+    },
+    getColorNum(c) {
+      switch(c) {
+        case'white':
+          return '#ffffff'
+        case'black':
+          return '#000000'
+        case'green':
+          return '#8BC34A'
+        case'darkGreen':
+          return '#689F38'
+        case'lightGreen':
+          return '#DCEDC8'
+        case'accentGreen':
+          return '#4CAF50'
+        case'red':
+          return '#F44336' 
+        case'lightRed':
+          return '#FFCDD2' 
+        case'darkRed':
+          return '#D32F2F'  
+        case'accentRed':
+          return '#FF4081' 
+        case'grey':
+          return '#9E9E9E' 
+        case'lightGrey':
+          return '#F5F5F5' 
+        case'darkGrey':
+          return '#616161'  
+        case'accentGrey':
+          return '#607D8B' 
+        case'yellow':
+          return '#FFEB3B' 
+        case'lightYellow':
+          return '#FFF9C4' 
+        case'darkYellow':
+          return '#FBC02D'  
+        case'accentYellow':
+          return '#FF9800' 
+        case'blue':
+          return '#03A9F4' 
+        case'lightBlue':
+          return '#B3E5FC' 
+        case'darkBlue':
+          return '#0288D1'  
+        case'accentBlue':
+          return '#448AFF'  
+        default:
+          return c
+      }
     }
   },
   computed: {
@@ -79,6 +129,15 @@ export default {
       } else {
         return this.getColorClass(this.color)
       }
-    }
+    },
+    haColorNum() {
+      if(Array.isArray(this.color)) {
+          return this.color.map( c => {
+            return this.getColorNum(c)
+          })
+      } else {
+        return this.getColorNum(this.color)
+      }
+    },
   }
 }

@@ -7,9 +7,27 @@
             <ha-menu-vertical :color="['blue', 'lightBlue']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[1,8], [5,42]], [[1,6], [4,45]]]">
               <!-- <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar> -->
             </ha-menu-vertical>
-            <ha-menu-horizontal :color="['blue', 'lightBlue']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[6,8], [44,3]], [[5,6], [44, 3]]]">
-              <!-- <ha-avatar :url="imgSrc" color='darkPrimary' width="30%" height="70%"></ha-avatar> -->
-            </ha-menu-horizontal>
+            <!-- <ha-menu-horizontal :color="['blue', 'lightBlue']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[6,8], [44,3]], [[5,6], [44, 3]]]">
+              <ha-avatar :url="imgSrc" color='darkPrimary' width="30%" height="70%"></ha-avatar>
+            </ha-menu-horizontal> -->
+            <ha-rectangle :coor="[[[6,8], [5,8]], [[5,3], [5, 15]]]">
+              <ha-number :num="0"></ha-number>
+            </ha-rectangle>
+            <ha-rectangle :coor="[[[12,8], [5,8]], [[10,3], [5, 15]]]">
+              <ha-number :num="num" color="green"></ha-number>
+            </ha-rectangle>
+            <ha-rectangle :coor="[[[18,8], [5,8]], [[15,3], [5, 15]]]">
+              <ha-number :num="2" color="red" :dot="true"></ha-number>
+            </ha-rectangle>
+            <ha-rectangle :coor="[[[6,17], [5,8]], [[5,19], [5, 15]]]">
+              <ha-number :num="3" color="yellow" :dot="true"></ha-number>
+            </ha-rectangle>
+            <ha-rectangle :coor="[[[12,17], [5,8]], [[10,19], [5, 15]]]">
+              <ha-number :num="4" color="yellow"></ha-number>
+            </ha-rectangle>
+            <ha-rectangle :coor="[[[18,17], [5,8]], [[15,19], [5, 15]]]">
+              <ha-letter letter="G" :capital="true" color="lightRed"></ha-letter>
+            </ha-rectangle>
             <!-- <ha-button title="打开mask" :coor="[[[33,19], [3,2]]]" @click="openMaskClick"></ha-button>-->
             <!-- <ha-button title="通知" :coor="[[[33,22], [2,2]]]" @click="notify"></ha-button>  -->
             <!-- <ha-button title="darkPrimary" color='darkPrimary' :coor="[[[55,19], [3,2]], [[2,32], [3, 2]]]" :styleProp="btnStyle" hover="shadow"></ha-button> -->
@@ -74,6 +92,7 @@
   </div>
 </template>
 <script>
+import { setInterval, clearInterval } from 'timers';
 export default {
   name: 'app',
   methods: {
@@ -104,16 +123,24 @@ export default {
         color: 'lightBlue',
         icon: require('@icons/信息.svg')
       })
+    },
+    numCounter() {
+      this.timer = setInterval(() => {
+        this.num++
+        if(this.num === 9) clearInterval(this.timer)
+      }, 1000)
     }
   },
   mounted() {
-    
+    this.numCounter()
   },
   watch: {
     
   },
   data() {
     return {
+      timer: null,
+      num: 0,
       inputVal: '',
       i: 0,
       show: false,
