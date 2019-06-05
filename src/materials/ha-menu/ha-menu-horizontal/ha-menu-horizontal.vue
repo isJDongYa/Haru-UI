@@ -1,6 +1,6 @@
 <template>
-  <ha-rectangle :width="width" :height="height" :coor="coor" :styleProp="styleProp"  overflow='visible'>
-    <ha-menu-list-horizontal :menuList="menuList" :color="color" :singleOpen="singleOpen">
+  <ha-rectangle :z="z" :width="width" :height="height" :coor="coor" :styleProp="styleProp"  overflow='visible'>
+    <ha-menu-list-horizontal :menuList="menuList" :fontColor="fontColor" :color="color" :singleOpen="singleOpen">
       <slot></slot>
     </ha-menu-list-horizontal>
   </ha-rectangle>
@@ -11,13 +11,14 @@ import colorMixin from '@mixins/colorMixin'
 import stylePropMixin from '@mixins/stylePropMixin'
 import singleOpenMixin from '@mixins/singleOpenMixin'
 import whMixin from '@mixins/whMixin'
+import zMixin from '@mixins/zMixin'
 
 import HaRectangle from '@containers/ha-rectangle/HaRectangle.vue'
 import HaMenuListHorizontal from './ha-menu-list-horizontal'
 
 export default {
   name: 'ha-menu-horizontal',
-  mixins: [coorMixin, colorMixin, stylePropMixin, singleOpenMixin, whMixin],
+  mixins: [coorMixin, colorMixin, stylePropMixin, singleOpenMixin, whMixin, zMixin],
   components: {
     'ha0rectangle': HaRectangle,
     'ha-menu-list-horizontal': HaMenuListHorizontal

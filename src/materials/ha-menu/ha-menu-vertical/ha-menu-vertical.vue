@@ -1,6 +1,6 @@
 <template>
-  <ha-rectangle :width="width" :height="height" :coor="coor"  :styleProp="styleProp">
-    <ha-menu-list-vertical :menuList="menuList" :color="color" :singleOpen="singleOpen">
+  <ha-rectangle :z="z" :width="width" :height="height" :coor="coor"  :styleProp="styleProp">
+    <ha-menu-list-vertical :fontColor="fontColor" :menuList="menuList" :color="color" :singleOpen="singleOpen">
       <slot></slot>
     </ha-menu-list-vertical>
   </ha-rectangle>
@@ -11,13 +11,14 @@ import colorMixin from '@mixins/colorMixin'
 import stylePropMixin from '@mixins/stylePropMixin'
 import singleOpenMixin from '@mixins/singleOpenMixin'
 import whMixin from '@mixins/whMixin'
+import zMixin from '@mixins/zMixin'
 
 import HaRectangle from '@containers/ha-rectangle/HaRectangle.vue'
 import HaMenuListVertical from './ha-menu-list-vertical'
 
 export default {
   name: 'ha-menu-vertical',
-  mixins: [coorMixin, colorMixin, stylePropMixin, singleOpenMixin, whMixin],
+  mixins: [coorMixin, colorMixin, stylePropMixin, singleOpenMixin, whMixin, zMixin],
   components: {
     'ha0rectangle': HaRectangle,
     'ha-menu-list-vertical': HaMenuListVertical

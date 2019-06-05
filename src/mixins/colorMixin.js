@@ -15,7 +15,12 @@ export default {
     color: {
       type: [String, Array],
       required: false,
-      default: 'blue'
+      default: ''
+    },
+    fontColor: {
+      type: [String, Array],
+      required: false,
+      default: ''
     }
   },
   methods: {
@@ -137,6 +142,15 @@ export default {
           })
       } else {
         return this.getColorNum(this.color)
+      }
+    },
+    haFontColor() {
+      if(Array.isArray(this.fontColor)) {
+          return this.fontColor.map( c => {
+            return this.getColorNum(c)
+          })
+      } else {
+        return this.getColorNum(this.fontColor)
       }
     },
   }

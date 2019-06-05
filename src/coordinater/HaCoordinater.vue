@@ -40,7 +40,7 @@ export default {
           gridRow--
         }
         row_culumn += ' / ' 
-        while (gridColumn> 2) {
+        while (gridColumn> 1) {
           row_culumn += ' 1fr '
           gridColumn--
         }

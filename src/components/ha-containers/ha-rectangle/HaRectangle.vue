@@ -2,7 +2,10 @@
   <div :class="['ha-rectangle', 'ha-rectangle-default', 'grid-r-c-span2', haHover]" 
   :style="`width:${width};height:${height};grid-row-start:${gridRowStart};` +
     `grid-column-start:${gridColumnStart};grid-row-end:${gridRowEnd};` +
-    `grid-column-end:${gridColumnEnd};overflow:${overflow};${getStyleStr}`">
+    `grid-column-end:${gridColumnEnd};overflow:${overflow};` + 
+    `z-index:${ z };` +
+    `${getStyleStr}`"
+    >
     <slot></slot>
   </div>
 </template>
@@ -11,11 +14,12 @@ import coorMixin from '@mixins/coorMixin'
 import whMixin from "@mixins/whMixin"
 import hoverMixin from '@mixins/hoverMixin'
 import stylePropMixin from '@mixins/stylePropMixin'
+import zMixin from '@mixins/zMixin'
 
 
 export default {
   name: 'ha-rectangle',
-  mixins: [coorMixin, stylePropMixin, whMixin, hoverMixin],
+  mixins: [coorMixin, stylePropMixin, whMixin, hoverMixin,zMixin],
   props: {
     overflow: {
       type: String,
@@ -32,7 +36,6 @@ export default {
     vertical-align: top;
     box-sizing: border-box;
     position: relative;
-    z-index: 0;
     margin: 0;
     padding: 0;
     border-style: none;

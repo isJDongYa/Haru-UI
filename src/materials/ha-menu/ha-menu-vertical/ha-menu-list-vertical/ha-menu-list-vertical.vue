@@ -60,7 +60,10 @@ export default {
             }
             return (
               <div>
-                <div onclick={ (e) => {
+                <div 
+                class={ ["ha-menu-list-vertical-group-default", this.haColor[0], "ha-menu-list-vertical-group"] }
+                style = { `color: ${this.haFontColor[0]}` }
+                onclick={ (e) => {
                   let target = e.target
                   if(target.getAttribute('data-groupItem') === 'true') {
                     target = e.target.parentNode
@@ -73,7 +76,6 @@ export default {
                     this.changeDisplayState(sibling)
                   }
                 }} 
-                class={ ["ha-menu-list-vertical-group-default", this.haColor[0], "ha-menu-list-vertical-group"] }
                 >
                   { groupIcon }
                   <span data-groupItem='true'>{ listItem.menuTitle }</span>
@@ -91,7 +93,8 @@ export default {
             }
             return(
               <div 
-              class={ ["ha-menu-list-vertical-item-default", this.haColor[1]||this.haColor[0], "ha-menu-list-vertical-item"] } 
+              class={ ["ha-menu-list-vertical-item-default", this.haColor[1]||this.haColor[0], "ha-menu-list-vertical-item"] }
+              style = { `color: ${this.haFontColor[1]}` } 
               route={ listItem.route }>
                 { itemIcon }
                 <span>{ listItem.title }</span>
@@ -126,13 +129,11 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '@scss/local/hovers.scss';
 
 .ha-menu-list-vertical-default {
   position: relative;
   z-index: 10;
   text-align: center;
-  cursor: pointer;
   border-radius: 4px;
   height: 100%;
   width: 100%;
@@ -154,11 +155,11 @@ export default {
   justify-content: center;
   align-items: center;
   height: 50px;
-  @include hoverShadow;
+  cursor: pointer;
 }
 
 .ha-menu-list-vertical-group-default {
-  width: 98%;
+  width: 100%;
 }
 
 .ha-menu-list-vertical-item-default {

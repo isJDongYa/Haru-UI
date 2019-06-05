@@ -61,7 +61,10 @@ export default {
             }
             return (
               <div class="ha-menu-list-horizontal-groupParent-default ha-menu-list-horizontal-groupParent">
-                <div onclick={ (e) => {
+                <div 
+                class={ ["ha-menu-list-horizontal-group-default", this.haColor[0], "ha-menu-list-horizontal-group"] }
+                style = { `color: ${this.haFontColor[0]}` }
+                onclick={ (e) => {
                   let target = e.target
                   if(target.getAttribute('data-groupItem') === 'true') {
                     target = e.target.parentNode
@@ -74,7 +77,6 @@ export default {
                     this.changeDisplayState(sibling)
                   }
                 }} 
-                class={ ["ha-menu-list-horizontal-group-default", this.haColor[0], "ha-menu-list-horizontal-group"] }
                 >
                   { groupIcon }
                   <span data-groupItem='true'>{ listItem.menuTitle }</span>
@@ -96,7 +98,8 @@ export default {
             }
             return(
               <div
-              class={ ["ha-menu-list-horizontal-item-default", this.haColor[1]||this.haColor[0], "ha-menu-list-horizontal-item"] }  
+              class={ ["ha-menu-list-horizontal-item-default", this.haColor[1]||this.haColor[0], "ha-menu-list-horizontal-item"] }
+              style = { `color: ${this.haFontColor[1]}` }  
               route={ listItem.route }
               >
                 { itemIcon }
@@ -142,7 +145,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '@scss/local/hovers.scss';
 
 .ha-menu-list-horizontal-default {
   display: flex;
@@ -161,7 +163,6 @@ export default {
   align-items: center;
   user-select: none;
   cursor: pointer;
-  @include hoverShadow;
 }
 .ha-menu-list-horizontal-itemParent-default {
   flex: 1;
