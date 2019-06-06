@@ -63,7 +63,7 @@ export default {
       ctx.font = `${3 * h * 0.8}px 微软雅黑`
       ctx.textAlign = 'center'
       ctx.textBaseline = 'bottom'
-      ctx.fillStyle = this.haColorNum
+      ctx.fillStyle = this.haFontColor
       ctx.fillText(letter, w*3/2, 3*h)
 
     }

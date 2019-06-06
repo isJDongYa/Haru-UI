@@ -1,7 +1,9 @@
 <template>
   <div class="ha-check-container-default ha-check-container" :style="getStyleStr">
     <div :class="['ha-check-color-rec-default', 'ha-check-color-rec', {[haColor]: isCheckData}]"  @click="check"></div>
-    <div class="ha-check-msg-rec-default ha-check-msg-rec">{{ content }}</div>
+    <div class="ha-check-msg-rec-default ha-check-msg-rec">
+      <div class="ha-check-msg-default ha-check-msg">{{ content }}</div>
+    </div>
   </div>
 </template>
 <script>
@@ -16,7 +18,7 @@ export default {
     content: {
       type: String,
       required: false,
-      default: 'ha-check'
+      default: ''
     },
     isCheck: {
       type: Boolean,
@@ -27,6 +29,11 @@ export default {
   data() {
     return {
       isCheckData: this.isCheck
+    }
+  },
+  watch: {
+    isCheck() {
+      this.isCheckData = this.isCheck
     }
   },
   methods: {
@@ -41,21 +48,33 @@ export default {
 <style lang="scss" scoped>
 .ha-check-container-default {
   display: flex;
+  align-items: center;
   width: auto;
-  height: 40px;
-  padding-left: 10px;
+  height: 100%;
+  width: 100%;
 }
 .ha-check-color-rec-default {
-  flex: 2;
   cursor: pointer;
   border: 1px solid #ddd;
+  height: 100%;
+  width: 20%;
   max-width: 40px;
   max-height: 40px;
 }
 .ha-check-msg-rec-default {
-  flex: 7;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 80%;
   padding-left: 10px;
   line-height: 40px;
+}
+
+.ha-check-msg-default {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 </style>
 

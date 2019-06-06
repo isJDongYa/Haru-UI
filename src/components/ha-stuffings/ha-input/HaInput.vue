@@ -59,7 +59,12 @@ export default {
     checkFun: {
       type: Function,
       required: false,
-      default: () => {}
+      default: function() {
+        return {
+          msg: '',
+          color: this.color
+        }
+      }
     }
   },
   data() {

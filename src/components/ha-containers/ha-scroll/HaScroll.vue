@@ -1,6 +1,6 @@
 <template>
   <div class="ha-scroll-default ha-scroll">
-    <div ref="scrollContent" class="ha-scroll-content-default ha-scroll-content"  @click="contentClick">
+    <div ref="scrollContent" class="ha-scroll-content-default ha-scroll-content"  @mouseenter="contentEnter">
       <slot></slot>
     </div>
     <!-- 垂直滚动条 -->
@@ -20,8 +20,10 @@
       ></div>
     </div>
 
-    <div  class="ha-scroll-to-container-default ha-scroll-to-container"
-          :style="`height:${toTorBHeight}px;line-height:${toTorBHeight}px`"
+    <div  
+    class="ha-scroll-to-container-default ha-scroll-to-container"
+    :style="`height:${toTorBHeight}px;line-height:${toTorBHeight}px`"
+    v-if="toBottom||toTop"
     >
       <div  :class="['ha-scroll-toBottom-default', 'ha-scroll-toBottom', haColor[2]]" 
             v-if="toBottom"
@@ -121,7 +123,7 @@ export default {
     }
   },
   methods: {
-    contentClick() {  // 监控发生在scrollContent的点击事件,更新滚动高度
+    contentEnter() {  // 监控发生在scrollContent的鼠标进入事件,更新滚动高度
       this.scrollContentScrollHeight = this.scrollContent.scrollHeight
     },
     toTopClick() {
@@ -280,6 +282,7 @@ export default {
     },
     haScrollInit() {
 
+      this.toTorBHeight = this.$refs.scrollContent.offsetHeight*0.05
       let mousewheel = navigator.userAgent.indexOf('Firefox') > -1 ? 'DOMMouseScroll' : 'mousewheel' // 兼容firefox
 
       // 如果内容高度大于可见高度
@@ -345,7 +348,6 @@ export default {
   mounted() {
     this.scrollContent = this.$refs.scrollContent
     this.scrollContentScrollHeight = this.$refs.scrollContent.scrollHeight
-    this.toTorBHeight = this.$refs.scrollContent.offsetHeight*0.05
     this.haScrollInit()
   }
 

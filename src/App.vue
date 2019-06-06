@@ -3,6 +3,7 @@
     <ha-scroll :toBottom="true" :toTop="true" :color="['primary', 'red', 'blue', 'yellow']">
       <ha-rectangle height='100%' width='100%'>
         <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
+          <ha-file :coor="[[[6,8], [30,30]], [[5,3], [15, 40]]]" color="blue" :styleProp="{ border: 'solid 1px #ddd' }"></ha-file>
             <!-- <ha-avatar :url="imgSrc" color='darkPrimary' :coor="[[[1,1], [5,9]], [[1,1], [4,5]]]"></ha-avatar>
             <ha-menu-vertical :fontColor="['blue', 'accentBlue']" :color="['white', 'white']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[1,10 ], [5,42]], [[1,6], [4,45]]]">
               <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar>
@@ -10,23 +11,23 @@
             <ha-menu-horizontal :z="100" :fontColor="['blue', 'accentBlue']" :color="['', '']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[6,1], [44,3]], [[5,6], [44, 3]]]">
               <ha-avatar :url="imgSrc" color='darkPrimary' width="30%" height="70%"></ha-avatar>
             </ha-menu-horizontal> -->
-            <ha-rectangle :coor="[[[6,8], [5,8]], [[5,3], [5, 15]]]">
-              <ha-number :num="0" color="green"></ha-number>
-            </ha-rectangle>
+            <!-- <ha-rectangle :coor="[[[6,8], [5,8]], [[5,3], [5, 15]]]">
+              <ha-number :num="0" fontColor="green"></ha-number>
+            </ha-rectangle> -->
             <!-- <ha-rectangle :coor="[[[12,8], [5,8]], [[10,3], [5, 15]]]">
-              <ha-number :num="num" color="green"></ha-number>
+              <ha-number :num="num" fontColor="green"></ha-number>
             </ha-rectangle>
             <ha-rectangle :coor="[[[18,8], [5,8]], [[15,3], [5, 15]]]">
-              <ha-number :num="2" color="red" :dot="true"></ha-number>
+              <ha-number :num="2" fontColor="red" :dot="true"></ha-number>
             </ha-rectangle>
             <ha-rectangle :coor="[[[6,17], [5,8]], [[5,19], [5, 15]]]">
-              <ha-number :num="3" color="yellow" :dot="true"></ha-number>
+              <ha-number :num="3" fontColor="yellow" :dot="true"></ha-number>
             </ha-rectangle>
             <ha-rectangle :coor="[[[12,17], [5,8]], [[10,19], [5, 15]]]">
-              <ha-number :num="4" color="yellow"></ha-number>
+              <ha-number :num="4" fontColor="yellow"></ha-number>
             </ha-rectangle>
             <ha-rectangle :coor="[[[18,17], [5,8]], [[15,19], [5, 15]]]">
-              <ha-letter letter="G" :capital="true" color="lightRed"></ha-letter>
+              <ha-letter letter="G" :capital="true" fontColor="lightRed"></ha-letter>
             </ha-rectangle> -->
             <!-- <ha-button title="打开mask" :coor="[[[33,19], [3,2]]]" @click="openMaskClick"></ha-button>-->
             <!-- <ha-button title="通知" :coor="[[[33,22], [2,2]]]" @click="notify"></ha-button>  -->

@@ -22,9 +22,11 @@
       <ha-button color='white' height="100%" :icon="iconSet" slot="footer" @click="setTable" v-show="!set"></ha-button>
 
 
-      <ha-card type="Hor" :lmrWidth="['0%', '70%', '30%']" class="ha-table-advance-set-default ha-table-advance-set" slot="content" v-show="set">
-        <ha-scroll :toBottom='true' :toTop="true">
-          <ha-check color='primary' :styleProp="{marginTop: '2px' }" :content="h" v-for="(h, i) in datas.head" :key="i" :isCheck="headShow.indexOf(h)>-1" @checked="checkHead"></ha-check>
+      <ha-card type="Hor" :lmrWidth="['0%', '70%', '30%']" slot="content" v-show="set">
+        <ha-scroll :toBottom='true' :toTop="true" :color="['grey','grey','grey','grey']">
+          <div class="ha-table-advance-set-check-container-default ha-table-advance-set-check-container" v-for="(h, i) in datas.head" :key="i">
+            <ha-check color='green' :styleProp="{marginTop: '2px' }" :content="h" :isCheck="headShow.indexOf(h)>-1" @checked="checkHead"></ha-check>
+          </div>
         </ha-scroll>
         <ha-button :color="haColor[3]" height="100%" slot="right" :icon="iconReturn" @click="backTable" v-show="set"></ha-button>
       </ha-card>
@@ -173,22 +175,13 @@ export default {
 
   .ha-table-advance-content-td-default {
     text-align: center;
-    box-sizing: content-box;
-    // border: solid 1px #aaa
-  }
-  
-  .ha-table-advance-set-default{
-    // box-sizing: border-box;
-    // width: 100%;
-    // height: 100%;
-    // border: 1px solid #ddd;
   }
   .ha-table-advance-set-check-container {
     display: inline-block;
-    width: 50%;
-    // max-width: 200px;
-    height: auto;
-    margin: 0 25%;
+    width: 48%;
+    height: 5%;
+    margin: 5px 0;
+    margin-left: 2%;
   }
 </style>
 
