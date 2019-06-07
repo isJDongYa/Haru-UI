@@ -1,9 +1,7 @@
-import HaTableBase from './ha-table-base'
-import HaTableAdvance from './ha-table-advance'
+import HaTable from './HaTable.vue'
 
 export default {
   install(Vue) {
-    Vue.use(HaTableBase)
-    Vue.use(HaTableAdvance)
+    Vue.component('ha-table', HaTable)
   }
 }

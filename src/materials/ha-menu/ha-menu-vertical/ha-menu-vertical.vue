@@ -1,6 +1,6 @@
 <template>
   <ha-rectangle :z="z" :width="width" :height="height" :coor="coor"  :styleProp="styleProp">
-    <ha-menu-list-vertical :fontColor="fontColor" :menuList="menuList" :color="color" :singleOpen="singleOpen">
+    <ha-menu-list-vertical :fontColor="fontColor" :menuList="menuList" :bgColor="bgColor" :singleOpen="singleOpen">
       <slot></slot>
     </ha-menu-list-vertical>
   </ha-rectangle>

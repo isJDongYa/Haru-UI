@@ -12,7 +12,7 @@ const colorsClassObject = {
 
 export default {
   props: {
-    color: {
+    bgColor: {
       type: [String, Array],
       required: false,
       default: ''
@@ -127,21 +127,21 @@ export default {
   },
   computed: {
     haColor() {
-      if(Array.isArray(this.color)) {
-          return this.color.map( c => {
+      if(Array.isArray(this.bgColor)) {
+          return this.bgColor.map( c => {
             return this.getColorClass(c)
           })
       } else {
-        return this.getColorClass(this.color)
+        return this.getColorClass(this.bgColor)
       }
     },
-    haColorNum() {
-      if(Array.isArray(this.color)) {
-          return this.color.map( c => {
+    haBgColorNum() {
+      if(Array.isArray(this.bgColor)) {
+          return this.bgColor.map( c => {
             return this.getColorNum(c)
           })
       } else {
-        return this.getColorNum(this.color)
+        return this.getColorNum(this.bgColor)
       }
     },
     haFontColor() {

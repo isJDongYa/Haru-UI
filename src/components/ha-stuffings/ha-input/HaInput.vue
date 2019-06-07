@@ -1,7 +1,7 @@
 <template>
   <ha-card
   :width="width" :height="height" :coor="coor" 
-  :color="[checkObj.color, checkObj.color, 'white']"  
+  :bgColor="[checkObj.bgColor, checkObj.bgColor, 'white']"  
   type="Ver"  
   :hcfHeight="hcfHeight"
   :hover="hover"
@@ -62,7 +62,7 @@ export default {
       default: function() {
         return {
           msg: '',
-          color: this.color
+          bgColor: this.bgColor
         }
       }
     }

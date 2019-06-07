@@ -3,60 +3,53 @@
     <ha-scroll :toBottom="true" :toTop="true" :color="['primary', 'red', 'blue', 'yellow']">
       <ha-rectangle height='100%' width='100%'>
         <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
-          <ha-file :coor="[[[6,8], [30,30]], [[5,3], [15, 40]]]" color="blue" :styleProp="{ border: 'solid 1px #ddd' }"></ha-file>
-            <!-- <ha-avatar :url="imgSrc" color='darkPrimary' :coor="[[[1,1], [5,9]], [[1,1], [4,5]]]"></ha-avatar>
-            <ha-menu-vertical :fontColor="['blue', 'accentBlue']" :color="['white', 'white']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[1,10 ], [5,42]], [[1,6], [4,45]]]">
-              <ha-avatar :url="imgSrc" color='darkPrimary' width="100px" height="100px"></ha-avatar>
-            </ha-menu-vertical>
-            <ha-menu-horizontal :z="100" :fontColor="['blue', 'accentBlue']" :color="['', '']" :menuList="menuList" :styleProp="styleProp"  :singleOpen="true" :coor="[[[6,1], [44,3]], [[5,6], [44, 3]]]">
-              <ha-avatar :url="imgSrc" color='darkPrimary' width="30%" height="70%"></ha-avatar>
-            </ha-menu-horizontal> -->
-            <!-- <ha-rectangle :coor="[[[6,8], [5,8]], [[5,3], [5, 15]]]">
-              <ha-number :num="0" fontColor="green"></ha-number>
-            </ha-rectangle> -->
-            <!-- <ha-rectangle :coor="[[[12,8], [5,8]], [[10,3], [5, 15]]]">
-              <ha-number :num="num" fontColor="green"></ha-number>
+          <!-- <ha-file :coor="[[[6,8], [30,30]], [[5,3], [15, 40]]]" color="blue" :styleProp="{ border: 'solid 1px #ddd' }"></ha-file> -->
+            <!-- <ha-avatar :url="imgSrc" color='darkPrimary' :coor="[[[1,1], [5,9]], [[1,1], [4,5]]]"></ha-avatar> -->
+            <!-- <ha-menu-vertical  :color="['black', 'grey']" :menuList="menuList"  :singleOpen="true" :coor="[[[1,10], [5,42]], [[1,6], [4,45]]]">
+              
+            </ha-menu-vertical> -->
+            <!-- <ha-menu-horizontal :z="100" :fontColor="['blue', 'accentBlue']" :color="['', '']" :menuList="menuList" :singleOpen="true" :coor="[[[6,1], [44,3]], [[6,1], [19, 3]]]">
+             
+            </ha-menu-horizontal>  -->
+            <ha-rectangle :coor="[[[4,4], [42,42]], [[3,3], [19, 44]]]" hover="shadow" :styleProp="styleProp">
+              <ha-coordinater :grid="[[1180, 50, 50]]">
+                <ha-rectangle :coor="[[[10,10], [5, 15]]]">
+                  <ha-letter letter="H" :capital="true" fontColor="blue"></ha-letter>
+                </ha-rectangle>
+                <ha-rectangle :coor="[[[14,10], [5, 15]]]">
+                  <ha-letter letter="a" :capital="false" fontColor="yellow"></ha-letter>
+                </ha-rectangle>
+                <ha-rectangle :coor="[[[18,10], [5, 15]]]">
+                  <ha-letter letter="r" :capital="false" fontColor="green"></ha-letter>
+                </ha-rectangle>
+                <ha-rectangle :coor="[[[22,10], [5, 15]]]">
+                  <ha-letter letter="u" :capital="false" fontColor="red"></ha-letter>
+                </ha-rectangle>
+                <ha-rectangle :coor="[[[28,10], [5, 15]]]">
+                  <ha-letter letter="U" :capital="true" fontColor="black"></ha-letter>
+                </ha-rectangle>
+                <ha-rectangle :coor="[[[32,10], [5, 15]]]">
+                  <ha-letter letter="I" :capital="true" fontColor="accentBlue"></ha-letter>
+                </ha-rectangle>
+                <ha-button bgColor="green" :coor="[[[22,28], [3, 2]]]" title="开始" hover="shadow" @click="notify"></ha-button>
+                <!-- <ha-rectangle :coor="[[[5,3], [5, 15]]]">
+                  <ha-number :num="0" fontColor="green"></ha-number>
+                </ha-rectangle> -->
+               
+              </ha-coordinater>
             </ha-rectangle>
-            <ha-rectangle :coor="[[[18,8], [5,8]], [[15,3], [5, 15]]]">
-              <ha-number :num="2" fontColor="red" :dot="true"></ha-number>
-            </ha-rectangle>
-            <ha-rectangle :coor="[[[6,17], [5,8]], [[5,19], [5, 15]]]">
-              <ha-number :num="3" fontColor="yellow" :dot="true"></ha-number>
-            </ha-rectangle>
-            <ha-rectangle :coor="[[[12,17], [5,8]], [[10,19], [5, 15]]]">
-              <ha-number :num="4" fontColor="yellow"></ha-number>
-            </ha-rectangle>
-            <ha-rectangle :coor="[[[18,17], [5,8]], [[15,19], [5, 15]]]">
-              <ha-letter letter="G" :capital="true" fontColor="lightRed"></ha-letter>
-            </ha-rectangle> -->
             <!-- <ha-button title="打开mask" :coor="[[[33,19], [3,2]]]" @click="openMaskClick"></ha-button>-->
             <!-- <ha-button title="通知" :coor="[[[33,22], [2,2]]]" @click="notify"></ha-button>  -->
-            <!-- <ha-button title="darkPrimary" color='darkPrimary' :coor="[[[55,19], [3,2]], [[2,32], [3, 2]]]" :styleProp="btnStyle" hover="shadow"></ha-button> -->
-            
-          <!-- <ha-avatar :url="imgSrc" color='darkPrimary' :coor="[[[36,19], [2,3]], [[2,32], [2, 3]]]"></ha-avatar> -->
-          <!-- <ha-button title="lightPrimary" color='lightPrimary' :coor="[[[39,19], [3,2]]]"></ha-button>
-          <ha-button title="lightPrimary" color='accentPrimary' :coor="[[[42,19], [3,2]]]"></ha-button>
-          <ha-button color='red' title="red" :coor="[[[33,22], [3,2]]]"></ha-button>
-          <ha-button color='lightRed' title="lightRed" :coor="[[[36,22], [3,2]]]"></ha-button>
-          <ha-button color='darkRed' title="darkRed" :coor="[[[39,22], [3,2]]]"></ha-button>
-          <ha-button color='accentRed' title="accentRed" :coor="[[[42,22], [3,2]]]"></ha-button>
-          <ha-button color='grey' title="grey" :coor="[[[33,25], [3,2]]]"></ha-button>
-          <ha-button color='lightGrey' title="lightGrey" :coor="[[[36,25], [3,2]]]"></ha-button>
-          <ha-button color='darkGrey' title="darkGrey" :coor="[[[39,25], [3,2]]]"></ha-button>
-          <ha-button color='accentGrey' title="accentGrey" :coor="[[[42,25], [3,2]]]"></ha-button>
-          <ha-button color='yellow' title="yellow" :coor="[[[33,28], [3,2]]]"></ha-button>
-          <ha-button color='blue' title="blue" :coor="[[[33,31], [3,2]]]"></ha-button>
-          <ha-button color='white' title="white" :coor="[[[33,34], [3,2]]]" :styleProp="btnStyle"></ha-button>
-          <ha-button color='black' title="black" :coor="[[[36,34], [3,2]]]"></ha-button> -->
-          <!-- <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[10,11], [20,25]], [[6,11], [18, 20]]]"></ha-table-base> -->
-          <!-- <ha-table-advance @pageError="show=true" :color="['primary', 'white', 'lightGrey']" :colNoShow="['列一', '列三']" :datas="datas" :coor="[[[10,11], [20,30]], [[6,11], [18, 20]]]" :perPage="10"></ha-table-advance> -->
-          <!-- <ha-card :color="['blue', 'blue', 'black']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :lmrWidth="['20%', '60%', '20%']" type="Hor">
+          
+          <!-- <ha-table-base :bgColor="['black', 'white', 'lightGrey', 'lightGrey']" :datas="datas" :coor="[[[10,11], [20,25]], [[6,11], [18, 20]]]"></ha-table-base> -->
+          <ha-table type="advance" @pageError="show=true" :bgColor="['black', 'green', 'lightGrey']" :colNoShow="['列9', '列三']" :datas="datas" :coor="[[[10,11], [35,20]], [[6,11], [18, 20]]]" :perPage="16"></ha-table>
+          <!-- <ha-card :bgColor="['blue', 'blue', 'black']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :lmrWidth="['20%', '60%', '20%']" type="Hor">
             <span slot="left">卡片</span>
             <div slot="right" style="width:100%;height:100%">
-              <ha-card :color="['blue', 'blue', 'blue']" width="100%" height="100%" type="Ver"  :hcfHeight="['20%', '80%', '0%']">
+              <ha-card :bgColor="['blue', 'blue', 'blue']" width="100%" height="100%" type="Ver"  :hcfHeight="['20%', '80%', '0%']">
                 <div slot="header" style="width:100%;height:100%">
-                  <ha-button color='primary' title="确认" width="100%" height="30px" @click="notify" ></ha-button>
-                  <ha-button color='darkRed' title="取消" width="100%" height="30px"></ha-button>
+                  <ha-button bgColor='green' title="确认" width="100%" height="30px" @click="notify" ></ha-button>
+                  <ha-button bgColor='darkRed' title="取消" width="100%" height="30px"></ha-button>
                 </div>
               </ha-card>
             </div>
@@ -67,8 +60,6 @@
               <p>这里是ha-card的content区域,所有的元素都会被居中</p>
               <p>这里是ha-card的content区域,所有的元素都会被居中</p>
             </div>
-            <ha-button color='blue' title="确认" slot="footer" width="60px" height="28px"></ha-button>
-            <ha-button color='darkRed' title="取消" slot="footer" width="60px" height="28px"></ha-button>
           </ha-card> -->
           <!-- <ha-input type="text" name="input" v-model="inputVal"  :checkFun="checkFun" lable="输入框:" color="black" :coor="[[[10,18], [8,3]]]"></ha-input> -->
  
@@ -93,7 +84,6 @@
   </div>
 </template>
 <script>
-import { setInterval, clearInterval } from 'timers';
 export default {
   name: 'app',
   methods: {
@@ -101,12 +91,12 @@ export default {
       if(!val) {
         return {
           msg: '输入值不能为空',
-          color: 'red'
+          bgColor: 'red'
         }
       } else {
         return {
           msg: '输入值不为空,正确',
-          color: 'green'
+          bgColor: 'green'
         }
       }
     },
@@ -147,14 +137,25 @@ export default {
       show: false,
       imgSrc: require('@imgs/scauLogo.jpg'),
       datas: {
-        title: '表格标题',  //thead
         head:  ['列一','列二','列三','列四', '列5','列6','列7','列8','列9'], // 表头，
-        data: [
-          [1,2,3,4,5,6,7,8,9], 
+        rows: [
+          {
+            bgColor: 'blue',
+            row: [1,'这是ha-table的一个单元格',3,4,5,6,7,8,9]
+          }, 
+          {
+            bgColor: 'red',
+            row: [{
+              data: 1,
+              bgColor: 'yellow'
+            },2,3,4,5]
+          }, 
           [1,2,3,4,5], 
           [1,2,3,4,5], 
-          [1,2,3,4,5], 
-          [0,0,0,0],
+          [{
+            data: 0,
+            bgColor: 'blue'
+          },0,0,0],
           [0,0,0,0],
           [0,0,0,0],
           [0,0,0,0],
@@ -184,9 +185,9 @@ export default {
         'border-radius': '4px'
       },
       styleProp: {
-        borderRight: 'solid 1px #ddd',
+        border: 'solid 1px #ddd',
         margin: '0px 0 0px 0px',
-        borderRadius: '0px'
+        borderRadius: '20px'
       },
       
       menuList: {

@@ -1,6 +1,6 @@
 <template>
   <ha-rectangle :width="width" :height="height" :coor="coor"  :hover="hover" :style="getStyleStr">
-    <button :class="['ha-btn-default', haColor, 'ha-btn']" @click="click">
+    <button :class="[haColor, 'ha-btn-default', 'ha-btn']" @click="click">
       <img class="ha-btn-icon-default ha-btn-icon" :src="icon" v-if="icon">
       <span v-if="title">{{ title }}</span>
     </button>
