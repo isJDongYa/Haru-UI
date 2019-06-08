@@ -11,7 +11,9 @@
             <ha-rectangle :coor="[[[4,4], [42,42]], [[3,3], [19, 44]]]" hover="shadow" :styleProp="styleProp">
               <ha-coordinater :grid="[[1180, 50, 50]]">
                 <ha-rectangle :coor="[[[10,10], [5, 15]]]" hover="shadow">
-                  <ha-letter letter="H" :capital="true" fontColor="blue"></ha-letter>
+                  <ha-tooltip>
+                    <ha-letter letter="H" :capital="true" fontColor="blue"></ha-letter>
+                  </ha-tooltip>
                 </ha-rectangle>
                 <ha-rectangle :coor="[[[14,10], [5, 15]]]"  hover="shadow">
                   <ha-letter letter="a" :capital="false" fontColor="yellow"></ha-letter>
