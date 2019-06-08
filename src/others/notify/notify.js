@@ -21,7 +21,7 @@ function notify(Vue) {
     const Notify = Vue.extend(HaNotify)
     const instance = new Notify({ propsData: { msg, location, bgColor, icon } }).$mount()
     vm.$haru.notifyIns.push(instance.$el)
-    vm.$el.appendChild(instance.$el)
+    vm.$root.$el.appendChild(instance.$el)
 
     setTimeout(() => {
       vm.$el.removeChild(instance.$el)

@@ -7,7 +7,6 @@ import HaNumber from './ha-number'
 import HaLetter from './ha-letter'
 import HaBack from './ha-back'
 import HaPage from './ha-page'
-import HaTooltip from './ha-tooltip'
 
 export default {
   install(Vue) {
@@ -20,6 +19,5 @@ export default {
     Vue.use(HaLetter)
     Vue.use(HaBack)
     Vue.use(HaPage)
-    Vue.use(HaTooltip)
   }
 } 
