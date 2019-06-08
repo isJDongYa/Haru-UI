@@ -7,11 +7,15 @@
       :hover="hover"
       :z="z"
     >
+      
+      <!-- 表头 -->
       <table class="ha-table-advance-content-table-default ha-table-advance-content-table" v-show="!set" slot="header">
         <tr :class="haColor[0]">
           <td class="ha-table-advance-content-td-default ha-table-advance-content-td" v-for="(item, itemIndex) in headShow" :key="itemIndex">{{ item }}</td>
         </tr>
       </table>
+
+      <!--  内容 -->
       <ha-scroll slot="content" :bgColor="['grey', 'grey']" v-show="!set">
         <table class="ha-table-advance-content-table-default ha-table-advance-content-table">
           <tr 
@@ -34,19 +38,19 @@
           </tr>
         </table>
       </ha-scroll>
+
+      <!-- 控制 -->
       <ha-page :page="Math.floor(datas.rows.length/perPage)+1" slot="footer" v-if="type==='advance'" v-show="!set" @pageChange="gotoPage" @pageError="alert"></ha-page>
       <ha-button bgColor='white' height="100%" :icon="iconSet" slot="footer" v-if="type==='advance'" @click="setTable" v-show="!set"></ha-button>
 
-
-      <ha-card type="Hor" :lmrWidth="['0%', '70%', '30%']" slot="content" v-show="set" v-if="type==='advance'">
-        <ha-scroll :toBottom='true' :toTop="true" :bgColor="['grey','grey','grey','grey']">
-          <div class="ha-table-advance-set-check-container-default ha-table-advance-set-check-container" v-for="(h, i) in datas.head" :key="i">
-            <ha-check bgColor='green' :styleProp="{marginTop: '2px' }" :content="h" :isCheck="headShow.indexOf(h)>-1" @checked="checkHead"></ha-check>
-          </div>
-        </ha-scroll>
-        <ha-button :bgColor="haColor[3]" height="100%" slot="right" :icon="iconReturn" @click="backTable" v-show="set"></ha-button>
-      </ha-card>
-      
+      <!-- 设置 -->
+      <ha-scroll :toBottom='true' :toTop="true" :bgColor="['grey','grey','grey','grey']" slot="content" v-show="set" v-if="type==='advance'">
+        <div class="ha-table-advance-set-check-container-default ha-table-advance-set-check-container" v-for="(h, i) in datas.head" :key="i">
+          <ha-check bgColor='green' :styleProp="{marginTop: '2px' }" :content="h" :isCheck="headShow.indexOf(h)>-1" @checked="checkHead"></ha-check>
+        </div>
+      </ha-scroll>
+      <ha-back bgColor="white" height="100%" title="请设置需要展示的列" slot="header" @back="backTable" v-show="set" v-if="type==='advance'"></ha-back>
+    
     </ha-card>
 </template>
 <script>
@@ -61,6 +65,7 @@ import HaCard from '@containers/ha-card/HaCard.vue'
 import HaPage from '@materials/ha-page/HaPage.vue'
 import HaScroll from '@containers/ha-scroll/HaScroll.vue'
 import HaCheck from '@stuffings/ha-check/HaCheck.vue'
+import HaBack from '@stuffings/ha-back/HaBack.vue'
 
 export default {
   name: 'ha-table',
@@ -69,7 +74,8 @@ export default {
     'ha-card': HaCard,
     'ha-check': HaCheck,
     'ha-scroll': HaScroll,
-    'ha-page': HaPage
+    'ha-page': HaPage,
+    'ha-back': HaBack
   },
   props: {
     type: {
@@ -144,7 +150,7 @@ export default {
       }
     },
     headShow() {
-      if(this.base === 'advance') {
+      if(this.type === 'advance') {
         if(this.colNoShowData.length === 0) {
           return [...this.datas.head]
         } else {
@@ -196,11 +202,11 @@ export default {
       this.page = p - 1
     },
     setTable() {
-      this.selfHcfHeight = ['0%', '100%', '0%']
+      this.selfHcfHeight = ['15%', '85%', '0%']
       this.set = true
     },
     backTable() {
-      this.selfHcfHeight = ['10%', '85%', '5%']
+      this.selfHcfHeight = ['15%', '80%', '5%']
       this.set = false
     },
     checkHead(checkObj) {

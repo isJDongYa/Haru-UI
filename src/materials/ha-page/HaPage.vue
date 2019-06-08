@@ -49,8 +49,8 @@ export default {
       leftPage: [1,2,3],
       dotShow: this.page>6,
       inputPage: '',
-      upImg: require('@icons/上一个.svg'),
-      downImg: require('@icons/下一个.svg')
+      upImg: this.$haru.icons._lastOne,
+      downImg: this.$haru.icons._nextOne
     }
   },
   watch: {
