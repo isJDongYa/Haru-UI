@@ -5,7 +5,7 @@ function notify(Vue) {
     msg,
     duration = 4000,
     location = 'topRight',
-    color = 'blue',
+    bgColor = 'blue',
     icon
   }) {
     if(vm.$haru.notifyIns.length !== 0) {
@@ -19,7 +19,7 @@ function notify(Vue) {
       })
     }
     const Notify = Vue.extend(HaNotify)
-    const instance = new Notify({ propsData: { msg, location, color, icon } }).$mount()
+    const instance = new Notify({ propsData: { msg, location, bgColor, icon } }).$mount()
     vm.$haru.notifyIns.push(instance.$el)
     vm.$el.appendChild(instance.$el)
 

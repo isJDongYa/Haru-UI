@@ -1,11 +1,11 @@
 <template>
-  <ha-rectangle :width="width" :height="height" :coor="coor"  :hover="hover" :style="getStyleStr">
+  <div class="ha-btn-container-default ha-btn-container">
     <button :class="[haColor, 'ha-btn-default', 'ha-btn']" @click="click">
       <img class="ha-btn-icon-default ha-btn-icon" :src="icon" v-if="icon">
       <span v-if="title">{{ title }}</span>
     </button>
     <div class="ha-btn-disabled-default ha-btn-disabled" v-show="disabled"></div>
-  </ha-rectangle>
+  </div>
 </template>
 <script>
 import coorMixin from '@mixins/coorMixin'
@@ -49,7 +49,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+  .ha-btn-container-default {
+    width: 100%;
+    height: 100%;
+  }
   .ha-btn-default {
     display: flex;
     width: 100%;

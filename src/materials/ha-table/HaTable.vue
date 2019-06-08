@@ -62,8 +62,8 @@ import hoverMixin from '@mixins/hoverMixin'
 import zMixin from '@mixins/zMixin'
 
 import HaCard from '@containers/ha-card/HaCard.vue'
-import HaPage from '@materials/ha-page/HaPage.vue'
-import HaScroll from '@containers/ha-scroll/HaScroll.vue'
+import HaPage from '@stuffings/ha-page/HaPage.vue'
+import HaScroll from '@stuffings/ha-scroll/HaScroll.vue'
 import HaCheck from '@stuffings/ha-check/HaCheck.vue'
 import HaBack from '@stuffings/ha-back/HaBack.vue'
 

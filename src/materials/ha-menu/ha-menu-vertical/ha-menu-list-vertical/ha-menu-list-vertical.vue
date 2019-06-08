@@ -8,9 +8,14 @@ import findDomChildren from '@utils/findDomChildren'
 import findDomLastChild from '@utils/findDomLastChild'
 import findDomAllSiblings from '@utils/findDomAllSiblings'
 
+import HaScroll from '@stuffings/ha-scroll/HaScroll.vue'
+
 export default {
   name: 'ha-menu-list-vertical',
   mixins:[colorMixin, singleOpenMixin],
+  components: {
+    'ha-scroll': HaScroll,
+  },
   data() {
     return {
       groupMap: new Map()

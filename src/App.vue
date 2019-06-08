@@ -4,22 +4,19 @@
       <ha-rectangle height='100%' width='100%'>
         <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
           <!-- <ha-file :coor="[[[6,8], [30,30]], [[5,3], [15, 40]]]" color="blue" :styleProp="{ border: 'solid 1px #ddd' }"></ha-file> -->
-            <!-- <ha-avatar :url="imgSrc" color='darkPrimary' :coor="[[[1,1], [5,9]], [[1,1], [4,5]]]"></ha-avatar> -->
-            <!-- <ha-menu-vertical  :color="['black', 'grey']" :menuList="menuList"  :singleOpen="true" :coor="[[[1,10], [5,42]], [[1,6], [4,45]]]">
-              
-            </ha-menu-vertical> -->
+            <!-- <ha-menu-vertical  :bgColor="['black', 'grey']" :menuList="menuList"  :singleOpen="true" :coor="[[[1,10], [5,42]], [[1,6], [4,45]]]"></ha-menu-vertical> -->
             <!-- <ha-menu-horizontal :z="100" :fontColor="['blue', 'accentBlue']" :color="['', '']" :menuList="menuList" :singleOpen="true" :coor="[[[6,1], [44,3]], [[6,1], [19, 3]]]">
              
             </ha-menu-horizontal>  -->
             <ha-rectangle :coor="[[[4,4], [42,42]], [[3,3], [19, 44]]]" hover="shadow" :styleProp="styleProp">
               <ha-coordinater :grid="[[1180, 50, 50]]">
-                <ha-rectangle :coor="[[[10,10], [5, 15]]]">
+                <ha-rectangle :coor="[[[10,10], [5, 15]]]" hover="shadow">
                   <ha-letter letter="H" :capital="true" fontColor="blue"></ha-letter>
                 </ha-rectangle>
-                <ha-rectangle :coor="[[[14,10], [5, 15]]]">
+                <ha-rectangle :coor="[[[14,10], [5, 15]]]"  hover="shadow">
                   <ha-letter letter="a" :capital="false" fontColor="yellow"></ha-letter>
                 </ha-rectangle>
-                <ha-rectangle :coor="[[[18,10], [5, 15]]]">
+                <ha-rectangle :coor="[[[18,10], [5, 15]]]"  hover="shadow">
                   <ha-letter letter="r" :capital="false" fontColor="green"></ha-letter>
                 </ha-rectangle>
                 <ha-rectangle :coor="[[[22,10], [5, 15]]]">
@@ -31,9 +28,11 @@
                 <ha-rectangle :coor="[[[32,10], [5, 15]]]">
                   <ha-letter letter="I" :capital="true" fontColor="accentBlue"></ha-letter>
                 </ha-rectangle>
-                <ha-button bgColor="green" :coor="[[[22,28], [3, 2]]]" title="开始" hover="shadow" @click="notify"></ha-button>
-                <!-- <ha-rectangle :coor="[[[5,3], [5, 15]]]">
-                  <ha-number :num="0" fontColor="green"></ha-number>
+                <ha-rectangle :coor="[[[22,28], [3, 2]]]" hover="shadow">
+                  <ha-button bgColor="green"  title="开始" @click="notify"></ha-button>
+                </ha-rectangle>
+                <!-- <ha-rectangle :coor="[[[3,2], [5,9]]]" hover="shadow">
+                  <ha-avatar :url="imgSrc" color='darkPrimary'></ha-avatar>
                 </ha-rectangle> -->
                
               </ha-coordinater>
@@ -42,7 +41,7 @@
             <!-- <ha-button title="通知" :coor="[[[33,22], [2,2]]]" @click="notify"></ha-button>  -->
           
           <!-- <ha-table-base :bgColor="['black', 'white', 'lightGrey', 'lightGrey']" :datas="datas" :coor="[[[10,11], [20,25]], [[6,11], [18, 20]]]"></ha-table-base> -->
-          <ha-table type="advance" @pageError="show=true" :bgColor="['black', 'green', 'lightGrey']" :colNoShow="['列9', '列三']" :datas="datas" :coor="[[[10,11], [20,25]], [[6,11], [18, 20]]]" :perPage="8"></ha-table>
+          <!-- <ha-table type="advance" @pageError="show=true" :bgColor="['black', 'green', 'lightGrey']" :colNoShow="['列9', '列三']" :datas="datas" :coor="[[[10,11], [20,25]], [[6,11], [18, 20]]]" :perPage="8"></ha-table> -->
           <!-- <ha-card :bgColor="['blue', 'blue', 'black']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :lmrWidth="['20%', '60%', '20%']" type="Hor">
             <span slot="left">卡片</span>
             <div slot="right" style="width:100%;height:100%">
@@ -111,7 +110,7 @@ export default {
         msg: '这是一个haru UI的通知'+(++this.i),
         duration: 3000,
         location: 'topRight',
-        color: 'lightBlue',
+        bgColor: 'lightBlue',
         icon: require('@icons/信息.svg')
       })
     },

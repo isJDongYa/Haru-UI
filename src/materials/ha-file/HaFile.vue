@@ -47,7 +47,7 @@ import whMixin from '@mixins/whMixin'
 import zMixin from '@mixins/zMixin'
 
 import HaCard from '@containers/ha-card/HaCard.vue'
-import HaScroll from '@containers/ha-scroll/HaScroll.vue'
+import HaScroll from '@stuffings/ha-scroll/HaScroll.vue'
 import HaCheck from '@stuffings/ha-check/HaCheck.vue'
 
 export default {

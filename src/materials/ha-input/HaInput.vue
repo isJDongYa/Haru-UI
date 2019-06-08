@@ -1,10 +1,14 @@
 <template>
   <ha-card
-  :width="width" :height="height" :coor="coor" 
+  :width="width" :height="height" 
+  :coor="coor" 
   :bgColor="[checkObj.bgColor, checkObj.bgColor, 'white']"  
+  :hover="hover"
+  :z="z"
+  :styleProp="styleProp"
+
   type="Ver"  
   :hcfHeight="hcfHeight"
-  :hover="hover"
   >
     <div class="ha-input-default ha-input" slot="header">
       <label class="ha-input-lable-default ha-input-lable" :for="name">
@@ -21,12 +25,15 @@
 import coorMixin from '@mixins/coorMixin'
 import whMixin from '@mixins/whMixin'
 import colorMixin from '@mixins/colorMixin'
+import stylePropMixin from '@mixins/stylePropMixin'
+import hoverMixin from '@mixins/hoverMixin'
+import zMixin from '@mixins/zMixin'
 
 import HaCard from '@containers/ha-card/HaCard.vue'
 
 export default {
   name: 'ha-input',
-  mixins: [coorMixin, whMixin, colorMixin],
+  mixins: [coorMixin, whMixin, colorMixin, stylePropMixin, hoverMixin, zMixin],
   components: {
     'ha-card': HaCard
   },
@@ -34,7 +41,14 @@ export default {
     type: {
       type: String,
       required: false,
-      default: 'text'
+      default: 'text',
+      validator: function(val) {
+        if(val === 'file') {
+          return false
+        } else {
+          return true
+        }
+      }
     },
     value: {
       type: String,
