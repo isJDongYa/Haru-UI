@@ -41,13 +41,13 @@ import stylePropMixin from '@mixins/stylePropMixin'
 import whMixin from '@mixins/whMixin'
 import hoverMixin from '@mixins/hoverMixin'
 
-import Vue from 'vue'
-import HaRectangle from '@containers/ha-rectangle'
-Vue.use(HaRectangle)
-
+import HaRectangle from '@containers/ha-rectangle/HaRectangle.vue'
 export default {
   name:'ha-card',
   mixins: [coorMixin, colorMixin, stylePropMixin, whMixin, hoverMixin],
+  components: {
+    'ha-rectangle': HaRectangle
+  },
   props: {
     type: {
       type: String,
@@ -61,14 +61,14 @@ export default {
       type: Array,
       required: false,
       default: () => {
-        return ['20%', '60%', '20%']
+        return ['0%', '100%', '0%']
       }
     },
     lmrWidth: {
       type: Array,
       required: false,
       default: () => {
-        return ['20%', '60%', '20%']
+        return ['0%', '100%', '0%']
       }
     }
   }

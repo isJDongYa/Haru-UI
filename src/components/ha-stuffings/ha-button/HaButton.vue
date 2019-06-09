@@ -8,19 +8,11 @@
   </div>
 </template>
 <script>
-import coorMixin from '@mixins/coorMixin'
 import colorMixin from '@mixins/colorMixin'
-import stylePropMixin from '@mixins/stylePropMixin'
-import whMixin from '@mixins/whMixin'
-import hoverMixin from '@mixins/hoverMixin'
-
-import Vue from 'vue'
-import HaRectangle from '@containers/ha-rectangle'
-Vue.use(HaRectangle)
 
 export default {
   name: 'ha-button',
-  mixins: [coorMixin, colorMixin, stylePropMixin, whMixin, hoverMixin],
+  mixins: [colorMixin],
   props: {
    icon: {
       type: String,

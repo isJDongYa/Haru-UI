@@ -65,15 +65,10 @@ export default {
       required: false,
       default: ''
     },
-    hover: {
-      type: String,
-      required: false,
-      default: ''
-    },
     checkFun: {
       type: Function,
       required: false,
-      default: function() {
+      default: function(val) {
         return {
           msg: '',
           bgColor: this.bgColor

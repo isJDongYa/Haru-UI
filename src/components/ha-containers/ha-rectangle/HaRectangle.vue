@@ -15,18 +15,12 @@ import whMixin from "@mixins/whMixin"
 import hoverMixin from '@mixins/hoverMixin'
 import stylePropMixin from '@mixins/stylePropMixin'
 import zMixin from '@mixins/zMixin'
+import overflowMixin from '@mixins/overflowMixin'
 
 
 export default {
   name: 'ha-rectangle',
-  mixins: [coorMixin, stylePropMixin, whMixin, hoverMixin,zMixin],
-  props: {
-    overflow: {
-      type: String,
-      required: false,
-      default: 'hidden'
-    }
-  }
+  mixins: [coorMixin, stylePropMixin, whMixin, hoverMixin, zMixin, overflowMixin]
 }
 </script>
 

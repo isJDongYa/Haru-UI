@@ -13,7 +13,7 @@ export default {
     letter: {
       type: String,
       required: false,
-      default: 'A'
+      default: 'a'
     },
     capital: {
       type: Boolean,

@@ -1,18 +1,25 @@
 # Haru UI
 
 ## 1.坐标器
+
 ### 1.1 \<ha-coordinater>
+
 - 作用
+
 > 为坐标系统提供坐标系, 以便于后续使用提供的坐标器进行定位
+
 - props:
+
   - grid:
-    - 值:
-    > 1. 一个二维数组,例如\[[1180, 50, 50], [580, 25, 50]]
+
+    > 1. 值为一个二维数组,例如\[[1180, 50, 50], [580, 25, 50]], 默认为[[0, 0, 0]]
     > 2. 该数组第一维的length表示有多少个坐标系,第二维则表示相对应的坐标系的情况,从左到右三个数分别表示:\[在网页可视宽度大于该值时使用此坐标系, 该坐标系的X轴等分值+1, 该坐标系的Y轴等分值+1]
     > 3. 例如\[[1180, 50, 50], [580, 25, 50]],表示在网页可视宽度大于1180px时使用第一个坐标系[1180, 50, 50],该坐标系的X轴被分为50等分,Y轴也被分为50等分,在网页可视宽度大于580px并且小于1180px时使用第二个坐标系[580, 25, 50],该坐标系的X轴被分为24等分,Y轴则被分为49等分
 
-- 示例: 
-```
+- 示例:
+
+``` html
+
 <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
   ...
   ...
@@ -20,21 +27,481 @@
   ...
   ...
 <ha-coordinater>
+
 ```
-- 实例: 
-```
+
+- 实例:
+
+``` html
+
 <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
   <ha-rectangle :coor="[[[6,8], [5,8]], [[5,3], [5, 15]]]">
     <ha-number :num="0" color="blue"></ha-number>
   </ha-rectangle>
 <ha-coordinater>
+
 ```
+
 - 当可视宽度大于1180px时结果为:
+
 ![结果1](./imgs/instances/ha-coordinater/ha-coordinater实例图1.png)
+
 - 当可视宽度大于580px并小于1180px时结果为:
 ![结果2](./imgs/instances/ha-coordinater/ha-coordinater实例图2.png)
 
+## 2.容器
+
+### 2.1 \<ha-rectangle>
+
+- 作用
+
+  > 为填充物提供布局和定位
+
+- props:
+
+  - coor:
+
+    > 1. 值为一个三维数组, 例如[[[4,4], [42,42]], [[3,3], [19, 44]]], 默认为[[[1, 1], [1, 1]]]
+    >
+    > 2. 该三维数组第一维的length表示该组件可用坐标的个数, 理论上应跟距离该组件最近的父级\<ha-coordinater>的名为grid的prop的第一维length相同,即"容器的坐标个数应与坐标器的坐标系个数一致".
+    > 3. 该三维数组的第二维有两个一维的数组,第一个表示坐标[x, y], 原点在左上角, 第二个表示[x轴上的长度(即该容器跨越多少的grid-column线), y轴上的长度(即该容器跨越多少的grid-row线) ]
+
+    - 为保证该值不影响整个坐标系的正常等分, 此组件的默认grid-column-span为2
+
+  - width:
+
+    > 1. 与css的width相同
+    > 2. 该prop默认值为"100%", 正常布局时保持默认即可填充完全整个grid-area的宽度, 如果修改此百分比则会在grid-area的宽度下进行计算: 实际宽度 = grid-area的宽度 * 该百分比值
+    > 3. 如果修改为固定长度则grid-area宽度无效, 使用此设定的的宽度, 但是该容器坐标位置不受影响
+
+  - height:
+
+    > 1. 与css的height相同
+    > 2. 该prop默认值为"100%", 正常布局时保持默认即可填充完全整个grid-area的高度, 如果修改此百分比则会在grid-area的高度下进行计算: 实际高度 = grid-area的高度 * 该百分比值
+    > 3. 如果修改为固定长度则grid-area高度无效, 使用此设定的的高度, 但是该容器坐标位置不受影响
+
+    - 为保证该值不影响整个坐标系的正常等分, 此组件的默认grid-row-span为2
+
+  - styleProp:
+
+    > 1. 理论上支持所有的style属性
+    > 2. 默认值为{}, 即空对象
+    > 3. 暴露该接口的主要目的在于调整容器的margin和border,
+    > 4. 次要目的才是调整其他的style.
+
+  - z: 
+
+    > 1. 与css的z-index一致
+    > 2. 默认值为 0
+    > 3. 目的是为了在坐标重叠时调整z轴上的前后关系 
+
+  - overflow: 
+
+    > 1. 与css的overflow一致
+    > 2. 默认值为hidden, 创建BFC保证容器内的任何内容不影响容器外的内容.
+
+- 示例
+
+  - TODO
+- 实例
+
+  - TODO
+
+### 2.2 \<ha-card>
+
+- 作用: 
+
+  在\<ha-rectangle>的基础上提供垂直和水平的三栏布局
+
+- props:
+
+  - 具有跟\<ha-rectangle>除overflow外一致的props
+
+  - type:
+
+    > 1. 值为"Ver"或者"Hor", 默认为"Ver"
+    >
+    > 2. 为"Ver"时为垂直的三栏容器, 为"Hor"时为水平的三栏容器
+
+  - hcfHeight:
+
+    > 1. 当名为type的prop为"Vet"时有效
+    > 2. 值为一个length为3的一维数组, 默认为['0%', '100%', '0%']
+    > 3. 该数组表示[头部名为header的slot的高度, 中间名为content的slot的高度, 底部名为footer的slot的高度]
+
+  - lmrWidth:
+
+    > 1. 当名为type的prop为"Hor"时有效
+    > 2. 值为一个length为3的一维数组, 默认为['0%', '100%', '0%']
+    > 3. 该数组表示[左边名为left的slot的宽度, 中间名为middle的slot的宽度, 右边名为right的slot的宽度]
+
+  - bgColor: 
+
+    > 1. 值为一个length为3的一维数组, 例如['blue', 'lightBlue', 'accentBlue']
+    > 2. 默认为'', 即空
+
+- slots: 
+
+  - 当名为type的prop的值为"Ver"时具有header, content, footer的具名插槽, 并且有一个跟content同位置的匿名插槽
+  - 当名为type的prop的值为"Hor"时具有left, middle, right的具名插槽, 并且有一个跟middle同位置的匿名插槽
+
+- 示例
+
+  - TODO
+
+- 实例
+
+  - TODO
+
+## 3. 填充物
+
+- 所有stuffings的默认宽高均为100%, 使用时请给予包裹一个具有宽度和高度的容器, 例如\<ha-rectangle>
+
+### 3.1 \<ha-button>
+
+- props:
+
+  - icon:
+
+    > 1. button的icon
+    > 2. 值为表示路径的字符串, 默认为空
+
+  - title: 
+
+    > 1. button的标题
+    > 2. 值为字符串, 默认为空
+
+  - disabled: 
+
+    > 1. 是否禁用button
+    > 2. 值为布尔值, 默认为false
+
+  - bgColor:
+
+    > 1. button的颜色
+    > 2. 值为表示颜色的字符串, 默认为空
+
+- events:
+
+  - click:
+
+    > 1. 当button被点击时触发
+    > 2. 无传递参数
+
+### 3.2 \<ha-number>
+
+- props:
+
+  - num:
+
+    > 1. 要显示的数字
+    > 2. 值为Number, 并且为在0 - 9 范围内的个位数, 默认为0
+
+  - dot
+
+    > 1. 是否显示小数点
+    > 2. 值为布尔值, 默认为false
+
+### 3.3 \<ha-letter>
+
+- props:
+
+  - capital:
+
+    > 1. 是否大写
+    > 2. 值为Boolean, 默认为false
+
+  - letter:
+
+    > 1. 要显示的字母
+    > 2. 值为String, 并且为在[a - z] | [A - Z] 范围内的个位数, 默认为a
+
+### 3.4 \<ha-avatar>
+
+- props:
+
+  - url:
+
+    > 1. 要显示的图像的url
+    > 2. 值为String, 默认为空
+
+  - alt
+
+    > 1. 未显示图像时显示的文字
+    > 2. 值为String, 默认为空
+
+### 3.5 \<ha-back>
+
+- props:
+
+  - title:
+
+    > 1. 要显示的标题
+    > 2. 值为String, 默认为空
+
+### 3.6 \<ha-page>
+
+- props: 
+
+  - page:
+
+    > 1. 总页数
+    > 2. 值为Number, 默认为1
+
+### 3.7 \<ha-check>
+
+- props:
+
+  - isCheck:
+
+    > 1. 初始时是否为checked
+    > 2. 值为Boolean, 默认为false
+
+  - content
+
+    > 1. 该check的内容
+    > 2. 值为String, 默认为空
+
+- events:
+
+  - checked:
+
+    > 1. 当选框被点击时触发
+    >
+    > 2. 传递的参数为一个对象, 该对象如下
+    >
+    >    ```js
+    >    {
+    >      isCheck: 当前选框是否选中, 值为Boolean, 
+    >      content:  与名为content的值一致
+    >    }
+    >    ```
+    >
+    >    
+
+- 注: 
+
+  > 1. 名为isCheck的prop只做初始化时使用
+  > 2. 触发checked事件是并不会改变父组件传递进来的绑定于名为isCheck的prop的值, 请根据事件传递的参数对象中的isCheck值进行判断
+
+## 4. 物料
+
+### 4.1 \<ha-menu-vertical>
+
+- 简介
+
+  > 1. 一个垂直的菜单
+
+- props:
+
+  - 具有跟\<ha-rectangle>除overflow外一致的props
+
+  - singleOpen:
+
+    > 1. 是否在打开一个子菜单时关闭其他同级的子菜单
+    > 2. 值为Boolean, 默认为false
+
+  - menuList:
+
+    > 1. 该菜单要显示的内容对象
+    >
+    > 2. 值为一个具有树状结构的对象, 默认为空对象{}
+    >
+    > 3. 该对象由两种对象组成,一种的表示子菜单的对象, 一种是表示item的对象
+    >
+    > 4. 子菜单对象示例: 
+    >
+    >    ```js
+    >    {
+    >      menuTitle: '该子菜单的标题',
+    >      menuList: [一个由子菜单对象或item对象组成的数组],
+    >      icon: '一个表示图标的url'
+    >    }
+    >    ```
+    >
+    > 5. item对象示例:
+    >
+    >    ```js
+    >    {
+    >      title: 'item的标题',
+    >      route: '点击时的vue-router的跳转路由',
+    >      icon: '一个表示图标的url'
+    >    }
+    >    ```
+    >
+    > 6. 该对象的数据结构示例如下:
+    >
+    >    ```js
+    >    {
+    >      menuTitle: 'ha-menu-vertical-title',
+    >      menuList: [
+    >        {
+    >          groupId: '1',
+    >          menuTitle: 'groupTitle',
+    >          icon: '一个表示图标的url',
+    >          menuList: [
+    >            {
+    >              groupId: '2',
+    >              menuTitle: 'g2',
+    >              menuList: [
+    >                {
+    >                  title: 'list1',
+    >                  route: '/list1',
+    >                  icon: '一个表示图标的url'
+    >                },
+    >                {
+    >                  title: 'list1',
+    >                  route: '/list1'
+    >                  icon: '一个表示图标的url'
+    >                },
+    >                {
+    >                  title: 'list1',
+    >                  route: '/list1'
+    >                },
+    >                {
+    >                  title: 'list1',
+    >                  route: '/list1'
+    >                },
+    >              ] 
+    >            },
+    >            {
+    >              groupId: '3',
+    >              menuTitle: 'g3',
+    >              icon: '一个表示图标的url',
+    >              menuList: [
+    >                {
+    >                  title: 'list1',
+    >                  route: '/list1'
+    >                },
+    >                {
+    >                  title: 'list1',
+    >                  route: '/list1'
+    >                },
+    >                {
+    >                  title: 'list1',
+    >                  route: '/list1'
+    >                },
+    >                {
+    >                  title: 'list1',
+    >                  route: '/list1'
+    >                },
+    >              ] 
+    >            }
+    >          ]
+    >        }
+    >      ]
+    >    }
+    >    ```
+    >
+
+  - bgColor: 
+
+    > 1. 表示子菜单和item的颜色
+    > 2. 值为一个length为2的数组, 默认值为空
+
+### 4.2 \<ha-menu-horizontal>
+
+- 简介:
+
+  > 1. 一个水平表示的菜单
+
+- props:
+
+  - 与\<ha-menu-vertical>具有一致的props
+
+### 4.3 \<ha-input>
+
+- 简介:
+
+  > 1. 一个有错误提示的输入框
+
+- props:
+
+  - 具有跟\<ha-rectangle>除overflow外一致的props
+
+  - type:
+
+    > 1. 表示输入框的类型
+    > 2. 值为String, 默认为'text'
+    > 3. 不能为'file'
+
+  - value: 
+
+    > 1. 该输入框的值
+    > 2. 值为String, 默认为空
+    > 3. 支持v-model
+
+  - labe
+
+    > 1. 表示该输入框的lable
+    > 2. 值为String, 默认为空
+
+  - name:
+
+    > 1. 该输入框的名字, 为lable和input的for属性使用
+    > 2. 值为String, 默认为空
+
+  - checkFun:
+
+    > 1. 一个检验value的函数,
+    >
+    > 2. 值为Function, 默认为
+    >
+    >    ```js
+    >    function(val) {
+    >      return {
+    >        msg: '',
+    >        bgColor: this.bgColor
+    >      }
+    >    }
+    >    ```
+    >
+    > 3. 该函数返回一个对象:
+    >
+    >    ```js
+    >    {
+    >      msg: '一个提示的字符串',
+    >      bgColor: '提示时的背景颜色'
+    >    }
+    >    ```
+
+### 4.4 \<ha-table>
+
+- 简介: 
+
+  > 1. 一个具有base和advance两种状态的表格
+
+- props:
+
+  - 具有跟\<ha-rectangle>除overflow外一致的props
+  - type: 
+  - datas:
+  - perPage:
+  - colNoShow:
+
+- events:
+
+  - pageError:
+
+    > 1. 当名为type的prop为advance时有效
+    > 2. 当页面输入框输入数字跳转时, 该数字小于或大于总页数时触发
+    > 3. 传递的参数为输入的数字字符串
+
+## 5. 其他
+
+### 5.1 \<ha-mask>
+
+### 5.2 \<ha-scroll>
+
+### 5.3 \<ha-tooltip>
+
+### 5.4 $haru.notify()
+
+### 5.5 $haru.icons
+
+### 5.6 $haru.colors
 
 
 
- 
+
+
