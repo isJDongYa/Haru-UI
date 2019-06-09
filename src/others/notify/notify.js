@@ -5,7 +5,7 @@ function notify(Vue) {
     msg,
     duration = 4000,
     location = 'topRight',
-    bgColor = 'blue',
+    bgColor = '',
     icon
   }) {
     if(vm.$haru.notifyIns.length !== 0) {

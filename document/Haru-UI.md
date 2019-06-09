@@ -100,9 +100,14 @@
     > 1. 与css的overflow一致
     > 2. 默认值为hidden, 创建BFC保证容器内的任何内容不影响容器外的内容.
 
+- 注: 
+
+  > 此组件的默认position为relative
+
 - 示例
 
   - TODO
+
 - 实例
 
   - TODO
@@ -144,6 +149,10 @@
 
   - 当名为type的prop的值为"Ver"时具有header, content, footer的具名插槽, 并且有一个跟content同位置的匿名插槽
   - 当名为type的prop的值为"Hor"时具有left, middle, right的具名插槽, 并且有一个跟middle同位置的匿名插槽
+
+- 注: 
+
+  > 此组件的默认position为relative
 
 - 示例
 
@@ -197,10 +206,15 @@
     > 1. 要显示的数字
     > 2. 值为Number, 并且为在0 - 9 范围内的个位数, 默认为0
 
-  - dot
+  - dot:
 
     > 1. 是否显示小数点
     > 2. 值为布尔值, 默认为false
+
+  - frontColor:
+
+    > 1. 设置所显示数字的颜色
+    > 2. 值为表示颜色的String, 默认为空
 
 ### 3.3 \<ha-letter>
 
@@ -215,6 +229,11 @@
 
     > 1. 要显示的字母
     > 2. 值为String, 并且为在[a - z] | [A - Z] 范围内的个位数, 默认为a
+
+  - frontColor:
+
+    > 1. 设置所显示字母的颜色
+    > 2. 值为表示颜色的String, 默认为空
 
 ### 3.4 \<ha-avatar>
 
@@ -239,6 +258,11 @@
     > 1. 要显示的标题
     > 2. 值为String, 默认为空
 
+  - bgColor:
+
+    > 1. 设置背景颜色
+    > 2. 值为表示颜色的String, 默认为空
+
 ### 3.6 \<ha-page>
 
 - props: 
@@ -260,6 +284,11 @@
   - content
 
     > 1. 该check的内容
+    > 2. 值为String, 默认为空
+
+  - bgColor:
+
+    > 1. 设置选框的颜色
     > 2. 值为String, 默认为空
 
 - events:
@@ -397,7 +426,7 @@
   - bgColor: 
 
     > 1. 表示子菜单和item的颜色
-    > 2. 值为一个length为2的数组, 默认值为空
+    > 2. 值为一个length为2的数组, 分别表示[group的背景颜色, item的背景颜色], 默认值为空
 
 ### 4.2 \<ha-menu-horizontal>
 
@@ -441,6 +470,11 @@
     > 1. 该输入框的名字, 为lable和input的for属性使用
     > 2. 值为String, 默认为空
 
+  - bgColor:
+
+    > 1. 设置默认背景颜色
+    > 2. 值为表示颜色的String, 默认为空
+
   - checkFun:
 
     > 1. 一个检验value的函数,
@@ -474,10 +508,82 @@
 - props:
 
   - 具有跟\<ha-rectangle>除overflow外一致的props
+
   - type: 
+
+    > 1. 设置类型为base或者advance
+    > 2. 值为base或者advance, 默认为base
+
   - datas:
+
+    > 1. 表格的数据
+    >
+    > 2. 值为一个对象, 示例如下
+    >
+    >    ```js
+    >    {
+    >      head:  ['列一','列二','列三','列四', '列5','列6','列7','列8','列9'], // 表头，
+    >      rows: [ 
+    >        {
+    >          bgColor: 'blue', // 设置该行颜色,如果名为type的prop值为base, bgColor无效
+    >          row: [1,'这是ha-table的一个单元格',3,4,5,6,7,8,9]
+    >        }, 
+    >        {
+    >          bgColor: 'red',// 设置该行颜色,如果名为type的prop值为base, bgColor无效
+    >          row: [{
+    >            data: 1,
+    >            bgColor: 'yellow'// 设置该单元格颜色,如果名为type的prop值为base, 则无效
+    >          },2,3,4,5]
+    >        }, 
+    >        [1,2,3,4,5], 
+    >        [1,2,3,4,5], 
+    >        [{
+    >          data: 0,
+    >          bgColor: 'blue'
+    >        },0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0],
+    >        [0,0,0,0]
+    >      ]
+    >    }
+    >    ```
+    >
+    >    
+
   - perPage:
+
+    > 1. 如果名为type的prop值为base, 该prop无效
+    > 2. 设置每页展示的行数
+    > 3.  值为Number, 默认为10
+
   - colNoShow:
+
+    > 1. 如果名为type的prop值为base, 该prop无效
+    > 2. 设置初始化时不展示的列
+    > 3. 值为一个一维数组, 数组的每个元素为名为datas的prop的对象的head里面之一, 默认为空
+
+  - bgColor:
+
+    > 1. 设置颜色
+    > 2. 值为一个length为3的数组, 分别表示[表头的颜色, 除去表头行数为奇数的行的颜色,  除去表头行数为偶数的行的颜色], 默认为空
 
 - events:
 
@@ -491,15 +597,124 @@
 
 ### 5.1 \<ha-mask>
 
+- 简介
+
+  > 遮罩组件
+
+- props:
+
+  - show:
+
+    > 1. 设置遮罩是否显示
+    > 2. 值为Boolean, 默认为false
+
+  - position:
+
+    > 1. 与css的position一致
+    > 2. 默认为fixed, 如果要在容器中使用, 可设置为absolute
+
+  - duration:
+
+    > 1. 设置此遮罩多少毫秒后自动消失
+    > 2. 值为Number, 默认为0
+
+  - clickHide:
+
+    > 1. 设置点击遮罩是否隐藏
+    > 2. 值为Boolean, 默认为false
+
+- 注: 
+
+  > 1. 此组件的宽度和高度默认100%
+  > 2. 在绑定此组件的show时应使用.sync修饰, 达到该组件内的show和外部传递进来的值保持一致
+
 ### 5.2 \<ha-scroll>
+
+- 简介:
+
+  > 滚动条
+
+- props:
+
+  - toBottom:
+
+    > 1. 设置到达低部的标识是否显示
+    > 2. 值为Boolean, 默认为false
+
+  - toTop:
+
+    > 1. 设置到达顶部的标识是否显示
+    > 2. 值为Boolean, 默认为false
+
+  - bgColor:
+
+    > 1. 设置颜色
+    > 2. 值为一个length为4的数组, 分别表示[Y方向滚动条颜色, X方向滚动条的颜色, toBottom的颜色, toTop的颜色], 默认为空
+
+- 注:
+
+  > 1. 此组件的默认高度和宽度为100%
 
 ### 5.3 \<ha-tooltip>
 
+- 简介:
+
+  > 提示信息
+
+- props:
+
+  - tip:
+
+    > 1. 设置要显示的提示信息
+    > 2. 值为String, 默认为空
+
+  - wait:
+
+    > 1. 设置鼠标放置后需要多少毫秒才显示tip
+    > 2. 值为Number, 默认为3000
+
+  - location:
+
+    > 1. 设置显示信息的位置
+    > 2. 值为top或者bottom
+
+- 注:
+
+  > 1. 此组件的默认高度和宽度为100%
+
 ### 5.4 $haru.notify()
 
-### 5.5 $haru.icons
+- 简介:
 
-### 5.6 $haru.colors
+  > 显示通知
+
+- 使用方法:
+
+  > 1. 组件直接调用(this.)$haru.notify(vm, options)
+  >
+  > 2. 参数vm为一个vue实例, 通知组件将挂载到此实例的$root.$el上, 建议直接传入调用时的所在组件实例, 即this
+  >
+  > 3. 参数options为一个对象, 示例如下:
+  >
+  >    ```js
+  >    {
+  >    	msg: '这是一个haru UI的通知', // 要显示的通知信息, 默认为空
+  >      duration: 4000, // 多少毫秒后该通知消失,默认为4000
+  >        
+  >      //显示位置,('topRight'|'bottomRight'|'topLeft'|
+  >      //'bottomLeft'|'topMiddle'|'bottomMiddle')的其中之一
+  >      // 默认为'topRight'
+  >      location: 'topRight', 
+  >        
+  >      bgColor: 'lightBlue',// 设置背景颜色, 默认为空
+  >      icon: require('@icons/信息.svg') // 设置要显示的icon, 默认为欸空
+  >    }
+  >    ```
+
+[^_^]:
+    ### 5.5 $haru.icons
+    
+    ### 5.6 $haru.colors
 
 
 

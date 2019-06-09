@@ -20,10 +20,19 @@ export default {
   },
   data() {
     return {
-      groupMap: new Map()
+      groupMap: new Map(),
+      group0: null,
+      listener: null
     }
   },
   methods: {
+    router(vm, route) {
+      return function() {
+        if(vm.$router){
+          vm.$router.push(route)
+        }
+      }
+    },
     closeOthers(domEl, groupId) {
       const siblings = findDomAllSiblings(domEl)
       for(let i=0;i<siblings.length;i++){
@@ -44,10 +53,22 @@ export default {
     displayState(groupId) {
       return this.groupMap.get(groupId)
     },
+    addEvent(vm) {
+      return function(e) {
+        vm.closeOthers(vm.group0.parentNode, '')
+        document.removeEventListener('click', vm.listener)
+      }
+    },
     changeDisplayState(sibling) {
-      sibling.style.display === 'none'
-        ? sibling.style.display = 'flex'
-        : sibling.style.display = 'none'
+     if(sibling.style.display === 'none') {
+       this.listener = this.addEvent(this)
+       setTimeout(() => {
+         document.addEventListener('click', this.listener)
+       }, 100)
+       sibling.style.display = 'flex'
+     } else {
+       sibling.style.display = 'none'
+     }
     },
     createMenuList(menuList){
       let itemId = 0
@@ -65,6 +86,9 @@ export default {
                 class={ ["ha-menu-list-horizontal-group-default", this.haColor[0], "ha-menu-list-horizontal-group"] }
                 style = { `color: ${this.haFontColor[0]}` }
                 onclick={ (e) => {
+                  if(this.listener) {
+                    document.removeEventListener('click', this.listener)
+                  }
                   let target = e.target
                   if(target.getAttribute('data-groupItem') === 'true') {
                     target = e.target.parentNode
@@ -100,7 +124,7 @@ export default {
               <div
               class={ ["ha-menu-list-horizontal-item-default", this.haColor[1]||this.haColor[0], "ha-menu-list-horizontal-item"] }
               style = { `color: ${this.haFontColor[1]}` }  
-              route={ listItem.route }
+              onclick = { this.router(this, listItem.route ) }
               >
                 { itemIcon }
                 <span data-groupItem='true'>{ listItem.title }</span>
@@ -118,6 +142,7 @@ export default {
         groups.forEach( group => {
           group.style.height = vm.$refs.haMenuHor.offsetHeight + 'px'
         })
+        vm.group0 = groups[0]
         const items = vm.$refs.haMenuHor.querySelectorAll('.ha-menu-list-horizontal-item')
         items.forEach( item => {
           item.style.height = 0.9 * vm.$refs.haMenuHor.offsetHeight + 'px'
@@ -157,11 +182,9 @@ export default {
   align-items: center;
 }
 .ha-menu-list-horizontal-group-default, .ha-menu-list-horizontal-item-default {
-  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  user-select: none;
   cursor: pointer;
 }
 .ha-menu-list-horizontal-itemParent-default {

@@ -8,7 +8,7 @@ import findDomChildren from '@utils/findDomChildren'
 import findDomLastChild from '@utils/findDomLastChild'
 import findDomAllSiblings from '@utils/findDomAllSiblings'
 
-import HaScroll from '@stuffings/ha-scroll/HaScroll.vue'
+import HaScroll from '@others/ha-scroll/HaScroll.vue'
 
 export default {
   name: 'ha-menu-list-vertical',
@@ -29,6 +29,13 @@ export default {
     }
   }, 
   methods: {
+    router(vm, route) {
+      return function() {
+        if(vm.$router){
+          vm.$router.push(route)
+        }
+      }
+    },
     closeOthers(domEl, groupId) {
       const siblings = findDomAllSiblings(domEl)
       for(let i=0;i<siblings.length;i++){
@@ -100,7 +107,7 @@ export default {
               <div 
               class={ ["ha-menu-list-vertical-item-default", this.haColor[1]||this.haColor[0], "ha-menu-list-vertical-item"] }
               style = { `color: ${this.haFontColor[1]}` } 
-              route={ listItem.route }>
+              onclick = { this.router(this, listItem.route ) }>
                 { itemIcon }
                 <span>{ listItem.title }</span>
               </div>

@@ -76,6 +76,7 @@ module.exports = {
       '@stuffings': path.resolve('src/components/ha-stuffings'),
       '@coordinater': path.resolve('src/coordinater'),
       '@materials': path.resolve('src/materials'),
+      '@others': path.resolve('src/others'),
       '@utils': path.resolve('src/utils'),
       '@scss': path.resolve('src/scss'),
       '@icons': path.resolve('src/icons'),

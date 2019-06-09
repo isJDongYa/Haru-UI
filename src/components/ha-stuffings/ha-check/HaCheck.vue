@@ -1,5 +1,5 @@
 <template>
-  <div class="ha-check-container-default ha-check-container" :style="getStyleStr">
+  <div class="ha-check-container-default ha-check-container">
     <div :class="['ha-check-color-rec-default', 'ha-check-color-rec', {[haColor]: isCheckData}]"  @click="check"></div>
     <div class="ha-check-msg-rec-default ha-check-msg-rec">
       <div class="ha-check-msg-default ha-check-msg">{{ content }}</div>
@@ -7,13 +7,11 @@
   </div>
 </template>
 <script>
-import whMixin from '@mixins/whMixin'
 import colorMixin from '@mixins/colorMixin'
-import stylePropMixin from '@mixins/stylePropMixin'
 
 export default {
   name: 'ha-check',
-  mixins: [colorMixin, whMixin, stylePropMixin],
+  mixins: [colorMixin],
   props: {
     content: {
       type: String,

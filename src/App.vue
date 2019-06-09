@@ -4,10 +4,8 @@
       <ha-rectangle height='100%' width='100%'>
         <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
           <!-- <ha-file :coor="[[[6,8], [30,30]], [[5,3], [15, 40]]]" color="blue" :styleProp="{ border: 'solid 1px #ddd' }"></ha-file> -->
-            <!-- <ha-menu-vertical  :bgColor="['black', 'grey']" :menuList="menuList"  :singleOpen="true" :coor="[[[1,10], [5,42]], [[1,6], [4,45]]]"></ha-menu-vertical> -->
-            <!-- <ha-menu-horizontal :z="100" :fontColor="['blue', 'accentBlue']" :color="['', '']" :menuList="menuList" :singleOpen="true" :coor="[[[6,1], [44,3]], [[6,1], [19, 3]]]">
-             
-            </ha-menu-horizontal>  -->
+            <ha-menu-vertical  :bgColor="['black', 'grey']" :menuList="menuList"  :singleOpen="true" :coor="[[[1,10], [5,42]], [[1,6], [4,45]]]"></ha-menu-vertical>
+            <ha-menu-horizontal :z="100" :bgColor="['black', 'grey']" :menuList="menuList" :singleOpen="true" :coor="[[[6,1], [44,3]], [[6,1], [19, 3]]]"></ha-menu-horizontal> 
             <ha-rectangle :coor="[[[4,4], [42,42]], [[3,3], [19, 44]]]" hover="shadow" :styleProp="styleProp">
               <ha-coordinater :grid="[[1180, 50, 50]]">
                 <ha-rectangle :coor="[[[10,10], [5, 15]]]" hover="shadow">
@@ -42,7 +40,7 @@
             <!-- <ha-button title="打开mask" :coor="[[[33,19], [3,2]]]" @click="openMaskClick"></ha-button>-->
             <!-- <ha-button title="通知" :coor="[[[33,22], [2,2]]]" @click="notify"></ha-button>  -->
           
-          <!-- <ha-table-base :bgColor="['black', 'white', 'lightGrey', 'lightGrey']" :datas="datas" :coor="[[[10,11], [20,25]], [[6,11], [18, 20]]]"></ha-table-base> -->
+    
           <!-- <ha-table type="advance" @pageError="show=true" :bgColor="['black', 'green', 'lightGrey']" :colNoShow="['列9', '列三']" :datas="datas" :coor="[[[10,11], [20,25]], [[6,11], [18, 20]]]" :perPage="8"></ha-table> -->
           <!-- <ha-card :bgColor="['blue', 'blue', 'black']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :lmrWidth="['20%', '60%', '20%']" type="Hor">
             <span slot="left">卡片</span>
@@ -79,7 +77,7 @@
           <ha-button color='darkRed' title="取消" slot="footer" width="60px" height="28px" @click="cancelClick"></ha-button>
         </ha-card> -->
         <!-- <ha-button title="关闭mask" color="red" :coor="[[[25,19], [3,2]]]" @click="cancelClick"></ha-button> -->
-        <!-- <ha-table-base :color="['accentPrimary', 'lightPrimary', 'accentPrimary', 'lightPrimary']" :datas="datas" :coor="[[[5,11], [38,50]], [[6,11], [18, 20]]]"></ha-table-base>
+        <!-- 
       </ha-coordinater> -->
     </ha-mask>
   </div>
@@ -178,8 +176,7 @@ export default {
           [0,0,0,0],
           [0,0,0,0],
           [0,0,0,0]
-        ],
-        foot: ['脚注',0,0,0,1,2],  //脚注
+        ]
       },
       btnStyle: {
         'border': 'solid 0px #ddd',

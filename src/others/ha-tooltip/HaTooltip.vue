@@ -44,8 +44,7 @@ export default {
           vm.tooltipText.innerHTML = vm.tip
           vm.tooltipText.style.left = (0.95 * e.clientX) + 'px'
           vm.tooltipText.style.maxWidth = '300px'
-          vm.tooltipText.style.padding = '4px'
-          vm.tooltipText.style.textIndent = '2em'
+          vm.tooltipText.style.padding = '6px'
           vm.tooltipText.style.flexWrap = 'wrap'
           vm.tooltipText.style.display = 'flex'
 
