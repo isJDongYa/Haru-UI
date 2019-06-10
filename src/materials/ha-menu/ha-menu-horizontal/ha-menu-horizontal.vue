@@ -1,5 +1,5 @@
 <template>
-  <ha-rectangle :z="z" :width="width" :height="height" :coor="coor" :styleProp="styleProp"  overflow='visible' :hover="hover">
+  <ha-rectangle :z="z" :width="width" :height="height" :coor="coor" :styleProp="styleProp"  overflow='visible' :hover="hover" :haShow="$attrs['haShow']">
     <ha-menu-list-horizontal :menuList="menuList" :fontColor="fontColor" :bgColor="bgColor" :singleOpen="singleOpen">
       <slot></slot>
     </ha-menu-list-horizontal>

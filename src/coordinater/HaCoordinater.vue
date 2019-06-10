@@ -4,6 +4,7 @@
   </div>
 </template>
 <script>
+
 export default {
   name: 'ha-coordinater',
   data() {
@@ -12,6 +13,7 @@ export default {
       height: '100%',
       gridDem: this.grid[0],
       gridDemNum: 0,
+      resizeListener: null
     }
   },
   props: {
@@ -72,8 +74,12 @@ export default {
     }
   },
   mounted() {
-    this.onResize(this)()
-    window.addEventListener('resize', this.onResize(this))
+    this.resizeListener =  this.onResize(this)
+    this.resizeListener()
+    window.addEventListener('resize', this.resizeListener)
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.resizeListener)
   }
 }
 </script>

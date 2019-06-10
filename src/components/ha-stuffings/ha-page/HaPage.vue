@@ -34,6 +34,7 @@
   </div>
 </template>
 <script>
+
 export default {
   name: 'ha-page',
   props: {

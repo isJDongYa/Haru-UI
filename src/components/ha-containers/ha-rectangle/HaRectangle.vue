@@ -5,6 +5,7 @@
     `grid-column-end:${gridColumnEnd};overflow:${overflow};` + 
     `z-index:${ z };` +
     `${getStyleStr}`"
+    v-if="haShow"
     >
     <slot></slot>
   </div>
@@ -16,11 +17,12 @@ import hoverMixin from '@mixins/hoverMixin'
 import stylePropMixin from '@mixins/stylePropMixin'
 import zMixin from '@mixins/zMixin'
 import overflowMixin from '@mixins/overflowMixin'
+import showMixin from '@mixins/showMixin'
 
 
 export default {
   name: 'ha-rectangle',
-  mixins: [coorMixin, stylePropMixin, whMixin, hoverMixin, zMixin, overflowMixin]
+  mixins: [coorMixin, stylePropMixin, whMixin, hoverMixin, zMixin, overflowMixin, showMixin]
 }
 </script>
 

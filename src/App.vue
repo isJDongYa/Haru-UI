@@ -4,13 +4,13 @@
       <ha-rectangle height='100%' width='100%'>
         <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
           <!-- <ha-file :coor="[[[6,8], [30,30]], [[5,3], [15, 40]]]" color="blue" :styleProp="{ border: 'solid 1px #ddd' }"></ha-file> -->
-            <ha-menu-vertical  :bgColor="['purple', 'grey']" :menuList="menuList"  :singleOpen="true" :coor="[[[1,10], [5,42]], [[1,6], [4,45]]]"></ha-menu-vertical>
-            <ha-menu-horizontal :z="100" :bgColor="['black', 'grey']" :menuList="menuList" :singleOpen="true" :coor="[[[6,1], [44,3]], [[6,1], [19, 3]]]"></ha-menu-horizontal> 
-            <ha-rectangle :coor="[[[4,4], [42,42]], [[3,3], [19, 44]]]" hover="shadow" :styleProp="styleProp">
+            <!-- <ha-menu-vertical  :bgColor="['purple', 'grey']" :menuList="menuList"  :singleOpen="true" :coor="[[[1,10], [5,42]], [[1,6], [4,45]]]"></ha-menu-vertical> -->
+            <ha-menu-horizontal :z="100" :bgColor="['black', 'grey']" :menuList="menuList" :singleOpen="true" :coor="[[[1,1], [49,3]], [[1,1], [24, 3]]]"></ha-menu-horizontal> 
+            <ha-rectangle :coor="[[[4,5], [42,42]], [[3,3], [19, 44]]]" hover="shadow" :styleProp="styleProp">
               <ha-coordinater :grid="[[1180, 50, 50]]">
                 <ha-rectangle :coor="[[[10,10], [5, 15]]]" hover="shadow">
                   <ha-tooltip bgColor="red" location="bottom" tip="这是一个H这是一个H这是一个H这是一个H这是一个H这是一个H这是一个H这是一个H">
-                    <ha-letter letter="H" :capital="true" fontColor="blue"></ha-letter>
+                    <ha-letter letter="H" :capital="true" fontColor="blue" :haShow="1180"></ha-letter>
                   </ha-tooltip>
                 </ha-rectangle>
                 <ha-rectangle :coor="[[[14,10], [5, 15]]]"  hover="shadow">
@@ -29,11 +29,11 @@
                   <ha-letter letter="I" :capital="true" fontColor="purple"></ha-letter>
                 </ha-rectangle>
                 <ha-rectangle :coor="[[[22,28], [3, 2]]]" hover="shadow">
-                  <ha-button bgColor="green"  title="开始" @click="notify"></ha-button>
+                  <ha-button bgColor="green" title="开始" @click="notify"></ha-button>
                 </ha-rectangle>
-                <!-- <ha-rectangle :coor="[[[3,2], [5,9]]]" hover="shadow">
-                  <ha-avatar :url="imgSrc" color='darkPrimary'></ha-avatar>
-                </ha-rectangle> -->
+                <ha-rectangle :coor="[[[3,2], [5,9]]]" hover="shadow">
+                  <ha-number :num="2"></ha-number>
+                </ha-rectangle>
                
               </ha-coordinater>
             </ha-rectangle>
@@ -41,7 +41,7 @@
             <!-- <ha-button title="通知" :coor="[[[33,22], [2,2]]]" @click="notify"></ha-button>  -->
           
     
-          <!-- <ha-table type="advance" @pageError="show=true" :bgColor="['black', 'green', 'lightGrey']" :colNoShow="['列9', '列三']" :datas="datas" :coor="[[[10,11], [20,25]], [[6,11], [18, 20]]]" :perPage="8"></ha-table> -->
+          <!-- <ha-table :haShow="1180" type="advance" @pageError="show=true" :bgColor="['black', 'green', 'lightGrey']" :colNoShow="['列9', '列三']" :datas="datas" :coor="[[[10,11], [20,25]], [[6,11], [18, 20]]]" :perPage="8"></ha-table> -->
           <!-- <ha-card :bgColor="['blue', 'blue', 'black']" :coor="[[[10,18], [10,18]]]" :styleProp="btnStyle" hover="shadow" :lmrWidth="['20%', '60%', '20%']" type="Hor">
             <span slot="left">卡片</span>
             <div slot="right" style="width:100%;height:100%">

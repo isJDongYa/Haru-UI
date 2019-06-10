@@ -1,5 +1,5 @@
 <template>
-  <ha-rectangle :width="width" :height="height" :coor="coor" :hover="hover" :style="getStyleStr" >
+  <ha-rectangle :width="width" :height="height" :coor="coor" :hover="hover" :style="getStyleStr" :haShow="$attrs['haShow']">
     <!-- 垂直card -->
     <div :class="['ha-card-Ve-default', 'ha-card-Ve']" v-if="type==='Ver'">
       <div :class="['ha-card-Ve-head-default', haColor[0], 'ha-card-Ve-head']" v-if="$slots.header" :style="`height:${hcfHeight[0]}`">

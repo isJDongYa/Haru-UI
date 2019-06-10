@@ -23,7 +23,8 @@ export default {
   },
   data() {
     return {
-      canvass: []
+      canvass: [],
+      flushListener: null
     }
   },
   watch: {
@@ -75,8 +76,13 @@ export default {
   },
   mounted() {
     this.canvass = this.$refs.haNumber.children
-    this.flushCanvas(this)()
-    window.addEventListener('resize', this.flushCanvas(this))
+    this.flushListener = this.flushCanvas(this)
+    this.flushListener()
+    window.addEventListener('resize', this.flushListener)
+  },
+  beforeDestroy() {
+    console.log(2222)
+    window.removeEventListener('resize', this.flushListener)
   }
 }
 </script>

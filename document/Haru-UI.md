@@ -100,6 +100,11 @@
     > 1. 与css的overflow一致
     > 2. 默认值为hidden, 创建BFC保证容器内的任何内容不影响容器外的内容.
 
+  - haShow:
+
+    > 1. 设置可视宽度(px)大于该值显示此容器
+    > 2. 值为Number, 默认为空
+
 - 注: 
 
   > 此组件的默认position为relative

@@ -6,6 +6,7 @@
   :hover="hover"
   :z="z"
   :styleProp="styleProp"
+  :haShow="$attrs['haShow']"
 
   type="Ver"  
   :hcfHeight="hcfHeight"

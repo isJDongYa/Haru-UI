@@ -6,6 +6,7 @@
       :hcfHeight="selfHcfHeight"
       :hover="hover"
       :z="z"
+      :haShow="$attrs['haShow']"
     >
       
       <!-- 表头 -->

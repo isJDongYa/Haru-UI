@@ -24,7 +24,8 @@ export default {
   data() {
     return {
       canvass: [],
-      alphabet: []
+      alphabet: [],
+      flushListener: null
     }
   },
   watch: {
@@ -76,8 +77,12 @@ export default {
         String.fromCharCode(start+i)
       )
     }
-    this.flushCanvas(this)()
-    window.addEventListener('resize', this.flushCanvas(this))
+    this.flushListener = this.flushCanvas(this)
+    this.flushListener()
+    window.addEventListener('resize', this.flushListener)
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.flushListener)
   }
 }
 </script>
