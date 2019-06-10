@@ -31,60 +31,60 @@ export default {
       required: false,
       default: () => {
         return {
-          menuTitle: 'ha-menu-vertical-title',
-          menuList: [
-            {
-              groupId: '1',
-              menuTitle: 'groupTitle',
-              menuList: [
-                {
-                  groupId: '2',
-                  menuTitle: 'g2',
-                  menuList: [
-                    {
-                      title: 'list1',
-                      route: '/list1',
-                      icon: require('@icons/信息.svg')
-                    },
-                    {
-                      title: 'list1',
-                      route: '/list1'
-                    },
-                    {
-                      title: 'list1',
-                      route: '/list1'
-                    },
-                    {
-                      title: 'list1',
-                      route: '/list1'
-                    },
-                  ] 
-                },
-                {
-                  groupId: '3',
-                  menuTitle: 'g3',
-                  menuList: [
-                    {
-                      title: 'list1',
-                      route: '/list1'
-                    },
-                    {
-                      title: 'list1',
-                      route: '/list1'
-                    },
-                    {
-                      title: 'list1',
-                      route: '/list1'
-                    },
-                    {
-                      title: 'list1',
-                      route: '/list1'
-                    },
-                  ] 
-                }
-              ]
-            }
-          ]
+        //   menuTitle: 'ha-menu-vertical-title',
+        //   menuList: [
+        //     {
+        //       groupId: '1',
+        //       menuTitle: 'groupTitle',
+        //       menuList: [
+        //         {
+        //           groupId: '2',
+        //           menuTitle: 'g2',
+        //           menuList: [
+        //             {
+        //               title: 'list1',
+        //               route: '/list1',
+        //               icon: require('@icons/信息.svg')
+        //             },
+        //             {
+        //               title: 'list1',
+        //               route: '/list1'
+        //             },
+        //             {
+        //               title: 'list1',
+        //               route: '/list1'
+        //             },
+        //             {
+        //               title: 'list1',
+        //               route: '/list1'
+        //             },
+        //           ] 
+        //         },
+        //         {
+        //           groupId: '3',
+        //           menuTitle: 'g3',
+        //           menuList: [
+        //             {
+        //               title: 'list1',
+        //               route: '/list1'
+        //             },
+        //             {
+        //               title: 'list1',
+        //               route: '/list1'
+        //             },
+        //             {
+        //               title: 'list1',
+        //               route: '/list1'
+        //             },
+        //             {
+        //               title: 'list1',
+        //               route: '/list1'
+        //             },
+        //           ] 
+        //         }
+        //       ]
+        //     }
+        //   ]
         }
       }
     }

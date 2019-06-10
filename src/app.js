@@ -7,19 +7,24 @@ import HaCoordinater from './coordinater'
 import HaMaterials from './materials'
 import HaOthers from './others'
 import HaIcons from './icons'
-import Colors from './colors'
+import HaColors from './colors'
 import './scss'
 
 Vue.config.devtools = process.env.NODE_ENV === 'development'
 
-Vue.use(VueRouter)
+// // Vue.use(VueRouter)
 
-Vue.use(Colors)
+// import Haru from 'haru-ui'
+
+// const { HaComponents, HaCoordinater, HaMaterials,HaOthers, HaIcons, HaColors } = Haru
+Vue.use(HaColors)
 Vue.use(HaComponents)
 Vue.use(HaMaterials)
 Vue.use(HaCoordinater)
 Vue.use(HaOthers)
 Vue.use(HaIcons)
+// import Haru from 'haru-ui'
+// Vue.use(Haru)
 
 const router = new VueRouter({
    // (缩写) 相当于 routes: routes

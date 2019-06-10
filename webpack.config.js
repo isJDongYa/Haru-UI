@@ -8,20 +8,31 @@ const publicDirInput = path.resolve(__dirname, 'public')
 const publicDirOutput = path.resolve(__dirname, 'dist')
 
 const mode = process.env.NODE_ENV === 'development' ? 'development' : "production"
-const jsLoader = process.env.NODE_ENV === 'development' ? {
+const entry = process.env.NODE_ENV === 'development' ?  './src/app.js' : './src/index.js'
+const output = process.env.NODE_ENV === 'development' ? {} : {
+  path: path.resolve(__dirname, 'dist'),
+  filename: 'haru-ui.js',
+  library: 'Haru',
+  libraryTarget: 'umd'
+}
+const jsLoader = {
   test: /\.js$/,
   exclude: /(node_modules|bower_components)/,
   use: {
-    loader: 'babel-loader?cacheDirectory=true',
-    options: {
-      presets: ['@babel/preset-env'],
-    }
+    loader: 'babel-loader?cacheDirectory=true'
   }
+}
+
+const externals = process.env.NODE_ENV === 'produciton' ? {
+  'vue': 'vue',
+  'vue-router': 'vue-router'
 } : {}
 console.log('-----------------------ENV:'+JSON.stringify(mode)+'-----------------------')
 module.exports = {
   mode,
-  entry: './src/app.js',
+  target: "web",
+  entry,
+  output,
   devServer: {
     contentBase: publicDirInput,
     noInfo: false
@@ -60,12 +71,12 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
-    new CopyWebpackPlugin([
-      {
-        from: publicDirInput,
-        to: publicDirOutput
-      }
-    ]),
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: publicDirInput,
+    //     to: publicDirOutput
+    //   }
+    // ]),
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.vue', '.json', '.scss', '.css'],
@@ -82,5 +93,6 @@ module.exports = {
       '@icons': path.resolve('src/icons'),
       '@imgs': path.resolve('src/statics/imgs'),
     }
-  }
+  },
+  externals
 }
