@@ -1,10 +1,10 @@
 <template>
   <div id="mainApp">
-    <ha-scroll :toBottom="true" :toTop="true" :color="['primary', 'red', 'blue', 'yellow']">
+    <ha-scroll :toBottom="true" :toTop="true" :color="['green', 'red', 'blue', 'yellow']">
       <ha-rectangle height='100%' width='100%'>
         <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
           <!-- <ha-file :coor="[[[6,8], [30,30]], [[5,3], [15, 40]]]" color="blue" :styleProp="{ border: 'solid 1px #ddd' }"></ha-file> -->
-            <ha-menu-vertical  :bgColor="['black', 'grey']" :menuList="menuList"  :singleOpen="true" :coor="[[[1,10], [5,42]], [[1,6], [4,45]]]"></ha-menu-vertical>
+            <ha-menu-vertical  :bgColor="['purple', 'grey']" :menuList="menuList"  :singleOpen="true" :coor="[[[1,10], [5,42]], [[1,6], [4,45]]]"></ha-menu-vertical>
             <ha-menu-horizontal :z="100" :bgColor="['black', 'grey']" :menuList="menuList" :singleOpen="true" :coor="[[[6,1], [44,3]], [[6,1], [19, 3]]]"></ha-menu-horizontal> 
             <ha-rectangle :coor="[[[4,4], [42,42]], [[3,3], [19, 44]]]" hover="shadow" :styleProp="styleProp">
               <ha-coordinater :grid="[[1180, 50, 50]]">
@@ -23,10 +23,10 @@
                   <ha-letter letter="u" :capital="false" fontColor="red"></ha-letter>
                 </ha-rectangle>
                 <ha-rectangle :coor="[[[28,10], [5, 15]]]">
-                  <ha-letter letter="U" :capital="true" fontColor="black"></ha-letter>
+                  <ha-letter letter="U" :capital="true" fontColor="orange"></ha-letter>
                 </ha-rectangle>
                 <ha-rectangle :coor="[[[32,10], [5, 15]]]">
-                  <ha-letter letter="I" :capital="true" fontColor="accentBlue"></ha-letter>
+                  <ha-letter letter="I" :capital="true" fontColor="purple"></ha-letter>
                 </ha-rectangle>
                 <ha-rectangle :coor="[[[22,28], [3, 2]]]" hover="shadow">
                   <ha-button bgColor="green"  title="开始" @click="notify"></ha-button>

@@ -7,12 +7,14 @@ import HaCoordinater from './coordinater'
 import HaMaterials from './materials'
 import HaOthers from './others'
 import HaIcons from './icons'
+import Colors from './colors'
 import './scss'
 
 Vue.config.devtools = process.env.NODE_ENV === 'development'
 
 Vue.use(VueRouter)
 
+Vue.use(Colors)
 Vue.use(HaComponents)
 Vue.use(HaMaterials)
 Vue.use(HaCoordinater)
