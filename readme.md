@@ -2,12 +2,17 @@
 
 # Haru UI
 
----
+_**一个实验性质的组件库**_
+
+![](https://img.shields.io/github/package-json/v/JDong-chen/Haru-UI.svg)   ![](https://img.shields.io/github/license/JDong-chen/Haru-UI.svg?logo=MIT)
+
+![头图](./Haru-UI.png)
 
 ## 简介
 
 - 名为“Haru UI”的组件库
 - [文档]在这里
+- [sample](https://jdong-chen.github.io/haru-ui)在这里
 
 ## 特点
 
