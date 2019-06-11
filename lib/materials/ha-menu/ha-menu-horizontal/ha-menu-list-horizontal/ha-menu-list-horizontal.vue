@@ -139,15 +139,23 @@ export default {
     setWH(vm) {
       return function() {
         const groups = vm.$refs.haMenuHor.querySelectorAll('.ha-menu-list-horizontal-group')
-        groups.forEach( group => {
-          group.style.height = vm.$refs.haMenuHor.offsetHeight + 'px'
-        })
-        vm.group0 = groups[0]
         const items = vm.$refs.haMenuHor.querySelectorAll('.ha-menu-list-horizontal-item')
-        items.forEach( item => {
-          item.style.height = 0.9 * vm.$refs.haMenuHor.offsetHeight + 'px'
-          item.style.width = 0.9 * groups[0].offsetWidth + 'px' 
-        })
+        if(groups.length > 0) {
+          groups.forEach( group => {
+            group.style.height = vm.$refs.haMenuHor.offsetHeight + 'px'
+          })
+          vm.group0 = groups[0]
+          
+          items.forEach( item => {
+            item.style.height = 0.9 * vm.$refs.haMenuHor.offsetHeight + 'px'
+            item.style.width = 0.9 * groups[0].offsetWidth + 'px' 
+          })
+        } else {
+            items.forEach( item => {
+                item.style.height = '100%'
+                item.style.width = `${100 / items.length}%`
+            })  
+        }
       }
     }
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="ha-btn-container-default ha-btn-container">
-    <button :class="[haColor, 'ha-btn-default', 'ha-btn']" @click="click">
+    <button :class="[haColor, 'ha-btn-default', 'ha-btn']" @click="click" :style="{ fontSize }">
       <img class="ha-btn-icon-default ha-btn-icon" :src="icon" v-if="icon">
       <span v-if="title">{{ title }}</span>
     </button>
@@ -28,8 +28,12 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    fontSize: {
+      type: String,
+      required: false,
+      default: ''
     }
-    
   },
   methods: {
     click() {

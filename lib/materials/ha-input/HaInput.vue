@@ -82,7 +82,7 @@ export default {
       hcfHeight: ['60%', '40%', '0%'],
       checkObj: {
         msg: '',
-        color: ''
+        bgColor: this.bgColor
       },
     }
   },

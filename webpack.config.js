@@ -4,11 +4,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const path = require('path')
 
-const publicDirInput = path.resolve(__dirname, 'public')
+const publicDirInput = path.resolve(__dirname, 'sample/public')
 const publicDirOutput = path.resolve(__dirname, 'dist')
 
 const mode = process.env.NODE_ENV === 'development' ? 'development' : "production"
-const entry = process.env.NODE_ENV === 'development' ?  './src/app.js' : './src/index.js'
+const entry = process.env.NODE_ENV === 'development' ?  './sample/app.js' : './lib/index.js'
 const output = process.env.NODE_ENV === 'development' ? {} : {
   path: path.resolve(__dirname, 'dist'),
   filename: 'haru-ui.js',
@@ -71,27 +71,27 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: publicDirInput,
-    //     to: publicDirOutput
-    //   }
-    // ]),
+    new CopyWebpackPlugin([
+      {
+        from: publicDirInput,
+        to: publicDirOutput
+      }
+    ]),
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.vue', '.json', '.scss', '.css'],
     alias: {
-      '@src': path.resolve('src'),
-      '@mixins': path.resolve('src/mixins'),
-      '@containers': path.resolve('src/components/ha-containers'),
-      '@stuffings': path.resolve('src/components/ha-stuffings'),
-      '@coordinater': path.resolve('src/coordinater'),
-      '@materials': path.resolve('src/materials'),
-      '@others': path.resolve('src/others'),
-      '@utils': path.resolve('src/utils'),
-      '@scss': path.resolve('src/scss'),
-      '@icons': path.resolve('src/icons'),
-      '@imgs': path.resolve('src/statics/imgs'),
+      '@lib': path.resolve('lib'),
+      '@mixins': path.resolve('lib/mixins'),
+      '@containers': path.resolve('lib/components/ha-containers'),
+      '@stuffings': path.resolve('lib/components/ha-stuffings'),
+      '@coordinater': path.resolve('lib/coordinater'),
+      '@materials': path.resolve('lib/materials'),
+      '@others': path.resolve('lib/others'),
+      '@utils': path.resolve('lib/utils'),
+      '@scss': path.resolve('lib/scss'),
+      '@icons': path.resolve('lib/icons'),
+      '@imgs': path.resolve('lib/statics/imgs'),
     }
   },
   externals
