@@ -1,5 +1,3 @@
-[文档]: (./document/Haru-UI.md)
-
 # Haru UI
 
 _**一个实验性质的组件库**_
@@ -11,7 +9,7 @@ _**一个实验性质的组件库**_
 ## 简介
 
 - 名为“Haru UI”的组件库
-- [文档]在这里
+- [文档](https://github.com/JDong-chen/Haru-UI/blob/master/document/Haru-UI.md)在这里
 - [sample](https://jdong-chen.github.io/haru-ui)在这里
 
 ## 特点
@@ -39,12 +37,7 @@ Vue.use(Haru)
 ```
 
 - 单个组件
-[^_^]:
-    ```js
-    import { 组件名 } from 'haru-ui' // 其中的组件名为驼峰式命名,如<ha-rectangle>为HaRectangle
 
-    Vue.use(组件名)
-    ```
 > 尚未完善所以不提供单组件引入, 如有需要请自己拷贝源码.
 
 ## 注意
@@ -53,9 +46,15 @@ Vue.use(Haru)
 
 ---
 
+## TODO
+
+1. 完善颜色管理
+2. 提供单组件引入
+3. 完善文档
+
 ## 后记
 
-- 请先看完组件库[文档]后再看, 重点看\<ha-coordinater>和\<ha-rectangle>
+- 请先看完组件库[文档](https://github.com/JDong-chen/Haru-UI/blob/master/document/Haru-UI.md)后再看, 重点看\<ha-coordinater>和\<ha-rectangle>
 
 ### 新的布局系统
 
