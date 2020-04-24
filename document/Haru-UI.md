@@ -37,7 +37,7 @@
 
 - 简介
 
-  - 16进制颜色值
+  - 名为fontColor的prop所代表的颜色值
 
   ```js
   wihte: '#ffffff',
@@ -72,7 +72,7 @@
   accentGrey: '#607D8B'
   ```
   
-  - 颜色所代表的类名
+  - bgColor所代表的类名
   
   ```js
   wihte: 'ha-color-white',
@@ -111,13 +111,13 @@
 
 - 内部原理
 
-  > 如果是名为bgColor的prop, 则会在相应位置设置该dom的类名
-  > 如果是名为frontColor的prop, 则会设置相应的dom的名为color的style为对应的16进制颜色值
+  > 如果是名为bgColor的prop, 则会在相应位置设置该elememt的类名
+  > 如果是名为fontColor的prop, 则会设置相应的elememt的名为color的style为对应的16进制颜色值
 
 - 自定义颜色
 
   > 如果是名为bgColor的prop, 请在相应的位置传入自定义类名, 并在css文件中对该类名进行背景颜色的设置
-  > 如果是名为frontColor的prop, 请直接在相应的位置传入自定义的以#开头的16进制颜色值
+  > 如果是名为fontColor的prop, 请直接在相应的位置传入自定义的以#开头的16进制颜色值
 
 ### 0.2 图标
 
@@ -149,7 +149,7 @@
   这里一般放置容器用来布局(容器一般有可以设置坐标的名为coor的prop)
   ...
   ...
-<ha-coordinater>
+</ha-coordinater>
 
 ```
 
@@ -161,7 +161,7 @@
   <ha-rectangle :coor="[[[6,8], [5,8]], [[5,3], [5, 15]]]">
     <ha-number :num="0" color="blue"></ha-number>
   </ha-rectangle>
-<ha-coordinater>
+</ha-coordinater>
 
 ```
 
@@ -344,7 +344,7 @@
     > 1. 是否显示小数点
     > 2. 值为布尔值, 默认为false
 
-  - frontColor:
+  - fontColor:
 
     > 1. 设置所显示数字的颜色
     > 2. 值为表示颜色的String, 默认为空
@@ -363,7 +363,7 @@
     > 1. 要显示的字母
     > 2. 值为String, 并且为在[a - z] | [A - Z] 范围内的个位数, 默认为a
 
-  - frontColor:
+  - fontColor:
 
     > 1. 设置所显示字母的颜色
     > 2. 值为表示颜色的String, 默认为空
