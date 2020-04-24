@@ -1,31 +1,32 @@
 **目录**
-* [Haru UI](#haru-ui)
-  * [0\. 全局](#0-%E5%85%A8%E5%B1%80)
-    * [0\.1 颜色](#01-%E9%A2%9C%E8%89%B2)
-    * [0\.2 图标](#02-%E5%9B%BE%E6%A0%87)
-  * [1\.坐标器](#1%E5%9D%90%E6%A0%87%E5%99%A8)
-    * [1\.1 &lt;ha\-coordinater&gt;](#11-ha-coordinater)
-  * [2\.容器](#2%E5%AE%B9%E5%99%A8)
-    * [2\.1 &lt;ha\-rectangle&gt;](#21-ha-rectangle)
-    * [2\.2 &lt;ha\-card&gt;](#22-ha-card)
-  * [3\. 填充物](#3-%E5%A1%AB%E5%85%85%E7%89%A9)
-    * [3\.1 &lt;ha\-button&gt;](#31-ha-button)
-    * [3\.2 &lt;ha\-number&gt;](#32-ha-number)
-    * [3\.3 &lt;ha\-letter&gt;](#33-ha-letter)
-    * [3\.4 &lt;ha\-avatar&gt;](#34-ha-avatar)
-    * [3\.5 &lt;ha\-back&gt;](#35-ha-back)
-    * [3\.6 &lt;ha\-page&gt;](#36-ha-page)
-    * [3\.7 &lt;ha\-check&gt;](#37-ha-check)
-  * [4\. 物料](#4-%E7%89%A9%E6%96%99)
-    * [4\.1 &lt;ha\-menu\-vertical&gt;](#41-ha-menu-vertical)
-    * [4\.2 &lt;ha\-menu\-horizontal&gt;](#42-ha-menu-horizontal)
-    * [4\.3 &lt;ha\-input&gt;](#43-ha-input)
-    * [4\.4 &lt;ha\-table&gt;](#44-ha-table)
-  * [5\. 其他](#5-%E5%85%B6%E4%BB%96)
-    * [5\.1 &lt;ha\-mask&gt;](#51-ha-mask)
-    * [5\.2 &lt;ha\-scroll&gt;](#52-ha-scroll)
-    * [5\.3 &lt;ha\-tooltip&gt;](#53-ha-tooltip)
-    * [5\.4 $haru\.notify()](#54-harunotify)
+- [Haru UI](#haru-ui)
+  - [0. 全局](#0-%e5%85%a8%e5%b1%80)
+    - [0.1 颜色](#01-%e9%a2%9c%e8%89%b2)
+    - [0.2 图标](#02-%e5%9b%be%e6%a0%87)
+  - [1.坐标器](#1%e5%9d%90%e6%a0%87%e5%99%a8)
+    - [1.1 \<ha-coordinater>](#11-ha-coordinater)
+  - [2.容器](#2%e5%ae%b9%e5%99%a8)
+    - [2.1 \<ha-rectangle>](#21-ha-rectangle)
+    - [2.2 \<ha-card>](#22-ha-card)
+  - [3. 填充物](#3-%e5%a1%ab%e5%85%85%e7%89%a9)
+    - [3.1 \<ha-button>](#31-ha-button)
+    - [3.2 \<ha-number>](#32-ha-number)
+    - [3.3 \<ha-letter>](#33-ha-letter)
+    - [3.4 \<ha-avatar>](#34-ha-avatar)
+    - [3.5 \<ha-back>](#35-ha-back)
+    - [3.6 \<ha-page>](#36-ha-page)
+    - [3.7 \<ha-check>](#37-ha-check)
+  - [4. 物料](#4-%e7%89%a9%e6%96%99)
+    - [4.1 \<ha-menu-vertical>](#41-ha-menu-vertical)
+    - [4.2 \<ha-menu-horizontal>](#42-ha-menu-horizontal)
+    - [4.3 \<ha-input>](#43-ha-input)
+    - [4.4 \<ha-table>](#44-ha-table)
+  - [5. 其他](#5-%e5%85%b6%e4%bb%96)
+    - [5.1 \<ha-mask>](#51-ha-mask)
+    - [5.2 \<ha-scroll>](#52-ha-scroll)
+    - [5.3 \<ha-tooltip>](#53-ha-tooltip)
+    - [5.4 \<ha-detailBox>](#54-ha-detailbox)
+    - [5.5 $haru.notify()](#55-harunotify)
 
 
 
@@ -35,7 +36,7 @@
 
 ### 0.1 颜色
 
-- 简介
+- 简介：
 
   - 名为fontColor的prop所代表的颜色值
 
@@ -127,7 +128,7 @@
 
 ### 1.1 \<ha-coordinater>
 
-- 作用
+- 简介：
 
 > 为坐标系统提供坐标系, 以便于后续使用提供的坐标器进行定位
 
@@ -170,15 +171,18 @@
 ![结果1](./imgs/instances/ha-coordinater/ha-coordinater实例图1.png)
 
 - 当可视宽度大于580px并小于1180px时结果为:
+  
 ![结果2](./imgs/instances/ha-coordinater/ha-coordinater实例图2.png)
 
 ## 2.容器
 
+- 为填充物提供布局和定位
+
 ### 2.1 \<ha-rectangle>
 
-- 作用
+- 简介：
 
-  > 为填充物提供布局和定位
+  > 提供基本的矩形容器
 
 - props:
 
@@ -242,7 +246,7 @@
 
 ### 2.2 \<ha-card>
 
-- 作用: 
+- 简介：
 
   在\<ha-rectangle>的基础上提供垂直和水平的三栏布局
 
@@ -450,7 +454,7 @@
 
 ### 4.1 \<ha-menu-vertical>
 
-- 简介
+- 简介：
 
   > 1. 一个垂直的菜单
 
@@ -563,7 +567,7 @@
 
 ### 4.2 \<ha-menu-horizontal>
 
-- 简介:
+- 简介：
 
   > 1. 一个水平表示的菜单
 
@@ -573,7 +577,7 @@
 
 ### 4.3 \<ha-input>
 
-- 简介:
+- 简介：
 
   > 1. 一个有错误提示的输入框
 
@@ -634,7 +638,7 @@
 
 ### 4.4 \<ha-table>
 
-- 简介: 
+- 简介：
 
   > 1. 一个具有base和advance两种状态的表格
 
@@ -730,7 +734,7 @@
 
 ### 5.1 \<ha-mask>
 
-- 简介
+- 简介：
 
   > 遮罩组件
 
@@ -763,7 +767,7 @@
 
 ### 5.2 \<ha-scroll>
 
-- 简介:
+- 简介：
 
   > 滚动条
 
@@ -790,7 +794,7 @@
 
 ### 5.3 \<ha-tooltip>
 
-- 简介:
+- 简介：
 
   > 提示信息
 
@@ -804,7 +808,7 @@
   - wait:
 
     > 1. 设置鼠标放置后需要多少毫秒才显示tip
-    > 2. 值为Number, 默认为3000
+    > 2. 值为Number, 默认为2000
 
   - location:
 
@@ -815,9 +819,28 @@
 
   > 1. 此组件的默认高度和宽度为100%
 
-### 5.4 $haru.notify()
+### 5.4 \<ha-detailBox>
 
-- 简介:
+- 简介：
+- 
+  > 详情盒子， 用于鼠标进入某个元素后立即用一个自定义的元素展示其详情
+
+- props:
+  
+  > 无porps
+
+- 使用方法：
+
+  >  自定义一个具有data-detailBox属性， 并且其值为detailBox的元素，即类似\<div data-detailBox="detailBox">，放置于\<ha-detailBox>的同一父节点中， 使它们成为兄弟节点，当鼠标进入\<ha-detailBox>的范围内时，会将自定义的元素用于展示详情。
+
+- 注：
+
+  > 1. 其中\<ha-detailBox>的高度和宽带默认为100%。
+  > 2. 自定义元素需全部自定义，包括其css，也可使用组件
+
+### 5.5 $haru.notify()
+
+- 简介：
 
   > 显示通知
 
@@ -844,10 +867,7 @@
   >    }
   >    ```
 
-[^_^]:
-    ### 5.5 $haru.icons
-    
-    ### 5.6 $haru.colors
+
 
 
 
