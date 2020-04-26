@@ -5,6 +5,11 @@
 
 .ha-hover-shadow {
   &:hover{
-    box-shadow: 1px 2px 1px #555;
+    box-shadow: 1px 2px 10px #555;
+  }
+}
+.ha-hover-opacity {
+  &:hover{
+    opacity: 0.5;
   }
 }

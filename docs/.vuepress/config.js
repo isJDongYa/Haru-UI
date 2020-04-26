@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   base: "/Haru-UI/",
   title: "Haru UI",
@@ -7,6 +9,17 @@ module.exports = {
   },
   plugins: [
     '@vuepress/back-to-top',
+    [
+      '@vuepress/register-components',
+      {
+        componentsDir: [
+          '.vuepress/components',
+          '.vuepress/components/coor',
+          '.vuepress/components/container',
+          '.vuepress/components/struffings'
+        ]
+      }
+    ]
   ],
   themeConfig: {
     sidebar: [
@@ -36,5 +49,21 @@ module.exports = {
     extendMarkdown: md => {
       md.use(require("markdown-it-disable-url-encode"));
     }
+  },
+  chainWebpack: (config, isServer) => {
+    // config 是 ChainableConfig 的一个实例
+    config.resolve.alias
+      .set('@lib', path.resolve('lib'))
+      .set('@mixins', path.resolve('lib/mixins'))
+      .set('@containers', path.resolve('lib/components/ha-containers'))
+      .set('@stuffings', path.resolve('lib/components/ha-stuffings'))
+      .set('@coordinater', path.resolve('lib/coordinater'))
+      .set('@materials', path.resolve('lib/materials'))
+      .set('@others', path.resolve('lib/others'))
+      .set('@utils', path.resolve('lib/utils'))
+      .set('@scss', path.resolve('lib/scss'))
+      .set('@icons', path.resolve('lib/icons'))
+      .set('@imgs', path.resolve('lib/statics/imgs'))
   }
+  
 }

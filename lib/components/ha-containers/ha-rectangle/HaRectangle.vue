@@ -18,6 +18,8 @@ import stylePropMixin from '@mixins/stylePropMixin'
 import zMixin from '@mixins/zMixin'
 import overflowMixin from '@mixins/overflowMixin'
 import showMixin from '@mixins/showMixin'
+import '@scss'
+
 
 
 export default {

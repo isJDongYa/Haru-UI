@@ -5,9 +5,13 @@
 </template>
 <script>
 import colorMixin from '@mixins/colorMixin.js'
+import colors from "@lib/colors"
+import Vue from 'vue'
+
+Vue.use(colors)
 
 export default {
-  name: 'ha-number',
+  name: 'ha-number', 
   mixins: [colorMixin],
   props: {
     num: {
