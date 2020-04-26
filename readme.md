@@ -9,7 +9,7 @@ _**一个实验性质的组件库**_
 ## 简介
 
 - 名为“Haru UI”的组件库
-- [文档]()在这里
+- [文档](https://hydrousdelta.github.io/Haru-UI)在这里
 <!-- - [sample]()在这里 -->
 
 ## 特点

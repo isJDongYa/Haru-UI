@@ -1,5 +1,5 @@
 module.exports = {
-  bace: "/haru-ui/",
+  base: "/Haru-UI/docs/",
   title: "Haru UI",
   port: 9090,
   markdown: {
