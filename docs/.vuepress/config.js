@@ -1,5 +1,5 @@
 module.exports = {
-  base: "/Haru-UI/docs/",
+  base: "/Haru-UI/",
   title: "Haru UI",
   port: 9090,
   markdown: {
@@ -20,6 +20,7 @@ module.exports = {
       ['/epologue/', '后记']
       
     ],
+    logo: './logo.png',
     repo: 'HydrousDelta/Haru-UI',
     // 如果你的文档不在仓库的根部
     docsDir: 'docs',

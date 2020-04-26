@@ -2,7 +2,7 @@
 
 ## 0.1 颜色
 
-- 简介：
+- **简介**：
 
   - 名为fontColor的prop所代表的颜色值
 
@@ -74,17 +74,17 @@
   accentGrey: 'ha-color-accentGrey'
   ```
 
-  - 这些颜色来自[Material Palette](www.materialpalette.com)
+  - 这些颜色来自[Material Palette](https://www.materialpalette.com)
 
-- 内部原理
+- **内部原理**
 
-  > 如果是名为bgColor的prop, 则会在相应位置设置该elememt的类名
-  > 如果是名为fontColor的prop, 则会设置相应的elememt的名为color的style为对应的16进制颜色值
+  如果是名为bgColor的prop, 则会在相应位置设置该elememt的类名
+  如果是名为fontColor的prop, 则会设置相应的elememt的名为color的style为对应的16进制颜色值
 
-- 自定义颜色
+- **自定义颜色**
 
-  > 如果是名为bgColor的prop, 请在相应的位置传入自定义类名, 并在css文件中对该类名进行背景颜色的设置
-  > 如果是名为fontColor的prop, 请直接在相应的位置传入自定义的以#开头的16进制颜色值
+  如果是名为bgColor的prop, 请在相应的位置传入自定义类名, 并在css文件中对该类名进行背景颜色的设置
+  如果是名为fontColor的prop, 请直接在相应的位置传入自定义的以#开头的16进制颜色值
 
 ## 0.2 图标
 

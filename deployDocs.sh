@@ -20,6 +20,6 @@ git commit -m 'deploy docs'
 # git push -f git@github.com:HydrousDelta/HydrousDelta.github.io.git master
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:HydrousDelta/HydrousDelta.git master:gh-pages
+git push -f git@github.com:HydrousDelta/Haru-UI.git master:gh-pages
 
 cd -

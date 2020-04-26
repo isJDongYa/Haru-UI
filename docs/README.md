@@ -1,11 +1,10 @@
 ---
-title: Haru UI  
 home: true
-description: 名为“Haru UI”的组件库
+tagline: 名为“Haru UI”的组件库
 heroImage: ./haru-ui.png
 heroText: Haru UI
 actionText: 起步 →
-actionLink: ./start/
+actionLink: /start/
 features:
 - title: 实现了类似"坐标系统"的坐标器
   details: 使用坐标器，可以轻松布局组件，再也不用为了布局的css而烦恼
