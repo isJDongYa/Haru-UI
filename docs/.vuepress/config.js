@@ -5,6 +5,9 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
+  plugins: [
+    '@vuepress/back-to-top',
+  ],
   themeConfig: {
     sidebar: [
       ['/start/', '起步'],
@@ -14,14 +17,23 @@ module.exports = {
       ['/stuffings/', '3. 填充物'],
       ['/materials/', '4. 物料'],
       ['/others/', '5. 其它'],
+      ['/epologue/', '后记']
       
     ],
     repo: 'HydrousDelta/Haru-UI',
     // 如果你的文档不在仓库的根部
     docsDir: 'docs',
-    // 可选，默认为 master
     docsBranch: 'master',
-    // 默认为 true，设置为 false 来禁用
-    editLinks: true
+    editLinks: true,
+    editLinkText: '帮助我完善此文档!',
+
+    lastUpdated: 'Last Updated',
+    searchPlaceholder: 'Search...',
+    smoothScroll: true
+  },
+  markdown: {
+    extendMarkdown: md => {
+      md.use(require("markdown-it-disable-url-encode"));
+    }
   }
 }

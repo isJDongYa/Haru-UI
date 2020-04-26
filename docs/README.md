@@ -2,7 +2,8 @@
 title: Haru UI  
 home: true
 description: 名为“Haru UI”的组件库
-# heroImage: ./ha.png
+heroImage: ./haru-ui.png
+heroText: Haru UI
 actionText: 起步 →
 actionLink: /start/
 features:

@@ -22,9 +22,7 @@
 
 <ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
   ...
-  ...
   这里一般放置容器用来布局(容器一般有可以设置坐标的名为coor的prop)
-  ...
   ...
 </ha-coordinater>
 
@@ -44,8 +42,9 @@
 
 - 当可视宽度大于1180px时结果为:
 
-![结果1]()
+![结果1](../assets/imgs/instances/ha-coordinater/ha-coordinater实例图1.png)
 
 - 当可视宽度大于580px并小于1180px时结果为:
   
-![结果2]()
+![结果2](../assets/imgs/instances/ha-coordinater/ha-coordinater实例图2.png)
+

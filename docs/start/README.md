@@ -2,7 +2,7 @@
 
 _**一个实验性质的组件库**_
 
-![头图](../assets/imgs/Haru-UI.png)
+![头图](../assets/imgs/haru-ui.png)
 
 ## 简介及特点
 
