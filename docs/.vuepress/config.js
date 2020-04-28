@@ -33,6 +33,10 @@ module.exports = {
       ['/epologue/', '后记']
       
     ],
+    nav: [
+      { text: '指南', link: '/start/' },
+      { text: 'API', link: '/api/' }
+    ],
     logo: './logo.png',
     repo: 'HydrousDelta/Haru-UI',
     // 如果你的文档不在仓库的根部
@@ -55,8 +59,8 @@ module.exports = {
     config.resolve.alias
       .set('@lib', path.resolve('lib'))
       .set('@mixins', path.resolve('lib/mixins'))
-      .set('@containers', path.resolve('lib/components/ha-containers'))
-      .set('@stuffings', path.resolve('lib/components/ha-stuffings'))
+      .set('@containers', path.resolve('lib/components/containers'))
+      .set('@stuffings', path.resolve('lib/components/stuffings'))
       .set('@coordinater', path.resolve('lib/components/coordinater'))
       .set('@materials', path.resolve('lib/components/materials'))
       .set('@others', path.resolve('lib/components/others'))
