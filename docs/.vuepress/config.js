@@ -57,13 +57,12 @@ module.exports = {
       .set('@mixins', path.resolve('lib/mixins'))
       .set('@containers', path.resolve('lib/components/ha-containers'))
       .set('@stuffings', path.resolve('lib/components/ha-stuffings'))
-      .set('@coordinater', path.resolve('lib/coordinater'))
-      .set('@materials', path.resolve('lib/materials'))
-      .set('@others', path.resolve('lib/others'))
+      .set('@coordinater', path.resolve('lib/components/coordinater'))
+      .set('@materials', path.resolve('lib/components/materials'))
+      .set('@others', path.resolve('lib/components/others'))
       .set('@utils', path.resolve('lib/utils'))
       .set('@scss', path.resolve('lib/scss'))
       .set('@icons', path.resolve('lib/icons'))
-      .set('@imgs', path.resolve('lib/statics/imgs'))
   }
   
 }

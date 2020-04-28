@@ -7,9 +7,8 @@ Vue.config.devtools = process.env.NODE_ENV === 'development'
 
 Vue.use(VueRouter)
 
-
-
 import Haru from '../lib'
+
 Vue.use(Haru)
 
 import Home from './view/home.vue'

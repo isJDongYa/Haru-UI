@@ -29,9 +29,13 @@ import Haru from 'haru-ui'
 Vue.use(Haru)
 ```
 
-- **单个组件**
+- **单组件引入**
 
-> 尚未完善所以不提供单组件引入, 如有需要请自己拷贝源码.
+```js
+import { HaCoordinater } from 'haru-ui
+
+Vue.use(HaCoordinater)
+```
 
 ::: warning 注意
 
@@ -39,9 +43,3 @@ Vue.use(Haru)
 
 :::
 ---
-
-## TODO
-
-1. 完善颜色管理
-2. 提供单组件引入
-3. 完善文档

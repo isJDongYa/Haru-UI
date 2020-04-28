@@ -83,15 +83,14 @@ module.exports = {
     alias: {
       '@lib': path.resolve('lib'),
       '@mixins': path.resolve('lib/mixins'),
-      '@containers': path.resolve('lib/components/ha-containers'),
-      '@stuffings': path.resolve('lib/components/ha-stuffings'),
-      '@coordinater': path.resolve('lib/coordinater'),
-      '@materials': path.resolve('lib/materials'),
-      '@others': path.resolve('lib/others'),
+      '@containers': path.resolve('lib/components/containers'),
+      '@stuffings': path.resolve('lib/components/stuffings'),
+      '@coordinater': path.resolve('lib/components/coordinater'),
+      '@materials': path.resolve('lib/components/materials'),
+      '@others': path.resolve('lib/components/others'),
       '@utils': path.resolve('lib/utils'),
       '@scss': path.resolve('lib/scss'),
-      '@icons': path.resolve('lib/icons'),
-      '@imgs': path.resolve('lib/statics/imgs'),
+      '@icons': path.resolve('lib/icons')
     }
   },
   externals
