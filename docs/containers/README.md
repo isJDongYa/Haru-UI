@@ -57,6 +57,12 @@
     2. 与css的`border`相同
     3. 默认值为`undefined`
 
+  - radius:
+  
+    1. 类型为`String`
+    2. 与css的`border-radius`相同
+    3. 默认值为`undefined`
+
   - padding:
 
     1. 类型为`String`
@@ -116,7 +122,7 @@
 ```
 
 结果：
-<doc-result height="500px">
+<doc-result>
   <containers-rec></containers-rec>
 </doc-result>
 
@@ -192,12 +198,12 @@
 
 - 实例
 
-代码
+代码：
 ```html
 
 ```
 
-结果
+结果：
 <doc-result>
   <containers-card></containers-card>
 </doc-result>

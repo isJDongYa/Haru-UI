@@ -8,18 +8,7 @@ module.exports = {
     lineNumbers: true
   },
   plugins: [
-    '@vuepress/back-to-top',
-    [
-      '@vuepress/register-components',
-      {
-        componentsDir: [
-          '.vuepress/components',
-          '.vuepress/components/coor',
-          '.vuepress/components/container',
-          '.vuepress/components/struffings'
-        ]
-      }
-    ]
+    '@vuepress/back-to-top'
   ],
   themeConfig: {
     sidebar: [

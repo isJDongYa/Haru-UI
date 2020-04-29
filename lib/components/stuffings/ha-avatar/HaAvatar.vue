@@ -7,18 +7,18 @@
 import colorMixin from '@mixins/colorMixin'
 
 export default {
-  name: 'ha-button',
+  name: 'ha-avatar',
   mixins: [colorMixin],
   props: {
     url: {
       type: String,
       required: false,
-      default: ''
+      default: undefined
     },
     alt: {
       type: String,
       required: false,
-      default: ''
+      default: undefined
     }
   }
 }

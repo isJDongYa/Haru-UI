@@ -35,6 +35,9 @@
 </template>
 <script>
 
+import _lastOne from '@icons/back.svg'
+import _nextOne from '@icons/nextone.svg'
+
 export default {
   name: 'ha-page',
   props: {
@@ -49,9 +52,9 @@ export default {
       isPage: 1,
       leftPage: [1,2,3],
       dotShow: this.page>6,
-      inputPage: '',
-      upImg: this.$haru.icons._lastOne,
-      downImg: this.$haru.icons._nextOne
+      inputPage: undefined,
+      upImg: _lastOne,
+      downImg: _nextOne
     }
   },
   watch: {

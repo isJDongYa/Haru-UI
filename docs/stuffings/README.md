@@ -61,6 +61,58 @@
     2. 无传递参数
     3. 使用`v-on`指令接收该事件， 即`v-on:click=处理函数`
 
+- 实例
+
+代码：
+```html
+<ha-coordinater :grid="[[0, 50, 50]]">
+  <!-- 第一行 -->
+  <ha-rectangle :coor="[[[9,10], [6, 4]]]">
+    <ha-button title="蓝色按钮" bgColor="bgc-blue"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[16,10], [6, 4]]]">
+    <ha-button title="红色按钮" bgColor="bgc-red"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[23,10], [6, 4]]]">
+    <ha-button title="绿色按钮" bgColor="bgc-green"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[30,10], [6, 4]]]">
+    <ha-button title="黄色按钮" bgColor="bgc-yellow"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[37,10], [6, 4]]]">
+    <ha-button title="橘色按钮" bgColor="bgc-orange"></ha-button>
+  </ha-rectangle>
+  <!-- 第二行 -->
+  <ha-rectangle :coor="[[[9,19], [6, 4]]]" radius="5px">
+    <ha-button title="圆角按钮" bgColor="bgc-blue"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[17,18], [6, 6]]]" radius="50%">
+    <ha-button title="圆形按钮" bgColor="bgc-red"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[24,18], [8, 6]]]">
+    <ha-button title="大按钮" bgColor="bgc-green"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[33,19], [4, 3]]]">
+    <ha-button title="小按钮" bgColor="bgc-yellow"></ha-button>
+  </ha-rectangle>
+  <!-- 第三行 -->
+  <ha-rectangle :coor="[[[9,28], [6, 4]]]">
+    <ha-button title="禁用按钮" bgColor="bgc-orange" :disabled="true"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[17,28], [14, 8]]]" radius="10px">
+    <ha-button title="两倍字体" bgColor="bgc-blue" fontSize="2em"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[32,28], [6, 4]]]" radius="10px">
+    <ha-button title="0.5倍字体" bgColor="bgc-blue" fontSize="0.5em"></ha-button>
+  </ha-rectangle>
+</ha-coordinater>
+```
+
+结果：
+<doc-result>
+  <stuff-button></stuff-button>
+</doc-result>
+
 ## 3.2 &lt;ha-number>
 
 - 示例
@@ -95,6 +147,37 @@
     2. 类型为`String`
     3. 默认为`undefined`
     4. [参照全局颜色中的fillColor](../main/README.md#0.1颜色)
+
+- 实例
+
+代码：
+```html
+<ha-coordinater :grid="[[0, 50, 50]]">
+  <ha-rectangle :coor="[[[5,12], [7, 20]]]">
+    <ha-number :num="2" :capital="true" fillColor="blue"></ha-number>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[12,12], [7, 20]]]">
+    <ha-number :num="0" fillColor="yellow"></ha-number>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[19,12], [7, 20]]]">
+    <ha-number :num="2" fillColor="green"></ha-number>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[26,12], [7, 20]]]">
+    <ha-number :num="0" fillColor="red" :dot="true"></ha-number>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[33,12], [7, 20]]]">
+    <ha-number :num="0" fillColor="purple"></ha-number>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[40,12], [7, 20]]]">
+    <ha-number :num="4" fillColor="orange"></ha-number>
+  </ha-rectangle>
+</ha-coordinater>
+```
+
+结果：
+<doc-result>
+  <stuff-num></stuff-num>
+</doc-result>
 
 ## 3.3 &lt;ha-letter>
 
@@ -131,6 +214,37 @@
     3. 默认为`undefined`
     4. [参照全局颜色中的fillColor](../main/README.md#0.1颜色)
 
+- 实例
+
+代码：
+```html
+<ha-coordinater :grid="[[0, 50, 50]]">
+  <ha-rectangle :coor="[[[5,12], [7, 20]]]">
+    <ha-letter letter="L" :capital="true" fillColor="blue"></ha-letter>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[12,12], [7, 20]]]">
+    <ha-letter letter="e" fillColor="yellow"></ha-letter>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[19,12], [7, 20]]]">
+    <ha-letter letter="t" fillColor="green"></ha-letter>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[26,12], [7, 20]]]">
+    <ha-letter letter="t" fillColor="red"></ha-letter>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[33,12], [7, 20]]]">
+    <ha-letter letter="e" fillColor="purple"></ha-letter>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[40,12], [7, 20]]]">
+    <ha-letter letter="r" fillColor="orange"></ha-letter>
+  </ha-rectangle>
+</ha-coordinater>
+```
+
+结果：
+<doc-result>
+  <stuff-letter></stuff-letter>
+</doc-result>
+
 ## 3.4 &lt;ha-avatar>
 
 - 示例
@@ -158,6 +272,27 @@
     1. 未显示图像时显示的文字
     2. 类型为`String`
     3. 默认为`undefined`
+
+:::warning 注意
+该组件的名为`url`的prop传入的地址是静态资源地址, 这意味着打包工具并不会对其进行处理,
+如果要让打包工具对其处理的话, 需要使用`import`语句导入资源并传给名为`url`的prop
+:::
+
+- 实例
+
+代码：
+```html
+<ha-coordinater :grid="[[0, 50, 50]]">
+  <ha-rectangle :coor="[[[5,16], [40, 16]]]">
+    <ha-avatar url="/haru-ui.png" alt="一张图片"></ha-avatar>
+  </ha-rectangle>
+</ha-coordinater>
+```
+
+结果：
+<doc-result>
+  <stuff-avatar></stuff-avatar>
+</doc-result>
 
 ## 3.5 &lt;ha-back>
 
@@ -188,6 +323,41 @@
     3. 默认为`undefined`
     4. [参照全局颜色中的bgColor](../main/README.md#0.1颜色)
 
+- events:
+
+  - back:
+  
+    1. 返回的图标被点击时触发
+    2. 使用`v-on`指令接收处理
+
+- 实例
+
+代码：
+```html
+<ha-coordinater :grid="[[0, 50, 50]]">
+  <ha-rectangle :coor="[[[5,5], [40, 5]]]">
+    <ha-back title="这是蓝色的`<ha-back>`组件" bgColor="bgc-blue"></ha-back>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[5,13], [40, 5]]]">
+    <ha-back title="这是红色的`<ha-back>`组件" bgColor="bgc-red"></ha-back>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[5,21], [40, 5]]]">
+    <ha-back title="这是绿色的`<ha-back>`组件" bgColor="bgc-green"></ha-back>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[5,29], [40, 5]]]">
+    <ha-back title="这是黄色的`<ha-back>`组件" bgColor="bgc-yellow"></ha-back>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[5,37], [40, 5]]]">
+    <ha-back title="这是紫色的`<ha-back>`组件" bgColor="bgc-purple"></ha-back>
+  </ha-rectangle>
+</ha-coordinater>
+```
+
+结果：
+<doc-result>
+  <stuff-back></stuff-back>
+</doc-result>
+
 ## 3.6 &lt;ha-page>
 
 - 示例
@@ -216,6 +386,22 @@
 
     1. 页面更改时触发该事件
     2. 传递一个名为`isPage`的参数,该参数为该组件当前所处的页面 
+
+- 实例
+
+代码：
+```html
+<ha-coordinater :grid="[[0, 50, 50]]">
+  <ha-rectangle :coor="[[[5,15], [40, 15]]]" border="solid 1px">
+    <ha-page :page="20"></ha-page>
+  </ha-rectangle>
+</ha-coordinater>
+```
+
+结果：
+<doc-result height="200px">
+  <stuff-page></stuff-page>
+</doc-result>
 
 ## 3.7 &lt;ha-check>
 
@@ -273,3 +459,25 @@
 1. 名为isCheck的prop只做初始化时使用
 2. 触发checked事件是并不会改变父组件传递进来的绑定于名为isCheck的prop的值, 请根据事件传递的参数对象中的isCheck值进行判断
 :::
+
+- 实例
+
+代码：
+```html
+<ha-coordinater :grid="[[0, 50, 50]]">
+  <ha-rectangle :coor="[[[5,20], [12, 10]]]" border="solid 1px">
+    <ha-check :isCheck="false" content="蓝色的check" bgColor="bgc-blue"></ha-check>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[19,20], [12, 10]]]" border="solid 1px">
+    <ha-check :isCheck="true" content="红色的check" bgColor="bgc-red"></ha-check>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[33,20], [12, 10]]]" border="solid 1px">
+    <ha-check :isCheck="true" content="黄色的check" bgColor="bgc-yellow"></ha-check>
+  </ha-rectangle>
+</ha-coordinater>
+```
+
+结果：
+<doc-result height="200px">
+  <stuff-check></stuff-check>
+</doc-result>

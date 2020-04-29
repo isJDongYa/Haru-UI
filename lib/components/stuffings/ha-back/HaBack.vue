@@ -8,6 +8,7 @@
 </template>
 <script>
 import colorMixin from '@mixins/colorMixin'
+import backSvg from '@icons/back.svg'
 
 export default {
   name: 'ha-back',
@@ -21,7 +22,7 @@ export default {
   },
   data() {
     return {
-      src: this.$haru.icons._lastOne
+      src: backSvg
     }
   },
   methods: {

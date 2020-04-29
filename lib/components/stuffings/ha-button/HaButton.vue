@@ -17,12 +17,12 @@ export default {
    icon: {
       type: String,
       required: false,
-      default: ""
+      default: undefined
     },
     title: {
       type: String,
       required: false,
-      default: ""
+      default: undefined
     },
     disabled: {
       type: Boolean,
@@ -32,7 +32,7 @@ export default {
     fontSize: {
       type: String,
       required: false,
-      default: ''
+      default: undefined
     }
   },
   methods: {

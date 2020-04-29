@@ -2,7 +2,8 @@
   <div :class="['ha-rectangle', 'ha-rectangle-default', 'grid-r-c-span2', haHover]" 
   :style="`grid-row-start:${gridRowStart};grid-column-start:${gridColumnStart};` +
     `grid-row-end:${gridRowEnd};grid-column-end:${gridColumnEnd};` +
-    `width:${width};height:${height};overflow:${overflow};z-index:${ z };border:${border};padding:${padding}`"
+    `width:${width};height:${height};overflow:${overflow};z-index:${ z };` +
+    `border:${border};border-radius:${radius};padding:${padding}`"
     v-if="haShow"
     
     >
@@ -44,12 +45,17 @@ export default {
     border: {
       type: String,
       required: false,
-      default: ''
+      default: undefined
+    },
+    radius: {
+      type: String,
+      required: false,
+      default: undefined
     },
     padding: {
       type: String,
       required: false,
-      default: ''
+      default: undefined
     }
   }
 }
