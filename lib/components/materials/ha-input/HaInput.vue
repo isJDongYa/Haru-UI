@@ -63,7 +63,7 @@ export default {
       required: false,
       default: function(val) {
         return {
-          msg: '',
+          msg: undefined,
           bgColor: this.bgColor
         }
       }

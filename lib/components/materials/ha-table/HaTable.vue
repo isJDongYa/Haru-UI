@@ -6,23 +6,23 @@
       :hcfHeight="selfHcfHeight"
     >
       
-      <!-- 表头 -->
+      <!-- 基础表格 -->
       <table class="ha-table-advance-content-table-default ha-table-advance-content-table" v-show="!set" slot="header">
         <tr :class="bgColorClass[0]">
           <td class="ha-table-advance-content-td-default ha-table-advance-content-td" v-for="(item, itemIndex) in headShow" :key="itemIndex">{{ item }}</td>
         </tr>
       </table>
 
-      <!--  内容 -->
+      <!--  进阶表格 -->
       <ha-scroll slot="content" :bgColor="['grey', 'grey']" v-show="!set">
         <table class="ha-table-advance-content-table-default ha-table-advance-content-table">
           <tr 
-          :class="[{[bgColorClass[1]]: Array.isArray(row)&&rowIndex%2===0, [bgColorClass[2]]: Array.isArray(row)&&rowIndex%2!==0 }, getColorClass(row.bgColor)]" 
+          :class="[{[bgColorClass[1]]: Array.isArray(row)&&rowIndex%2===0, [bgColorClass[2]]: Array.isArray(row)&&rowIndex%2!==0 }, getBgColorClass(row.bgColor)]" 
           v-for="(row, rowIndex) in dataShow " 
           :key="rowIndex"
           >
             <td 
-            :class="['ha-table-advance-content-td-default', 'ha-table-advance-content-td', getColorClass(item&&item.bgColor)]" 
+            :class="['ha-table-advance-content-td-default', 'ha-table-advance-content-td', getBgColorClass(item&&item.bgColor)]" 
             v-for="(item, itemIndex) in Array.isArray(row)?row:row.row" :key="itemIndex"
             >
               {{ typeof item === 'object' ? item.data : item }}
@@ -57,15 +57,20 @@ import HaPage from '@stuffings/ha-page/HaPage.vue'
 import HaScroll from '@others/ha-scroll/HaScroll.vue'
 import HaCheck from '@stuffings/ha-check/HaCheck.vue'
 import HaBack from '@stuffings/ha-back/HaBack.vue'
+import HaButton from '@stuffings/ha-button/HaButton.vue'
+
+import colorMixin from '@mixins/colorMixin.js'
 
 export default {
   name: 'ha-table',
+  mixins: [colorMixin],
   components: {
     'ha-card': HaCard,
     'ha-check': HaCheck,
     'ha-scroll': HaScroll,
     'ha-page': HaPage,
-    'ha-back': HaBack
+    'ha-back': HaBack,
+    [HaButton.name]: HaButton
   },
   props: {
     type: {
@@ -88,7 +93,9 @@ export default {
     colNoShow: {
       type: Array,
       required: false,
-      default: []
+      default: () => {
+        return []
+      }
     },
     datas: {
       type: Object,
