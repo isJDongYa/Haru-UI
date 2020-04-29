@@ -8,6 +8,18 @@
 
   提供基本的矩形容器
 
+- 示例
+
+```html
+<这里一般用ha-coordinater组件包裹>
+  <ha-reactangle :coor = [一个三维数组]>
+    ...
+    这里一般放置‘填充物’组件
+    ...
+  </ha-reactangle>
+</ha-coordinater>
+```
+
 - props:
 
   - coor:
@@ -78,24 +90,53 @@
     3. 值为Number, 默认为`undefined`
 
 :::warning 注意： 
-1. 为保证该值不影响整个坐标系的正常等分, 此组件的默认`grid-column-span`为2
-2. 为保证该值不影响整个坐标系的正常等分, 此组件的默认`grid-row-span`为2
+1. 为保证名为`width`的prop不影响整个坐标系的正常等分, 此组件的默认`grid-column-span`为2
+2. 为保证名为`height`的prop不影响整个坐标系的正常等分, 此组件的默认`grid-row-span`为2
 3. 此组件的默认`position`为relative
 :::
 
-- 示例
-
-  - TODO
-
 - 实例
 
-  - TODO
+代码:
+```html
+<ha-coordinater :grid="[[0, 50, 50]]">
+  <ha-rectangle :coor="[[[9,10], [7, 20]]]">
+    <ha-letter letter="H" :capital="true" fillColor="blue"></ha-letter>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[18,10], [7, 20]]]">
+    <ha-letter letter="a" fillColor="yellow"></ha-letter>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[27,10], [7, 20]]]">
+    <ha-letter letter="r" fillColor="green"></ha-letter>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[36,10], [7, 20]]]">
+    <ha-letter letter="u" fillColor="red"></ha-letter>
+  </ha-rectangle>
+</ha-coordinater>
+```
+
+结果：
+<doc-result height="500px">
+  <containers-rec></containers-rec>
+</doc-result>
 
 ## 2.2 &lt;ha-card>
 
 - 简介：
 
   在`<ha-rectangle>`的基础上提供垂直和水平的三栏布局
+
+- 示例
+  
+```html
+<这里一般用ha-coordinater组件包裹>
+  <ha-card :coor = [一个三维数组]>
+    ...
+    这里一般放置‘填充物’组件
+    ...
+  </ha-card>
+</ha-coordinater>
+```
 
 - props:
 
@@ -149,10 +190,14 @@
   此组件的默认`position`为relative
   :::
 
-- 示例
-
-  - TODO
-
 - 实例
 
-  - TODO
+代码
+```html
+
+```
+
+结果
+<doc-result>
+  <containers-card></containers-card>
+</doc-result>

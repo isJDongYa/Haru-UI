@@ -19,33 +19,6 @@
   </ha-coordinater>
 </这里使用具有实际宽高的容器包裹>
 ```
-
-- **实例**:
-
-代码：
-
-``` html 
-<ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
-  <ha-rectangle :coor="[[[6,8], [5,8]], [[5,3], [5, 15]]]">
-    <ha-number :num="0" fontColor="blue"></ha-number>
-  </ha-rectangle>
-</ha-coordinater>
-```
-
-结果:
-
-<doc-result>
-  <coor-example></coor-example>
-</doc-result>
-
-  - 当可视宽度大于1180px时为:
-
-![结果1](../assets/imgs/instances/ha-coordinater/ha-coordinater实例图1.png)
-
-  - 当可视宽度大于580px并小于1180px时为:
-  
-![结果2](../assets/imgs/instances/ha-coordinater/ha-coordinater实例图2.png)
-
 ::: warning 注意
 该组件的默认宽高都为100%, 需要为其包裹具有实际宽高的容器
 :::
@@ -65,3 +38,29 @@
     ::: tip 提示
     例如`[[1180, 50, 50], [580, 25, 50]]`, 该数组的`length`为2表明该组件总共有2个坐标系，表示在网页可视宽度大于`1180px`时使用第一个坐标系`[1180, 50, 50]`,该坐标系的X轴被分为`50等分`,Y轴也被分为`50等分`,在网页可视宽度大于`580px`并且小于`1180px`时使用第二个坐标系`[580, 25, 50]`,该坐标系的X轴被分为`24等分`,Y轴则被分为`49等分`
     :::
+
+- **实例**:
+
+代码：
+
+``` html 
+<ha-coordinater :grid="[[1180, 50, 50], [580, 25, 50]]">
+  <ha-rectangle :coor="[[[6,8], [5,8]], [[5,3], [5, 15]]]">
+    <ha-number :num="0" fColor="fc-green"></ha-number>
+  </ha-rectangle>
+</ha-coordinater>
+```
+
+结果:
+
+<doc-result>
+  <coor-example></coor-example>
+</doc-result>
+
+  - 当可视宽度大于1180px时为:
+
+![结果1](../assets/imgs/instances/ha-coordinater/ha-coordinater实例图1.png)
+
+  - 当可视宽度大于580px并小于1180px时为:
+  
+![结果2](../assets/imgs/instances/ha-coordinater/ha-coordinater实例图2.png)

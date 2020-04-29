@@ -14,14 +14,31 @@ sidebar: auto
 
 ## &lt;ha-button>
 
-## &lt;ha-coordinater>
+## &lt;ha-number>
 
-## &lt;ha-coordinater>
+## &lt;ha-letter>
 
-## &lt;ha-coordinater>
-## &lt;ha-coordinater>
-## &lt;ha-coordinater>
-## &lt;ha-coordinater>
-## &lt;ha-coordinater>
-## &lt;ha-coordinater>
-## &lt;ha-coordinater>
+## &lt;ha-avatar>
+
+## &lt;ha-back>
+
+## &lt;ha-page>
+
+## &lt;ha-check>
+
+## &lt;ha-menu-vertical>
+
+## &lt;ha-menu-horizontal>
+
+## &lt;ha-input>
+
+## &lt;ha-table>
+
+<!-- ## &lt;ha-file> -->
+
+## &lt;ha-input>
+## &lt;ha-input>
+## &lt;ha-input>
+## &lt;ha-input>
+## &lt;ha-input>
+
