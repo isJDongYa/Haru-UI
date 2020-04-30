@@ -27,11 +27,11 @@
 
     1. 设置点击遮罩是否隐藏
     2. 值为Boolean, 默认为false
-
-- 注: 
-
-  1. 此组件的宽度和高度默认100%
-  2. 在绑定此组件的show时应使用.sync修饰, 达到该组件内的show和外部传递进来的值保持一致
+ 
+:::warning 注意
+1. 此组件的宽度和高度默认100%
+2. 在绑定此组件的show时应使用.sync修饰, 达到该组件内的show和外部传递进来的值保持一致
+:::
 
 ## 5.2 &lt;ha-scroll>
 
@@ -56,9 +56,9 @@
     1. 设置颜色
     2. 值为一个length为4的数组, 分别表示[Y方向滚动条颜色, X方向滚动条的颜色, toBottom的颜色, toTop的颜色], 默认为空
 
-- 注:
-
-  1. 此组件的默认高度和宽度为100%
+:::warning 注意
+1. 此组件的默认高度和宽度为100%
+:::
 
 ## 5.3 &lt;ha-tooltip>
 
@@ -83,28 +83,28 @@
     1. 设置显示信息的位置
     2. 值为top或者bottom
 
-- 注:
-
-  1. 此组件的默认高度和宽度为100%
+:::warning 注意
+1. 此组件的默认高度和宽度为100%
+:::
 
 ## 5.4 &lt;ha-detailBox>
 
 - 简介：
-- 
+  
   详情盒子， 用于鼠标进入某个元素后立即用一个自定义的元素展示其详情
 
 - props:
   
   无porps
 
-- 使用方法：
+:::tip 使用方法：
+自定义一个具有data-detailBox属性， 并且其值为detailBox的元素，即类似&lt;div data-detailBox="detailBox">，放置于&lt;ha-detailBox>的同一父节点中， 使它们成为兄弟节点，当鼠标进入&lt;ha-detailBox>的范围内时，会将自定义的元素用于展示详情。
+:::
 
-   自定义一个具有data-detailBox属性， 并且其值为detailBox的元素，即类似&lt;div data-detailBox="detailBox">，放置于&lt;ha-detailBox>的同一父节点中， 使它们成为兄弟节点，当鼠标进入&lt;ha-detailBox>的范围内时，会将自定义的元素用于展示详情。
-
-- 注：
-
-  1. 其中&lt;ha-detailBox>的高度和宽带默认为100%。
-  2. 自定义元素需全部自定义，包括其css，也可使用组件
+:::warning 注意
+1. 其中&lt;ha-detailBox>的高度和宽带默认为100%。
+2. 自定义元素需全部自定义，包括其css，也可使用组件
+:::
 
 ## 5.5 $haru.notify()
 
@@ -112,25 +112,116 @@
 
   显示通知
 
-- 使用方法:
+:::tip 使用方法:
 
-  1. 组件直接调用(this.)$haru.notify(vm, options)
-  >
-  2. 参数vm为一个vue实例, 通知组件将挂载到此实例的$root.$el上, 建议直接传入调用时的所在组件实例, 即this
-  >
-  3. 参数options为一个对象, 示例如下:
-  >
-     ```js
-     {
-       msg: '这是一个haru UI的通知', // 要显示的通知信息, 默认为空
-       duration: 4000, // 多少毫秒后该通知消失,默认为4000
-  >
-       //显示位置,('topRight'|'bottomRight'|'topLeft'|
-       //'bottomLeft'|'topMiddle'|'bottomMiddle')的其中之一
-       // 默认为'topRight'
-       location: 'topRight', 
-  >
-       bgColor: 'lightBlue',// 设置背景颜色, 默认为空
-       icon: require('@icons/信息.svg') // 设置要显示的icon, 默认为欸空
-     }
-     ```
+1. 组件直接调用(this.)$haru.notify(vm, options)
+
+2. 参数vm为一个vue实例, 通知组件将挂载到此实例的$root.$el上, 建议直接传入调用时的所在组件实例, 即this
+
+3. 参数options为一个对象, 示例如下:
+
+  ```js
+  {
+    msg: '这是一个haru UI的通知', // 要显示的通知信息, 默认为空
+    duration: 4000, // 多少毫秒后该通知消失,默认为4000
+
+    //显示位置,('topRight'|'bottomRight'|'topLeft'|
+    //'bottomLeft'|'topMiddle'|'bottomMiddle')的其中之一
+    // 默认为'topRight'
+    location: 'topRight', 
+
+    bgColor: 'lightBlue',// 设置背景颜色, 默认为undefined
+    icon: require('@icons/信息.svg') // 设置要显示的icon, 默认为undefined
+  }
+  ```
+:::
+
+- 实例：
+
+代码：
+```html
+<ha-coordinater :grid="[[0, 50, 50]]">
+  <!-- 第一行 -->
+  <ha-rectangle :coor="[[[9,10], [8, 5]]]">
+    <ha-button title="点击发送通知" bgColor="bgc-blue" @click="click1"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[20,10], [8, 5]]]">
+    <ha-button title="点击发送通知" bgColor="bgc-red" @click="click2"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[31,10], [8, 5]]]">
+    <ha-button title="点击发送通知" bgColor="bgc-green" @click="click3"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[9,20], [8, 5]]]">
+    <ha-button title="点击发送通知" bgColor="bgc-yellow" @click="click4"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[20,20], [8, 5]]]">
+    <ha-button title="点击发送通知" bgColor="bgc-orange" @click="click5"></ha-button>
+  </ha-rectangle>
+  <ha-rectangle :coor="[[[31,20], [8, 5]]]">
+    <ha-button title="点击发送通知" bgColor="bgc-purple" @click="click6"></ha-button>
+  </ha-rectangle>
+</ha-coordinater>
+```
+
+其中notify函数为：
+```js
+click1() {
+  this.$haru.notify(this, {
+  msg: '这是一个haru UI的通知', 
+  duration: 4000, 
+  location: 'topLeft', 
+  bgColor: 'bgc-blue',
+  icon: require('@icons/信息.svg') 
+  })
+},
+click2() {
+  this.$haru.notify(this, {
+  msg: '这是一个haru UI的通知', 
+  duration: 4000, 
+  location: 'topMiddle', 
+  bgColor: 'bgc-red',
+  icon: require('@icons/信息.svg') 
+  })
+},
+click3() {
+  this.$haru.notify(this, {
+  msg: '这是一个haru UI的通知', 
+  duration: 4000, 
+  location: 'topRight', 
+  bgColor: 'bgc-green',
+  icon: require('@icons/信息.svg') 
+  })
+},
+click4() {
+  this.$haru.notify(this, {
+  msg: '这是一个haru UI的通知', 
+  duration: 4000, 
+  location: 'bottomLeft', 
+  bgColor: 'bgc-yellow',
+  icon: require('@icons/信息.svg') 
+  })
+},
+click5() {
+  this.$haru.notify(this, {
+  msg: '这是一个haru UI的通知', 
+  duration: 4000, 
+  location: 'bottomMiddle', 
+  bgColor: 'bgc-orange',
+  icon: require('@icons/信息.svg') 
+  })
+},
+click6() {
+  this.$haru.notify(this, {
+  msg: '这是一个haru UI的通知', 
+  duration: 4000, 
+  location: 'bottomRight', 
+  bgColor: 'bgc-purple',
+  icon: require('@icons/信息.svg') 
+  })
+}
+```
+
+结果：
+<doc-result>
+  <others-notify></others-notify>
+</doc-result>

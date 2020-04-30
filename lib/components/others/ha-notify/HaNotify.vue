@@ -1,5 +1,5 @@
 <template>
-  <div :class="['ha-notify-default', 'ha-notify', bgColorClass]" :style="locationComputed">
+  <div :class="['ha-notify-default', 'ha-notify', bgColor]" :style="locationComputed">
     <img class="ha-notify-icon-default ha-notify-icon" :src="icon">
     <span>{{ msg }}</span>
   </div>
@@ -22,7 +22,7 @@ export default {
       default: ''
     },
     location: {
-       type: String,
+      type: String,
       required: false,
       default: 'topRight',
       validator: (val) => {
@@ -43,7 +43,7 @@ export default {
       if(this.location === 'bottomRight') {
         return {bottom: '5px', right: '10px'}
       }
-      if(this.location === 'topLeft') {
+      if(this.location === 'topLeft') { 
         return {top: '5px', left: '10px'}
       }
       if(this.location === 'bottomLeft') {
@@ -62,6 +62,7 @@ export default {
 <style lang="scss" scoped>
 .ha-notify-default {
   position: fixed;
+  z-index: 10000000000;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -6,6 +6,11 @@
 <script>
 
 import HaReactangle from '@containers/ha-rectangle/HaRectangle'
+import HaNotify from '@others/ha-notify'
+
+import Vue from 'vue'
+
+Vue.use(HaNotify)
 
 export default {
   components:{

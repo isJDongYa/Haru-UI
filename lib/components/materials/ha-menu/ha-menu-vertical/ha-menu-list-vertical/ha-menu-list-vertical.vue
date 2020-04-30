@@ -14,7 +14,7 @@ export default {
   name: 'ha-menu-list-vertical',
   mixins:[colorMixin, singleOpenMixin],
   components: {
-    'ha-scroll': HaScroll,
+    [HaScroll.name]: HaScroll,
   },
   data() {
     return {
@@ -129,7 +129,7 @@ export default {
       <div data-factor="ha-menu-list-vertical" class="ha-menu-list-vertical-default ha-menu-list-vertical">
         { head }
         <div ref='body' style={ `height:${ bodyHeight }` }>
-          <ha-scroll color={ ['grey', 'grey'] }>
+          <ha-scroll bgColor={ ['bgc-grey', 'bgc-grey'] }>
             <div ref='body' class="ha-menu-list-vertical-body-default">{ this.createMenuList(this.menuList) }</div>
           </ha-scroll>
         </div>

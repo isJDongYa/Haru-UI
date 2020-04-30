@@ -1,6 +1,6 @@
 <template>
   <div class="ha-scroll-default ha-scroll">
-    <div ref="scrollContent" class="ha-scroll-content-default ha-scroll-content"  @mouseenter="contentEnter">
+    <div ref="scrollContent" class="ha-scroll-content-default ha-scroll-content"  @click="contentClick">
       <slot></slot>
     </div>
     <!-- 垂直滚动条 -->
@@ -123,7 +123,7 @@ export default {
     }
   },
   methods: {
-    contentEnter() {  // 监控发生在scrollContent的鼠标进入事件,更新滚动高度
+    contentClick() {  // 监控发生在scrollContent的鼠标进入事件,更新滚动高度
       this.scrollContentScrollHeight = this.scrollContent.scrollHeight    
     },
     toTopClick() {
