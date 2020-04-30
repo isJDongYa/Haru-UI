@@ -124,7 +124,7 @@ export default {
   },
   methods: {
     contentEnter() {  // 监控发生在scrollContent的鼠标进入事件,更新滚动高度
-      this.scrollContentScrollHeight = this.scrollContent.scrollHeight
+      this.scrollContentScrollHeight = this.scrollContent.scrollHeight    
     },
     toTopClick() {
       this.barVeTop = -1
@@ -163,6 +163,8 @@ export default {
     contentMouseWheel(vm) { 
       return function(e) {
         e.stopPropagation()
+        e.preventDefault()
+        
         if(!vm.keyDown) {
           const wheelY = e.wheelDeltaY || -e.detail // 兼容firefox
           if(wheelY<0) { // 向下滚动
@@ -199,6 +201,7 @@ export default {
     contentHoScroll(vm) {
       return function(e) {
         e.stopPropagation()
+        e.preventDefault()
         if(vm.keyDown) {
           const wheelY = e.wheelDeltaY || -e.detail // 兼容firefox
           if(wheelY<0) { // 向右滚动
@@ -261,7 +264,7 @@ export default {
     },
     barHoMouseMove(vm) {
       return function bhmm(e) {
-        vm.scrollContent.parentNode.style.userSelect = 'none'  // 禁止拖动时选中文字
+        vm.scrollContent.parentNode.style.userSelect = 'none'  // 拖动时禁止选中文字
 
         const distanceX = e.clientX - vm.mouseDownX
         const bh = vm.barHoLeftTemp + (distanceX / vm.scrollContent.offsetWidth) * 100
@@ -284,7 +287,7 @@ export default {
 
       this.toTorBHeight = this.$refs.scrollContent.offsetHeight*0.05
       let mousewheel = navigator.userAgent.indexOf('Firefox') > -1 ? 'DOMMouseScroll' : 'mousewheel' // 兼容firefox
-
+      
       // 如果内容高度大于可见高度
       if(this.scrollContent.scrollHeight > this.scrollContent.offsetHeight) {
         this.barVeConShow = true
@@ -293,11 +296,11 @@ export default {
         this.toBSTemp = true
         this.barVeHeight = Math.floor((this.scrollContent.offsetHeight / this.scrollContent.scrollHeight) * 100) + 1
 
+        // 将this作为dataBus
         this.mouseWheelVe = this.contentMouseWheel(this)
         this.mouseDownVe = this.barVeMouseDown(this)
 
-        // 将this作为dataBus
-        this.scrollContent.addEventListener(mousewheel,this. mouseWheelVe)
+        this.scrollContent.addEventListener(mousewheel,this.mouseWheelVe)
         this.barVe.addEventListener('mousedown', this.mouseDownVe)
       } else {
         if(this.mouseWheelVe) this.scrollContent.removeEventListener(mousewheel, this.mouseWheelVe)
@@ -320,6 +323,7 @@ export default {
         // 将this作为dataBus
         this.scrollContent.addEventListener(mousewheel, this.mouseWheelHo)
         this.barHo.addEventListener('mousedown', this.mouseDownHo)
+
         document.addEventListener('keydown',this. mouseKeydownDoc)
         document.addEventListener('keyup',this. mouseKeyupDoc)
       } else {
@@ -348,7 +352,7 @@ export default {
   mounted() {
     this.scrollContent = this.$refs.scrollContent
     this.scrollContentScrollHeight = this.$refs.scrollContent.scrollHeight
-    this.haScrollInit()
+    this.haScrollInit()   
   }
 
 }

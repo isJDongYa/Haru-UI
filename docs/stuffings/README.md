@@ -51,7 +51,7 @@
     1. button的颜色
     2. 类型为`String`
     3. 值为表示颜色的字符串, 默认为`undefined`
-    4. [参照全局颜色中的bgColor](../main/README.md#0.1颜色)
+    4. [参照全局颜色中的bgColor](../main/README.md#_0-1-颜色)
 
 - events:
 
@@ -146,7 +146,7 @@
     1. 设置所显示数字的颜色
     2. 类型为`String`
     3. 默认为`undefined`
-    4. [参照全局颜色中的fillColor](../main/README.md#0.1颜色)
+    4. [参照全局颜色中的fillColor](../main/README.md#_0-1-颜色)
 
 - 实例
 
@@ -212,7 +212,7 @@
     1. 设置所显示字母的颜色
     2. 类型为`String`
     3. 默认为`undefined`
-    4. [参照全局颜色中的fillColor](../main/README.md#0.1颜色)
+    4. [参照全局颜色中的fillColor](../main/README.md#_0-1-颜色)
 
 - 实例
 
@@ -321,7 +321,7 @@
     1. 设置背景颜色
     2. 类型为`String`, 
     3. 默认为`undefined`
-    4. [参照全局颜色中的bgColor](../main/README.md#0.1颜色)
+    4. [参照全局颜色中的bgColor](../main/README.md#_0-1-颜色)
 
 - events:
 
@@ -445,7 +445,7 @@
     1. 设置选框的颜色
     2. 类型为`String`
     3. 默认为`undefined`
-    4. [参照全局颜色中的bgColor](../main/README.md#0.1颜色)
+    4. [参照全局颜色中的bgColor](../main/README.md#_0-1-颜色)
 
 - events:
 

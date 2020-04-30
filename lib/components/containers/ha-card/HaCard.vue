@@ -1,5 +1,10 @@
 <template>
-  <ha-rectangle :width="$attrs['width']" :height="$attrs['height']" :coor="$attrs['coor']" :hover="$attrs['hover']" :border="$attrs['border']" :padding="$attrs['padding']" :haShow="$attrs['haShow']">
+  <ha-rectangle 
+    :width="$attrs['width']" :height="$attrs['height']" 
+    :coor="$attrs['coor']" :hover="$attrs['hover']" 
+    :border="$attrs['border']" :padding="$attrs['padding']" 
+    :radius="$attrs['radius']" :haShow="$attrs['haShow']"
+  >
     <!-- 垂直card -->
     <div :class="['ha-card-Ve-default', 'ha-card-Ve']" v-if="type==='Ver'">
       <div :class="['ha-card-Ve-head-default', bgColorClass[0], 'ha-card-Ve-head']" v-if="$slots.header" :style="`height:${hcfHeight[0]}`">

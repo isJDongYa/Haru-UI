@@ -1,9 +1,15 @@
 <template>
-  <ha-coordinater :grid="[[1180, 51, 51]]">
-    <ha-card :coor="[[[2,2],[15,10]]]" :hcfHeight="['30%','70%', '0%']">
+  <ha-coordinater :grid="[[0, 50, 50]]">
+    <!-- <ha-card :coor="[[[2,2],[15,10]]]" :hcfHeight="['30%','70%', '0%']">
       <span slot="header">这是ha-input</span>
       <ha-input type="text" name="input" v-model="inputVal"  :checkFun="checkFun" lable="输入框:" bgColor="black"></ha-input>
-    </ha-card>
+    </ha-card> -->
+    <ha-table 
+      :coor="[[[1,1], [50, 50]]]" 
+      :bgColor="['bgc-blue', 'bgc-white', 'bgc-grey']" 
+      type="base"
+      :datas="datas"
+    ></ha-table>
   </ha-coordinater>
 </template>
 <script>

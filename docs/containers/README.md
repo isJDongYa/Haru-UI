@@ -186,6 +186,7 @@
     ```
 
     3. 默认为`undefined`
+    4. [参照全局颜色中的bgColor](../main/README.md#_0-1-颜色)
 
 - slots: 
 

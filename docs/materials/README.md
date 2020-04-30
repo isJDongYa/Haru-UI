@@ -114,7 +114,7 @@
     2. 类型为`Array`
     3. 值为一个`length=2`的数组, 分别表示`[group的背景颜色, item的背景颜色]`, 
     4. 默认值为`undefined`
-    5. [参照全局颜色中的bgColor](../main/README.md#0.1颜色)
+    5. [参照全局颜色中的bgColor](../main/README.md#_0-1-颜色)
 
 ## 4.2 &lt;ha-menu-horizontal>
 
@@ -141,7 +141,7 @@
     1. 表示输入框的类型
     2. 类型为`String`, 
     3. 默认值为'text'
-    4. 该值不能为'file'
+    4. 可选值为：'text','number','password', 'date', 'color'
 
   - value: 
 
@@ -169,7 +169,7 @@
     1. 设置背景颜色
     2. 类型为`String`
     3. 默认为`undefined`
-    4. [参照全局颜色中的bgColor](../main/README.md#0.1颜色)
+    4. [参照全局颜色中的bgColor](../main/README.md#_0-1-颜色)
 
   - checkFun:
 
@@ -194,90 +194,186 @@
          bgColor: '提示时的背景颜色'
        }
        ```
+- 实例：
+
+代码：
+```html
+  <ha-coordinater :grid="[[0, 50, 50]]">
+    <ha-input 
+      :coor="[[[4,2], [42, 8]]]" 
+      lable="text输入框："
+      name="input"
+      type='text'
+      border="solid 1px #ddd"
+      radius="5px"
+      bgColor="bgc-blue" 
+      :checkFun="checkFun1"
+      v-model="value1"
+    ></ha-input>
+    <ha-input 
+      :coor="[[[4,11], [42, 8]]]" 
+      lable="密码："
+      name="input"
+      type="password"
+      border="solid 1px #ddd"
+      radius="5px"
+      bgColor="bgc-yellow" 
+      :checkFun="checkFun2"
+      v-model="value2"
+    ></ha-input>
+    <ha-input 
+      :coor="[[[4,20], [42, 8]]]" 
+      lable="数字："
+      name="input"
+      type="number"
+      border="solid 1px #ddd"
+      radius="5px"
+      bgColor="bgc-orange" 
+      :checkFun="checkFun3"
+      v-model="value3"
+    ></ha-input>
+    <ha-input 
+      :coor="[[[4,29], [42, 8]]]" 
+      lable="日期："
+      name="input"
+      type="date"
+      border="solid 1px #ddd"
+      radius="5px"
+      bgColor="bgc-purple" 
+      :checkFun="checkFun4"
+      v-model="value4"
+    ></ha-input>
+    <ha-input 
+      :coor="[[[4,38], [42, 8]]]" 
+      lable="颜色："
+      name="input"
+      type="color"
+      border="solid 1px #ddd"
+      radius="5px"
+      bgColor="bgc-grey" 
+      :checkFun="checkFun5"
+      v-model="value5"
+    ></ha-input>
+  </ha-coordinater>
+```
+其中各个checkFun为：
+```js
+checkFun1(val) {
+  if(val!=='text') {
+    return {
+      msg: '不是text',
+      bgColor: 'bgc-red'
+    }
+  }else {
+    return {
+      msg: '是text',
+      bgColor: 'bgc-green'
+    }
+  }
+},
+checkFun2(val) {
+  if(val!=='1234') {
+    return {
+      msg: '错误！密码是1234',
+      bgColor: 'bgc-red'
+    }
+  }else {
+    return {
+      msg: '正确！密码是1234',
+      bgColor: 'bgc-green'
+    }
+  }
+},
+checkFun3(val) {
+  if(val!=='123456') {
+    return {
+      msg: '错误!不是123456',
+      bgColor: 'bgc-red'
+    }
+  }else {
+    return {
+      msg: '正确！是123456',
+      bgColor: 'bgc-green'
+    }
+  }
+},
+checkFun4(val) {
+  if(val!=='2020-05-20') {
+    return {
+      msg: '错误！日期是2020-5-20',
+      bgColor: 'bgc-red'
+    }
+  }else {
+    return {
+      msg: '正确！日期是2020-5-20',
+      bgColor: 'bgc-green'
+    }
+  }
+},
+checkFun5(val) {
+  return {
+    msg: '选择的颜色为' + val,
+    bgColor: 'bgc-grey'
+  }
+}
+```
+
+结果：
+<doc-result>
+  <mat-input></mat-input>
+</doc-result>
+
 
 ## 4.4 &lt;ha-table>
 
 - 简介：
 
-  一个具有'base'和'advance'两种状态的表格
+  一个基础的表格
 
 - props:
 
   - 具有跟`<ha-rectangle>`除`overflow`外一致的props
 
-  - type: 
+  - hcHeght: 
 
-    1. 设置表格状态为'base'或者'advance'
-    2. 类型为`String`
-    3. 可选值为'base'或'advance'
-    4. 默认为'base'
+    1. 设置表格头部和内容的高度
+    2. 类型为`Array`
+    3. 值为一个`length`为`2`的数组, 分别表示`[头部高度, 内容高度]`
+    4. “头部高度”和“内容高度”与css的height一致
+    5. 默认为`['15%', '85%']`
 
   - datas:
 
     1. 表格的数据
-    2. 值为一个对象, 示例如下
+    2. 类型为`Object`
+    3. 值为一个对象, 示例如下
     
        ```js
        {
          head:  ['列一','列二','列三','列四', '列5','列6','列7','列8','列9'], // 表头，
          rows: [ 
            {
-             bgColor: 'blue', // 设置该行颜色,如果名为`type`的prop值为'base', 此项无效
+             bgColor: 'bgc-blue', // 可选，独立设置该行颜色
              row: [1,'这是ha-table的一个单元格',3,4,5,6,7,8,9]
            }, 
            {
-             bgColor: 'red',// 设置该行颜色,如果名为`type`的prop值为base, 此项r无效
+             bgColor: 'bgc-red',//可选，独立设置该行颜色
              row: [{
                data: 1,
-               bgColor: 'yellow'// 设置该单元格颜色,如果名为`type`的prop值为base, 此项无效
+               bgColor: 'bgc-yellow'// 可选，独立设置该单元格颜色
              },2,3,4,5]
            }, 
            [1,2,3,4,5], 
            [1,2,3,4,5], 
            [{
              data: 0,
-             bgColor: 'blue'
+             bgColor: 'bgc-blue'
            },0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
-           [0,0,0,0],
            [0,0,0,0],
            [0,0,0,0]
          ]
        }
        ```
-    
-       
-
-  - perPage:
-
-    1. 如果名为`type`的prop值为'base', 该prop无效
-    2. 设置每页展示的行数
-    3. 类型为Number
-    4. 默认为10
-
-  - colNoShow:
-
-    1. 如果名为`type`的prop值为'base', 该prop无效
-    2. 设置初始化时不展示的列
-    3. 类型为`Array`
-    4. 值为一个一维数组, 数组的每个元素为名为`datas`的prop的对象的`head`里面之一, 默认为`[]`
 
   - bgColor:
 
@@ -290,38 +386,65 @@
     [表头的颜色, 除去表头行数为奇数的行的颜色,  除去表头行数为偶数的行的颜色]
     ```
 
-- events:
+    5. [参照全局颜色中的bgColor](../main/README.md#_0-1-颜色)
 
-  - pageError:
-
-    1. 当名为`type`的prop为'advance'时有效
-    2. 当页面输入框输入数字跳转时, 该数字小于或大于总页数时触发
-    3. 传递的参数为输入的数字, 此参数的类型为`String`
 
 - 实例
 
-1. 基础表格
-
 代码：
-```vue
-
+```html
+<ha-coordinater :grid="[[0, 50, 50]]">
+  <ha-table 
+    :coor="[[[1,1], [50, 50]]]" 
+    :hcHeght="['15%', '85%']"
+    :bgColor="['bgc-white', 'bgc-lightGrey', 'bgc-white']" 
+    :datas="datas"
+  ></ha-table>
+</ha-coordinater>
+```
+其中datas为：
+```js
+datas: {
+  head:  ['列一','列二','列三','列四', '列5','列6','列7','列8','列9'], // 表头，
+  rows: [ 
+    {
+      bgColor: 'bgc-lightBlue', // 设置该行颜色
+      row: ['这行的颜色是lightBlue',2,3,4,5,6,7,8,9]
+    }, 
+    {
+      bgColor: 'bgc-red',// 设置该行颜色
+      row: [{
+        data: '黄色格子',
+        bgColor: 'bgc-yellow'// 设置该单元格颜色
+      },
+      2,3,4,'这行的颜色是yellow']
+    }, 
+    [1,2], 
+    [1,2,3,4,5], 
+    [{
+      data: '蓝色格子',
+      bgColor: 'bgc-blue'
+    },0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0],
+    [0,0,0,0]
+  ]
+}
 ```
 
 结果：
 <doc-result>
   <mat-table-base></mat-table-base>
-</doc-result>
-
-2. 进阶表格
-
-代码：
-```vue
-
-```
-
-结果：
-<doc-result>
-  <mat-table-ad></mat-table-ad>
 </doc-result>
 
 <!-- ##4.5 $lt;ha-file>

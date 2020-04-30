@@ -2,11 +2,13 @@
   <ha-card
   :width="$attrs['width']" :height="$attrs['height']" 
   :coor="$attrs['coor']" 
-  :bgColor="[checkObj.bgColor, checkObj.bgColor, 'white']"  
+  :bgColor="[checkObj.bgColor, checkObj.bgColor, 'bgc-white']"  
   :hover="$attrs['hover']"
   :z="$attrs['z']"
   :haShow="$attrs['haShow']"
-
+  :border="$attrs['border']"
+  :padding="$attrs['padding']"
+  :radius="$attrs['radius']"
   type="Ver"  
   :hcfHeight="hcfHeight"
   >
@@ -24,9 +26,11 @@
 <script>
 
 import HaCard from '@containers/ha-card/HaCard.vue'
+import colorMixin  from '@mixins/colorMixin.js'
 
 export default {
   name: 'ha-input',
+  mixins: [colorMixin],
   components: {
     'ha-card': HaCard
   },
@@ -36,7 +40,8 @@ export default {
       required: false,
       default: 'text',
       validator: function(val) {
-        if(val === 'file') {
+        const typeArr = ['text','number','password', 'date', 'color']
+        if(typeArr.indexOf(val) === -1) {
           return false
         } else {
           return true
@@ -73,21 +78,18 @@ export default {
     return {
       hcfHeight: ['60%', '40%', '0%'],
       checkObj: {
-        msg: '',
+        msg: undefined,
         bgColor: this.bgColor
-      },
+      }
     }
   },
   methods: {
     checkVal() {
-      this.checkObj = this.checkFun(this.value) 
+      this.checkObj = this.checkFun(this.value)
     },
     handleInput(e) {
       this.$emit('input', e.target.value)
     }
-  },
-  mounted() {
-    this.checkObj.color = this.bgColorClass
   }
 }
 </script>
