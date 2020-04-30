@@ -16,19 +16,22 @@ export default {
   data() {
     return {
       detailBox: null,
+      body: null,
       timer: null,
       count: 1
     }
   },
   methods: {
     setDetailBox() {
+      const body = document.querySelector('body')
+      this.body = body
       const children = this.$parent.$el.children
         for (let i = 0; i < children.length; i++) {
-          const dataset = children[i].dataset 
+          const dataset = children[i].dataset
           if(dataset.detailBox === 'detailBox'){
             this.detailBox = children[i]
             children[i].parentElement.removeChild(children[i])
-            this.detailBox.style.position = 'absolute'
+            this.detailBox.style.position = 'fixed'
             this.detailBox.style.opacity = 0
             this.detailBox.style.transition = 'opacity .1s ease-in-out'
           }
@@ -38,7 +41,7 @@ export default {
       return function(e) {
         vm.detailBox.style.left = e.clientX + 'px'
         vm.detailBox.style.top = e.clientY + 'px'
-        vm.$root.$el.appendChild(vm.detailBox)
+        vm.body.appendChild(vm.detailBox)
         
         if(vm.count === 1) { 
           vm.timer = setInterval(() => {
@@ -59,7 +62,8 @@ export default {
     },
     detailBoxMouseLeave(vm) {
       return function() {
-        vm.$root.$el.removeChild(vm.detailBox)  
+        
+        vm.body.removeChild(vm.detailBox)  
         vm.detailBox.style.opacity = 0
         vm.count = 1     
       }  
@@ -78,5 +82,6 @@ export default {
 .ha-detailBox-default {
   width: 100%;
   height: 100%;
+  z-index: 100000000;
 }
 </style>

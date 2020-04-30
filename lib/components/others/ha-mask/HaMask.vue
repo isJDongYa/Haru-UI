@@ -12,6 +12,7 @@
 <script>
 
 export default {
+  name:'ha-mask',
   data() {
     return {
       dataShow: this.show,
@@ -69,7 +70,7 @@ export default {
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 10000;
+  z-index: 1000000000000000;
   background: rgba($color: #000000, $alpha: 0.5)
 }
 </style>
