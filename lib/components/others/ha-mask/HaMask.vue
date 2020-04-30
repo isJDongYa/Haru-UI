@@ -1,6 +1,6 @@
 <template>
     <div  class="ha-mask-default ha-mask"
-          :style="`position:${position}`"
+          :style="{'position':position}"
           v-show="dataShow"
           @click="mouseDown"
           ref="mask"

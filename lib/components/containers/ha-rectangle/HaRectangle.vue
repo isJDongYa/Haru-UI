@@ -1,9 +1,18 @@
 <template>
   <div :class="['ha-rectangle', 'ha-rectangle-default', 'grid-r-c-span2', haHover]" 
-  :style="`grid-row-start:${gridRowStart};grid-column-start:${gridColumnStart};` +
-    `grid-row-end:${gridRowEnd};grid-column-end:${gridColumnEnd};` +
-    `width:${width};height:${height};overflow:${overflow};z-index:${ z };` +
-    `border:${border};border-radius:${radius};padding:${padding}`"
+  :style="{
+    'grid-row-start': gridRowStart, 
+    'grid-column-start': gridColumnStart,
+    'grid-row-end': gridRowEnd,
+    'grid-column-end': gridColumnEnd,
+    'width': width,
+    'height': height,
+    'overflow': overflow,
+    'z-index': z,
+    'border': border,
+    'border-radius': radius,
+    'padding': padding
+  }"
     v-if="haShow"
     >
     <slot></slot>
