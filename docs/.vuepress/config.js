@@ -54,7 +54,7 @@ module.exports = {
       .set('@materials', path.resolve('lib/components/materials'))
       .set('@others', path.resolve('lib/components/others'))
       .set('@utils', path.resolve('lib/utils'))
-      .set('@scss', path.resolve('lib/scss'))
+      .set('@style', path.resolve('lib/style'))
       .set('@icons', path.resolve('lib/icons'))
   }
   

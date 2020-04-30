@@ -32,14 +32,26 @@ Vue.use(Haru)
 - **单组件引入**
 
 ```js
-import { HaCoordinater } from 'haru-ui
+import 'haru-ui/style' //导入样式表
+
+import { HaCoordinater } from 'haru-ui' // 导入各个组件，可选组件名如下表所示
 
 Vue.use(HaCoordinater)
 ```
+|组件名|组件名|组件名
+|-------:|:-------:|:-------|
+|[HaCoordinater](../coordinater/README.md#_1-1-ha-coordinater)|[HaRectangle](../containers/README.md#_2-1-ha-rectangle)|[HaCard](../containers/README.md#_2-2-ha-card)|
+|[HaButton](../stuffings/README.md#_3-1-ha-button)|[HaAvatar](../stuffings/README.md#_3-4-ha-avatar)|[HaCheck](../stuffings/README.md#_3-7-ha-check)|
+|[HaNumber](../stuffings/README.md#_3-2-ha-number)|[HaLetter](../stuffings/README.md#_3-3-ha-letter)|[HaBack](../stuffings/README.md#_3-5-ha-back)|
+|[HaPage](../stuffings/README.md#_3-6-ha-page)|[HaTable](../materials/README.md#_4-4-ha-table)|[HaMenuVertical](../materials/README.md#_4-1-ha-menu-vertical)|
+|[HaMenuHorizontal](../materials/README.md#_4-2-ha-menu-horizontal)|[HaInput](../materials/README.md#_4-3-ha-input)|[HaNotify](../others/README.md#_5-5-haru-notify)|
+|[HaTooltip](../others/README.md#_5-3-ha-tooltip)|[HaScroll](../others/README.md#_5-2-ha-scroll)|[HaMask](../others/README.md#_5-1-ha-mask)|
+|[HaDetailBox](../others/README.md#_5-4-ha-detailbox)|
+
 
 ::: warning 注意
 
-本组件库未经严格测试, 只作为为实验"坐标系统"的概念在前端中的应用所产生的组件库,如果要使用请自行测试.同时有bug的话也欢迎提交issues
+本组件库未经严格测试, 只作为为实验"坐标系统"的概念在前端中的应用所产生的组件库,如果要使用请自行测试.同时有bug的话也欢迎提交[issues](https://github.com/HydrousDelta/Haru-UI/issues)
 
 :::
 ---

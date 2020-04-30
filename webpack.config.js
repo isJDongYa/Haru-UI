@@ -89,7 +89,7 @@ module.exports = {
       '@materials': path.resolve('lib/components/materials'),
       '@others': path.resolve('lib/components/others'),
       '@utils': path.resolve('lib/utils'),
-      '@scss': path.resolve('lib/scss'),
+      '@style': path.resolve('lib/style'),
       '@icons': path.resolve('lib/icons')
     }
   },

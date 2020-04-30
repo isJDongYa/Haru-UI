@@ -1,6 +1,6 @@
 {
   "name": "haru-ui",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Compoments or materials created with Vue",
   "private": false,
   "main": "dist/haru-ui.js",

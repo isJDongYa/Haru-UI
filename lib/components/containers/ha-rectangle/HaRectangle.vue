@@ -5,7 +5,6 @@
     `width:${width};height:${height};overflow:${overflow};z-index:${ z };` +
     `border:${border};border-radius:${radius};padding:${padding}`"
     v-if="haShow"
-    
     >
     <slot></slot>
   </div>
@@ -14,9 +13,6 @@
 import coorMixin from '@mixins/coorMixin'
 import hoverMixin from '@mixins/hoverMixin'
 import showMixin from '@mixins/showMixin'
-import '@scss'
-
-
 
 export default {
   name: 'ha-rectangle',
