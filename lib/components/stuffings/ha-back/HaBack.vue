@@ -8,7 +8,7 @@
 </template>
 <script>
 import colorMixin from '@mixins/colorMixin'
-import backSvg from '@icons/back.svg'
+import backSvg from '@icons/TmallElves/back.svg'
 
 export default {
   name: 'ha-back',

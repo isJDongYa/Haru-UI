@@ -65,8 +65,7 @@ module.exports = {
         ]
       },
       jsLoader
-    ],
-    
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(),

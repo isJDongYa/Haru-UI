@@ -29,6 +29,10 @@ import Haru from 'haru-ui'
 Vue.use(Haru)
 ```
 
+:::warning 注意
+全局引入并不会引入HaIcons, 要使用，请参照[HaIcons](../main/README.md#_0-2-图标)
+:::
+
 - **单组件引入**
 
 ```js
@@ -48,6 +52,7 @@ Vue.use(HaCoordinater)
 |[HaTooltip](../others/README.md#_5-3-ha-tooltip)|[HaScroll](../others/README.md#_5-2-ha-scroll)|[HaMask](../others/README.md#_5-1-ha-mask)|
 |[HaDetailBox](../others/README.md#_5-4-ha-detailbox)|
 
+- **特别的，还有:** [HaIcons](../main/README.md#_0-2-图标)
 
 ::: warning 注意
 

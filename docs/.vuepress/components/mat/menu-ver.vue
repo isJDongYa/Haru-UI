@@ -11,6 +11,8 @@
 import HaCoordinater from '@coordinater/HaCoordinater.vue'
 import HaMenuVertical from '@materials/ha-menu/ha-menu-vertical/ha-menu-vertical.vue'
 
+import HaIcons from '@icons'
+
 export default {
   components: {
     [HaCoordinater.name]: HaCoordinater,
@@ -24,7 +26,7 @@ export default {
           { // 第二层菜单
             groupId: '1', // 必需，该组件以此判断是否为“group”
             menuTitle: 'groupTitle', 
-            icon: require('@icons/菜单.svg'),
+            icon: HaIcons['message_white'],
             menuList: [
               { // 第三层菜单
                 groupId: '2', 
@@ -33,12 +35,12 @@ export default {
                   { // 这里是item
                     title: 'item', // 必需， 该组件以此判断是否为“item”
                     route: '/materials/#_4-1-ha-menu-vertical',
-                    icon: require('@icons/首页.svg')
+                    icon: HaIcons['message_white']
                   },
                   { // 这里是item
                     title: 'item', 
                     route: '/materials/#_4-1-ha-menu-vertical',
-                    icon: require('@icons/设置.svg')
+                    icon: HaIcons['message_white']
                   },
                   { // 这里是item
                     title: 'item',
@@ -53,7 +55,7 @@ export default {
               { // 第三层菜单
                 groupId: '3',
                 menuTitle: 'g3',
-                icon: require('@icons/菜单.svg'),
+                icon: HaIcons['message_white'],
                 menuList: [
                   { // 这里是item
                     title: 'item',

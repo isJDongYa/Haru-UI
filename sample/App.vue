@@ -20,7 +20,6 @@ export default {
         duration: 3000,
         location: 'topRight',
         bgColor: 'lightBlue',
-        icon: require('@icons/信息.svg')
       })
     },
     numCounter() {

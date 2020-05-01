@@ -1,6 +1,6 @@
 <template>
   <div class="ha-scroll-default ha-scroll">
-    <div ref="scrollContent" class="ha-scroll-content-default ha-scroll-content"  @click="contentClick">
+    <div ref="scrollContent" class="ha-scroll-content-default ha-scroll-content" @mouseenter="contentClick"  @click="contentClick">
       <slot></slot>
     </div>
     <!-- 垂直滚动条 -->
@@ -168,7 +168,7 @@ export default {
         if(!vm.keyDown) {
           const wheelY = e.wheelDeltaY || -e.detail // 兼容firefox
           if(wheelY<0) { // 向下滚动
-            if(vm.barVeTop<(100-vm.barVeHeight)) {
+            if(vm.barVeTop<(101-vm.barVeHeight)) {
               vm.barVeHeight = Math.floor((vm.scrollContent.offsetHeight / vm.scrollContent.scrollHeight) * 100) + 1 // 每次滚动时需要设置新高度, 防止滚动导致的内容高度变化
               vm.barVeTop++
               vm.barVeTopTemp = vm.barVeTop
@@ -308,9 +308,12 @@ export default {
         this.barVeConShow = false
         this.barVe = null
       }
-      
+
       // 如果内容宽度大于可见宽度
-      if(this.scrollContent.scrollWidth > this.scrollContent.offsetWidth) {
+      if(this.scrollContent.scrollWidth > this.scrollContent.offsetWidth + 1) {
+        
+        
+        
         this.barHoConShow = true
         this.barHo = this.$refs.barHo
         this.barHoWidth = Math.floor((this.scrollContent.offsetWidth / this.scrollContent.scrollWidth) * 100) + 1

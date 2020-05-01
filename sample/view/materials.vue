@@ -68,7 +68,6 @@ export default {
           {
             groupId: '1',
             menuTitle: 'Start',
-            icon: require('@icons/菜单.svg'),
             menuList: [
               {
                 groupId: '2',
@@ -135,7 +134,6 @@ export default {
                   {
                     title: 'list1',
                     route: '/list1',
-                    icon: require('@icons/首页.svg')
                   },
                   {
                     title: 'list1',

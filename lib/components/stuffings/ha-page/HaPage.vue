@@ -35,8 +35,8 @@
 </template>
 <script>
 
-import _lastOne from '@icons/back.svg'
-import _nextOne from '@icons/nextone.svg'
+import _lastOne from '@icons/TmallElves/back.svg'
+import _nextOne from '@icons/TmallElves/next.svg'
 
 export default {
   name: 'ha-page',

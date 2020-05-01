@@ -26,6 +26,8 @@ import HaCoordinater from '@coordinater/HaCoordinater.vue'
 import HaRectangle from '@containers/ha-rectangle/HaRectangle.vue'
 import HaButton from '@stuffings/ha-button/HaButton.vue'
 
+import HaIcons from '@icons'
+
 export default {
   components: {
     [HaCoordinater.name]: HaCoordinater,
@@ -39,7 +41,7 @@ export default {
       duration: 4000, 
       location: 'topLeft', 
       bgColor: 'bgc-blue',
-      icon: require('@icons/信息.svg') 
+      icon: HaIcons['message_white']
       })
     },
     click2() {
@@ -48,7 +50,7 @@ export default {
       duration: 4000, 
       location: 'topMiddle', 
       bgColor: 'bgc-red',
-      icon: require('@icons/信息.svg') 
+      icon: HaIcons['message_white'] 
       })
     },
     click3() {
@@ -57,7 +59,7 @@ export default {
       duration: 4000, 
       location: 'topRight', 
       bgColor: 'bgc-green',
-      icon: require('@icons/信息.svg') 
+      icon: HaIcons['message_white'] 
       })
     },
     click4() {
@@ -66,7 +68,7 @@ export default {
       duration: 4000, 
       location: 'bottomLeft', 
       bgColor: 'bgc-yellow',
-      icon: require('@icons/信息.svg') 
+      icon: HaIcons['message_white'] 
       })
     },
     click5() {
@@ -75,7 +77,7 @@ export default {
       duration: 4000, 
       location: 'bottomMiddle', 
       bgColor: 'bgc-orange',
-      icon: require('@icons/信息.svg') 
+      icon: HaIcons['message_white'] 
       })
     },
     click6() {
@@ -84,7 +86,7 @@ export default {
       duration: 4000, 
       location: 'bottomRight', 
       bgColor: 'bgc-purple',
-      icon: require('@icons/信息.svg') 
+      icon: HaIcons['message_white'] 
       })
     },
   }

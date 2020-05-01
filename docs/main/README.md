@@ -74,6 +74,30 @@
   1. 如果是名为fillColor的prop, 请直接在相应的位置传入自定义的以#开头的16进制颜色值
   2. 如果是名为bgColor的prop, 请在相应的位置传入自定义类名, 并在css文件中对该类名进行背景颜色的设置
 
-<!-- ## 0.2 图标 
+## 0.2 图标
 
-- TODO  -->
+### 使用方法：
+
+1. 先导入：
+
+```js
+import { HaIcons } from 'haru-ui' // 先导入
+```
+
+2. 然后在需要使用图标的地方应用`HaIcons['图标名称']`, 例如在通知组件中：
+
+```js {6}
+this.$haru.notify(this, {
+  msg: '这是一个haru UI的通知',
+  duration: 300000,
+  location: 'topRight',
+  bgColor: 'bgc-lightBlue',
+  icon: HaIcons['address']
+})
+```
+
+3. 图标名称如下所示：
+
+<doc-result height="800px">
+  <ha-icons></ha-icons>
+</doc-result>

@@ -30,7 +30,7 @@
                 <ha-letter letter="I" :capital="true" fillColor="purple"></ha-letter>
               </ha-rectangle>
               <ha-rectangle :coor="[[[22,28], [3, 2]]]" hover="shadow">
-                <ha-button bgColor="bgc-blue" title="开始" @click="$router.push('/haru-ui')"></ha-button>
+                <ha-button bgColor="bgc-blue" title="开始" @click="click"></ha-button>
               </ha-rectangle>
             </ha-coordinater>
           </ha-rectangle>
@@ -39,10 +39,25 @@
   </ha-scroll> 
 </template>
 <script>
+
+import HaIcons from '@icons'
+
 export default {
   data() {
     return {
       
+    }
+  },
+  methods: {
+    click() {
+      this.$haru.notify(this, {
+        msg: '这是一个haru UI的通知',
+        duration: 300000,
+        location: 'topRight',
+        bgColor: 'bgc-lightBlue',
+        icon: HaIcons['address']
+      })
+      this.$router.push('/haru-ui')
     }
   }
 }
