@@ -24,7 +24,7 @@ module.exports = {
     ],
     nav: [
       { text: '指南', link: '/start/' },
-      { text: 'API', link: '/api/' }
+      // { text: 'API', link: '/api/' }
     ],
     logo: './logo.png',
     repo: 'HydrousDelta/Haru-UI',

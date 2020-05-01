@@ -101,3 +101,5 @@ this.$haru.notify(this, {
 <doc-result height="800px">
   <ha-icons></ha-icons>
 </doc-result>
+
+- 这些图标来自[阿里图标：天猫精灵图标库](https://www.iconfont.cn/collections/detail?spm=a313x.7781069.1998910419.de12df413&cid=15640)
