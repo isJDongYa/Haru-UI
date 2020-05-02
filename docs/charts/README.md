@@ -10,6 +10,7 @@ sidebar: auto
   2. 理论上支持[**ECharts**](https://www.echartsjs.com)的所有图表
   3. 此组件库的目的在于快速提供常见的图表，免于从零开始的各种配置麻烦
   4. 支持自定义，请参照[自定义图表](./README.md#自定义图表)
+  5. 为了更好的性能，这些组件默认使用`svg`渲染
 
 - 使用：
 
@@ -85,6 +86,12 @@ sidebar: auto
       data: ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7']
     }
     ```
+  - yAxis
+
+    1. y轴的名字
+    2. 类型为`String`
+    3. 默认为`'yAxisName'`
+    4. y轴在此组件中被设置为数值轴， 不提供修改prop，如有需要， 请参见[**自定义图表**](./README.md#自定义图表)
 
   - series
 
@@ -98,7 +105,7 @@ sidebar: auto
    
     ```js
     {
-      name: 'x1', //折线的name
+      name: 'legend1', //折线的name
       data: [120, 132, 101, 134, 90, 230, 210] //折线的数据
     },
     ```
@@ -131,6 +138,76 @@ sidebar: auto
 结果：
 <doc-result>
   <charts-line-cate></charts-line-cate>
+</doc-result>
+
+## &lt;ha-line-time>
+
+- 简介：
+
+  简单的时间折线图
+
+- props:
+  
+  - title
+
+    1. 图表名称
+    2. 类型为`String`
+    3. 默认值为`'time-line-chart'`
+
+  - theme
+
+    1. 图表的主题
+    2. 类型为`String`
+    3. 默认为`'shine'`
+    4. 使用主题， 参加[**使用主题**](./README.md#使用主题)
+  
+  - yAxis
+
+    1. y轴的名字
+    2. 类型为`String`
+    3. 默认为`'yAxisName'`
+    4. y轴在此组件中被设置为数值轴， 不提供修改prop，如有需要， 请参见[**自定义图表**](./README.md#自定义图表)
+
+  - series
+
+    1. 所要展示的折线数组
+    2. 类型为`Array`
+    3. 默认为`[]`
+    4. 这个数组的`length`表示折线的数量
+    5. 这个数组的每个成员为一个对象
+    6. 此对象表示每条折线
+    7. 此对象的示例如下：
+   
+    ```js
+    {
+      name: 'legend1', // 必需，折线的legend
+      data: [ //必需，折线的数据
+        {
+          name: new Date().toString() // 可选， 每个数据的名字
+          value: [
+            [
+              now.getFullYear(),
+              now.getMonth(), 
+              now.getDate()
+            ].join('/'), // 必需，1998/08/31等等时间格式的字符串,用来表示x轴的位置
+            1000 // 必需，y轴的数值
+          ] 
+        }
+      ] 
+    },
+    ```
+
+    ```
+- 实例：
+  
+代码：
+```html
+<ha-line-time></ha-line-time>
+```
+
+结果：
+<doc-result>
+  <charts-line-time></charts-line-time>
 </doc-result>
 
 <!-- ## &lt;ha-bar-chart>

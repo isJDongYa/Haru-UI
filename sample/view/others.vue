@@ -1,7 +1,7 @@
 <template>
   <ha-coordinater :grid="[[0, 50, 50]]">
     <ha-rectangle :coor="[[[1, 1],[50, 50]]]">
-      <ha-line-cate title="折线图" theme="dark"></ha-line-cate>
+      <ha-line-time theme="shine"></ha-line-time>
     </ha-rectangle>
   </ha-coordinater>
 </template>

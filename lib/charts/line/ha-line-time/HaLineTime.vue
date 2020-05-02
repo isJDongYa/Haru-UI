@@ -5,27 +5,17 @@
 import ECharts from 'echarts'
 
 export default {
-  name: 'ha-line-cate',
+  name: 'ha-line-time',
   props: {
     title: {
       type: String,
       required: false,
-      default: 'category-line-chart'
+      default: 'time-line-chart'
     },
     theme: {
       type: String,
       required: false,
       default: 'shine'
-    },
-    xAxis: {
-      type: Object,
-      required: false,
-      default: () => {
-        return {
-          name: 'xAxisName',
-          data: ['x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7']
-        }
-      }
     },
     yAxis: {
       type: String,
@@ -36,18 +26,31 @@ export default {
       type: Array,
       required: false,
       default: () => {
+        function randomData() { //产生随机数据
+          const data = []
+          let randomNum = Math.random() * 1000
+          let oneDay = 24 * 3600 * 1000
+          let now = +new Date(1998, 7, 31)
+          for(let i=0;i<100;i++) {
+            now = new Date(+now + oneDay);
+            randomNum = randomNum + Math.random() * 21 - 10;
+            data.push({
+              value: [
+                [now.getFullYear(), now.getMonth(), now.getDate()].join('/'),
+                Math.round(randomNum)
+              ]
+            })
+          }
+          return data
+        }       
         return [
           {
             name: 'legend1',
-            data: [120, 132, 101, 134, 90, 230, 210]
+            data: randomData()
           },
           {
             name: 'legend2',
-            data: [220, 182, 191, 234, 290, 330, 310]
-          },
-          {
-            name: 'legend3',
-            data: [150, 232, 201, 154, 190, 330, 410]
+            data: randomData()
           }
         ]
       }
@@ -55,7 +58,7 @@ export default {
   },
   data() {
     return {
-      myLineChart: null
+      myLineChart: null,
     }
   },
   computed: {
@@ -72,7 +75,10 @@ export default {
         series.push({
           name: s.name,
           data: s.data,
-          type: 'line'
+          type: 'line',
+          showSymbol: false,
+          hoverAnimation: false,
+          
         })
       })
       return series
@@ -88,31 +94,25 @@ export default {
         tooltip: {
           trigger: 'axis',
           axisPointer: {
-            type: 'cross'
+            type: 'cross',
+            animation: false
           }
         },
         legend: {
           data: this.legend
         },
-        grid: {
-          left: '3%',
-          right: '100px',
-          bottom: '3%',
-          containLabel: true
-        },
         toolbox: {
           feature: {
-            restore: {},
-            dataView: {readOnly: true},
-            magicType: {type: ['line', 'bar', 'stack']},
             saveAsImage: {},
           }
         },
         xAxis: {
-          name: this.xAxis.name,
-          data: this.xAxis.data,
-          type: 'category',
-          boundaryGap: false,
+          name: 't',
+          type: 'time',
+          boundaryGap: [0, '100%'],
+          splitLine: {
+            show: false
+          }
         },
         yAxis: {
           name: this.yAxis,

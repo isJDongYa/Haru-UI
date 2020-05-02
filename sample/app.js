@@ -11,9 +11,9 @@ import Haru from '../lib'
 
 Vue.use(Haru)
 
-import { HaLineCate } from '../lib'
+import { HaLineTime } from '../lib'
 
-Vue.use(HaLineCate)
+Vue.use(HaLineTime)
 
 // import '@style'
 
