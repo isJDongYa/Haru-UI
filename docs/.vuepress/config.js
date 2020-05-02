@@ -24,6 +24,7 @@ module.exports = {
     ],
     nav: [
       { text: '指南', link: '/start/' },
+      { text: '图表', link: '/charts/' },
       // { text: 'API', link: '/api/' }
     ],
     logo: './logo.png',
@@ -53,6 +54,7 @@ module.exports = {
       .set('@coordinater', path.resolve('lib/components/coordinater'))
       .set('@materials', path.resolve('lib/components/materials'))
       .set('@others', path.resolve('lib/components/others'))
+      .set('@charts', path.resolve('lib/charts'))
       .set('@utils', path.resolve('lib/utils'))
       .set('@style', path.resolve('lib/style'))
       .set('@icons', path.resolve('lib/icons'))

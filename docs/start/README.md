@@ -18,7 +18,7 @@ _**一个实验性质的组件库**_
 ## 安装
 
 ```js
-npm install haru-ui
+npm install haru-ui --save
 ```
 
 - **全局**
@@ -42,7 +42,7 @@ import { HaCoordinater } from 'haru-ui' // 导入各个组件，可选组件名�
 
 Vue.use(HaCoordinater)
 ```
-|组件名|组件名|组件名
+|组件名|组件名|组件名|
 |-------:|:-------:|:-------|
 |[HaCoordinater](../coordinater/README.md#_1-1-ha-coordinater)|[HaRectangle](../containers/README.md#_2-1-ha-rectangle)|[HaCard](../containers/README.md#_2-2-ha-card)|
 |[HaButton](../stuffings/README.md#_3-1-ha-button)|[HaAvatar](../stuffings/README.md#_3-4-ha-avatar)|[HaCheck](../stuffings/README.md#_3-7-ha-check)|
@@ -52,7 +52,9 @@ Vue.use(HaCoordinater)
 |[HaTooltip](../others/README.md#_5-3-ha-tooltip)|[HaScroll](../others/README.md#_5-2-ha-scroll)|[HaMask](../others/README.md#_5-1-ha-mask)|
 |[HaDetailBox](../others/README.md#_5-4-ha-detailbox)|
 
-- **特别的，还有:** [HaIcons](../main/README.md#_0-2-图标)
+- **特别的，还有:** 
+  1. [**HaIcons**](../main/README.md#_0-2-图标)
+  2. [**HaCharts**](../charts/README.md)
 
 ::: warning 注意
 

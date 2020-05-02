@@ -87,6 +87,7 @@ module.exports = {
       '@coordinater': path.resolve('lib/components/coordinater'),
       '@materials': path.resolve('lib/components/materials'),
       '@others': path.resolve('lib/components/others'),
+      '@charts': path.resolve('lib/charts'),
       '@utils': path.resolve('lib/utils'),
       '@style': path.resolve('lib/style'),
       '@icons': path.resolve('lib/icons')

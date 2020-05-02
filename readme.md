@@ -25,7 +25,7 @@ _**一个实验性质的组件库**_
 ## 安装
 
 ```js
-npm install haru-ui
+npm install haru-ui --save
 ```
 
 - 全局

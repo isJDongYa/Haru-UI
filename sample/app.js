@@ -11,6 +11,10 @@ import Haru from '../lib'
 
 Vue.use(Haru)
 
+import { HaLineCate } from '../lib'
+
+Vue.use(HaLineCate)
+
 // import '@style'
 
 // import { 
@@ -42,6 +46,7 @@ import Containers from './view/containers.vue'
 import Stuffings from './view/stuffings.vue'
 import Materials from './view/materials.vue'
 import Others from './view/others.vue'
+import { from } from '_array-flatten@2.1.2@array-flatten'
 const router = new VueRouter({
    routes: [
      {
