@@ -12,7 +12,7 @@
   </ha-coordinater>
 </template>
 <script>
-import HaCoordinater from '@coordinater/HaCoordinater.vue'
+import HaCoordinater from '@coordinater/ha-coordinater/HaCoordinater.vue'
 import HaCard from '@containers/ha-card/HaCard.vue'
 import HaLetter from '@stuffings/ha-letter/HaLetter.vue'
 

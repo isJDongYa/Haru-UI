@@ -8,8 +8,8 @@
   </ha-coordinater>
 </template>
 <script>
-import HaCoordinater from '@coordinater/HaCoordinater.vue'
-import HaMenuVertical from '@materials/ha-menu/ha-menu-vertical/ha-menu-vertical.vue'
+import HaCoordinater from '@coordinater/ha-coordinater/HaCoordinater.vue'
+import HaMenuVertical from '@materials/ha-menu-vertical/ha-menu-vertical.vue'
 
 import HaIcons from '@icons'
 

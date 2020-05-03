@@ -9,7 +9,7 @@
   </ha-coordinater>
 </template>
 <script>
-import HaCoordinater from '@coordinater/HaCoordinater.vue'
+import HaCoordinater from '@coordinater/ha-coordinater/HaCoordinater.vue'
 import HaTable from '@materials/ha-table/HaTable.vue'
 
 export default {

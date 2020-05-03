@@ -1,7 +1,7 @@
 <template>
   <ha-coordinater :grid="[[0, 50, 50]]">
     <ha-rectangle :coor="[[[1, 1],[50, 50]]]">
-      <ha-scatter-reg :order="2" regMethod="polynomial"></ha-scatter-reg>
+      <ha-line-cate :order="2" regMethod="polynomial"></ha-line-cate>
     </ha-rectangle>
   </ha-coordinater>
 </template>

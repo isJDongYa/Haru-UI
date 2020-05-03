@@ -21,7 +21,7 @@
   </ha-coordinater>
 </template>
 <script>
-import HaCoordinater from '@coordinater/HaCoordinater.vue'
+import HaCoordinater from '@coordinater/ha-coordinater/HaCoordinater.vue'
 import HaRectangle from '@containers/ha-rectangle/HaRectangle.vue'
 import HaLetter from '@stuffings/ha-letter/HaLetter.vue'
 

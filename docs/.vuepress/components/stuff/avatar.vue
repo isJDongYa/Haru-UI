@@ -6,7 +6,7 @@
   </ha-coordinater>
 </template>
 <script>
-import HaCoordinater from '@coordinater/HaCoordinater.vue'
+import HaCoordinater from '@coordinater/ha-coordinater/HaCoordinater.vue'
 import HaRectangle from '@containers/ha-rectangle/HaRectangle.vue'
 import HaAvatar from '@stuffings/ha-avatar/HaAvatar.vue'
 

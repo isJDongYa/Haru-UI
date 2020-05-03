@@ -1,41 +1,18 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+
 
 const path = require('path')
 
-const publicDirInput = path.resolve(__dirname, 'sample/public')
-const publicDirOutput = path.resolve(__dirname, 'dist')
-
-const mode = process.env.NODE_ENV === 'development' ? 'development' : "production"
-const entry = process.env.NODE_ENV === 'development' ?  './sample/app.js' : './lib/index.js'
-const output = process.env.NODE_ENV === 'development' ? {} : {
-  path: path.resolve(__dirname, 'dist'),
-  filename: 'haru-ui.js',
-  library: 'Haru',
-  libraryTarget: 'umd'
-}
-const jsLoader = {
-  test: /\.js$/,
-  exclude: /(node_modules|bower_components)/,
-  use: {
-    loader: 'babel-loader?cacheDirectory=true'
-  }
-}
-
-const externals = process.env.NODE_ENV === 'produciton' ? {
-  'vue': 'vue',
-  'vue-router': 'vue-router'
-} : {}
-console.log('-----------------------ENV:'+JSON.stringify(mode)+'-----------------------')
+console.log('-----------------------ENV:development-----------------------')
 module.exports = {
-  mode,
+  mode: 'development',
   target: "web",
-  entry,
-  output,
+  entry: './sample/app.js',
   devServer: {
-    contentBase: publicDirInput,
-    noInfo: false
+    contentBase: path.resolve(__dirname, '../sample/public'),
+    overlay: true,
+    port: 8070,
+    stats: "errors-only"
   },
   module: {
     rules: [
@@ -64,18 +41,17 @@ module.exports = {
           }
         ]
       },
-      jsLoader
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader?cacheDirectory=true'
+        }
+      }
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
-    new CopyWebpackPlugin([
-      {
-        from: publicDirInput,
-        to: publicDirOutput
-      }
-    ]),
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.vue', '.json', '.scss', '.css'],
@@ -93,5 +69,5 @@ module.exports = {
       '@icons': path.resolve('lib/icons')
     }
   },
-  externals
+  devtool: "source-map"
 }

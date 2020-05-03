@@ -2,7 +2,7 @@
   <ha-line-cate></ha-line-cate>
 </template>
 <script>
-import HaLineCate from '@charts/line/ha-line-cate/HaLineCate.vue'
+import HaLineCate from '@charts/ha-line-cate/HaLineCate.vue'
 
 export default {
   components: {

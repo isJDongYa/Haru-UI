@@ -1,5 +1,5 @@
 <template>
-  <ha-scroll :bgColor="['bgc-grey', 'bgc-white']">
+  <ha-scroll :bgColor="['bgc-grey']">
     <div class="icon-con-con">
       <div class="icon-con" v-for="(val, i) in iconsSrc">
         <img :src="icons[val]" class="iconImg">
@@ -31,8 +31,8 @@ export default {
 </script>
 <style scoped>
 .iconImg {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 130px;
 }
 .icon-con-con {
   width: 100%;
@@ -41,13 +41,13 @@ export default {
   padding: 0;
 }
 .icon-con {
-  width: 100px;
-  height: 130px;
+  width: 140px;
+  height: 160px;
   float: left;
 }
 .icon-name {
   height: auto;
-  width: 100px;
+  width: 140px;
   text-align: center;
   line-height: 30px;
 }

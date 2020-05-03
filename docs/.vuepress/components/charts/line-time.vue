@@ -2,7 +2,7 @@
   <ha-line-time></ha-line-time>
 </template>
 <script>
-import HaLineTime from '@charts/line/ha-line-time/HaLineTime.vue'
+import HaLineTime from '@charts/ha-line-time/HaLineTime.vue'
 
 export default {
   components: {

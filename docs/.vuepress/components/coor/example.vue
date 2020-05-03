@@ -6,7 +6,7 @@
     </ha-coordinater>   
 </template>
 <script>
-import HaCoordinater from '@coordinater/HaCoordinater'
+import HaCoordinater from '@coordinater/ha-coordinater/HaCoordinater'
 import HaReactangle from '@containers/ha-rectangle/HaRectangle'
 import HaNumber from '@stuffings/ha-number/HaNumber' 
   

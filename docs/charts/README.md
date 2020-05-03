@@ -14,25 +14,30 @@ sidebar: auto
 
 - 使用：
 
-  1.如果还没有下载`haru-ui`, 请使用以下语句安装：
+  1. 如果还没有下载`haru-ui`, 请使用以下语句安装：
+
 
   ```js
   npm install haru-ui --save
   ```
+  :::warning 注意
+  1. 使用这些图表组件需要依赖[**ECharts**](https://www.echartsjs.com)
+  2. 而且`<ha-scatter-reg>`还需要额外依赖[**echarts-stat**](https://github.com/ecomfe/echarts-stat)
+  :::
 
   2. 引入：
 
   - 引入全部图表
   ```js
-  import { HaChart } from 'haru-ui'
+  import HaCharts from 'haru-ui/charts'
 
-  Vue.use(HaChart)
+  Vue.use(HaCharts) // 注册所有图表，所有图表已经实现异步加载
   ```
-  - 引入单个图表
+  - 按需引入单个图表
   ```js
-  import { 图表组件名 } from 'haru-ui' // 图表组件名如下表所示
+  import 图表组件名(PascalCase) from 'haru-ui/lib/charts/图表组件名(kebab-case)' // 图表组件名如下表所示
 
-  Vue.use(图表组件名)
+  Vue.use(图表组件名(PascalCase))
   ```
 
   - 可选图表组件名：

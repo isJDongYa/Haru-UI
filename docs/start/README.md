@@ -30,31 +30,33 @@ Vue.use(Haru)
 ```
 
 :::warning 注意
-全局引入并不会引入HaIcons, 要使用，请参照[HaIcons](../main/README.md#_0-2-图标)
+1. 所有组件除了HaNotify外均实现懒加载
+1. 全局引入并不会引入HaIcons和HaCharts
+2. 要使用HaIcons，请参照[**HaIcons**](../main/README.md#_0-2-图标)
+3. 要使用HaCharts，请参照[**HaCharts**](../charts/README.md)
 :::
 
-- **单组件引入**
+- **单组件按需引入**
 
 ```js
 import 'haru-ui/style' //导入样式表
 
-import { HaCoordinater } from 'haru-ui' // 导入各个组件，可选组件名如下表所示
+// 导入各个组件，组件名[类目]如下表所示
+import 组件名(PascalCase) from 'haru-ui/lib/类目/组件名(kebab-case)' 
 
-Vue.use(HaCoordinater)
+Vue.use(组件名(PascalCase))
 ```
-|组件名|组件名|组件名|
+|组件名[类目]|组件名[类目]|组件名[类目]|
 |-------:|:-------:|:-------|
-|[HaCoordinater](../coordinater/README.md#_1-1-ha-coordinater)|[HaRectangle](../containers/README.md#_2-1-ha-rectangle)|[HaCard](../containers/README.md#_2-2-ha-card)|
-|[HaButton](../stuffings/README.md#_3-1-ha-button)|[HaAvatar](../stuffings/README.md#_3-4-ha-avatar)|[HaCheck](../stuffings/README.md#_3-7-ha-check)|
-|[HaNumber](../stuffings/README.md#_3-2-ha-number)|[HaLetter](../stuffings/README.md#_3-3-ha-letter)|[HaBack](../stuffings/README.md#_3-5-ha-back)|
-|[HaPage](../stuffings/README.md#_3-6-ha-page)|[HaTable](../materials/README.md#_4-4-ha-table)|[HaMenuVertical](../materials/README.md#_4-1-ha-menu-vertical)|
-|[HaMenuHorizontal](../materials/README.md#_4-2-ha-menu-horizontal)|[HaInput](../materials/README.md#_4-3-ha-input)|[HaNotify](../others/README.md#_5-5-haru-notify)|
-|[HaTooltip](../others/README.md#_5-3-ha-tooltip)|[HaScroll](../others/README.md#_5-2-ha-scroll)|[HaMask](../others/README.md#_5-1-ha-mask)|
-|[HaDetailBox](../others/README.md#_5-4-ha-detailbox)|
+|[**HaCoordinater[coordinater]**](../coordinater/README.md#_1-1-ha-coordinater)|[**HaRectangle[containers]**](../containers/README.md#_2-1-ha-rectangle)|[**HaCard[containers]**](../containers/README.md#_2-2-ha-card)|
+|[**HaButton[struffings]**](../stuffings/README.md#_3-1-ha-button)|[**HaAvatar[struffings]**](../stuffings/README.md#_3-4-ha-avatar)|[**HaCheck[struffings]**](../stuffings/README.md#_3-7-ha-check)|
+|[**HaNumber[struffings]**](../stuffings/README.md#_3-2-ha-number)|[**HaLetter[struffings]**](../stuffings/README.md#_3-3-ha-letter)|[**HaBack[struffings]**](../stuffings/README.md#_3-5-ha-back)|
+|[**HaPage[struffings]**](../stuffings/README.md#_3-6-ha-page)|[**HaTable[materials]**](../materials/README.md#_4-4-ha-table)|[**HaMenuVertical[materials]**](../materials/README.md#_4-1-ha-menu-vertical)|
+|[**HaMenuHorizontal[materials]**](../materials/README.md#_4-2-ha-menu-horizontal)|[**HaInput[materials]**](../materials/README.md#_4-3-ha-input)|[**HaNotify[others]**](../others/README.md#_5-5-haru-notify)|
+|[**HaTooltip[others]**](../others/README.md#_5-3-ha-tooltip)|[**HaScroll[others]**](../others/README.md#_5-2-ha-scroll)|[**HaMask[others]**](../others/README.md#_5-1-ha-mask)|
+|[**HaDetailBox[others]**](../others/README.md#_5-4-ha-detailbox)|
 
-- **特别的，还有:** 
-  1. [**HaIcons**](../main/README.md#_0-2-图标)
-  2. [**HaCharts**](../charts/README.md)
+- **特别的，还有:** [**HaIcons**](../main/README.md#_0-2-图标), [**HaCharts**](../charts/README.md)
 
 ::: warning 注意
 

@@ -58,7 +58,7 @@
   </ha-coordinater>
 </template>
 <script>
-import HaCoordinater from '@coordinater/HaCoordinater.vue'
+import HaCoordinater from '@coordinater/ha-coordinater/HaCoordinater.vue'
 import HaInput from '@materials/ha-input/HaInput.vue'
 
 export default {
