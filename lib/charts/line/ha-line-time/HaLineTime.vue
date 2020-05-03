@@ -20,12 +20,29 @@ export default {
     yAxis: {
       type: String,
       required: false,
-      default: 'yAxisName'
+      default: 'yName'
+    },
+    pType: {
+      type: String,
+      required: false,
+      default: 'cross'
+    },
+    smooth: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    setChart: {
+      type: Function,
+      required: false,
+      default: function(Chart) {
+        return false
+      } 
     },
     series: {
       type: Array,
       required: false,
-      default: () => {
+      default: function() {
         function randomData() { //产生随机数据
           const data = []
           let randomNum = Math.random() * 1000
@@ -46,11 +63,13 @@ export default {
         return [
           {
             name: 'legend1',
-            data: randomData()
+            data: randomData(),
+            smooth: this.smooth
           },
           {
             name: 'legend2',
-            data: randomData()
+            data: randomData(),
+            smooth: this.smooth
           }
         ]
       }
@@ -86,7 +105,8 @@ export default {
     computedOption() {
       return {
         title: {
-          text: this.title
+          text: this.title,
+          left: 'center'
         },
         textStyle: {
           fontFamily: 'Microsoft YaHei'
@@ -94,12 +114,13 @@ export default {
         tooltip: {
           trigger: 'axis',
           axisPointer: {
-            type: 'cross',
+            type: this.pType,
             animation: false
           }
         },
         legend: {
-          data: this.legend
+          data: this.legend,
+          bottom: 3
         },
         toolbox: {
           feature: {
@@ -130,6 +151,7 @@ export default {
   mounted() { 
     this.myLineChart = ECharts.init(this.$refs.lineChart, this.theme, {renderer: 'svg'}) 
     this.myLineChart.setOption(this.computedOption)
+    this.setChart(this.myLineChart)
   }
 }
 </script>

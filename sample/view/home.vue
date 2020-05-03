@@ -52,7 +52,7 @@ export default {
     click() {
       this.$haru.notify(this, {
         msg: '这是一个haru UI的通知',
-        duration: 300000,
+        duration: 3000,
         location: 'topRight',
         bgColor: 'bgc-lightBlue',
         icon: HaIcons['address']

@@ -4,7 +4,7 @@ _**一个实验性质的组件库**_
 
 ![](https://img.shields.io/github/package-json/v/JDong-chen/Haru-UI.svg?)   ![](https://img.shields.io/github/license/JDong-chen/Haru-UI.svg?logo=MIT)
 
-![头图](./Haru-UI.png)
+<!-- ![头图](./Haru-UI.png) -->
 
 ## 简介
 

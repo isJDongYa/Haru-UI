@@ -1,16 +1,16 @@
 <template>
-  <div ref="lineChart" class="ha-line-chart-default ha-line-chart"></div>
+  <div ref="barChart" class="ha-bar-chart-default ha-bar-chart"></div>
 </template>
 <script>
 import ECharts from 'echarts'
 
 export default {
-  name: 'ha-line-cate',
+  name: 'ha-bar-cate',
   props: {
     title: {
       type: String,
       required: false,
-      default: 'category-line-chart'
+      default: 'category-bar-chart'
     },
     theme: {
       type: String,
@@ -35,9 +35,9 @@ export default {
     pType: {
       type: String,
       required: false,
-      default: 'line'
+      default: 'shadow'
     },
-    smooth: {
+    hor: {
       type: Boolean,
       required: false,
       default: false
@@ -72,7 +72,7 @@ export default {
   },
   data() {
     return {
-      myLineChart: null
+      myBarChart: null
     }
   },
   computed: {
@@ -89,8 +89,7 @@ export default {
         series.push({
           name: s.name,
           data: s.data,
-          smooth: this.smooth,
-          type: 'line'
+          type: 'bar'
         })
       })
       return series
@@ -116,19 +115,17 @@ export default {
         },
         toolbox: {
           feature: {
-            restore: {},
-            magicType: {type: ['line', 'bar', 'stack']},
+            magicType: {type: ['stack']},
             saveAsImage: {},
           },
-          orient: 'vertical',
+          orien: 'vertical'
         },
-        xAxis: {
+        [this.hor?'yAxis':'xAxis']: {
           name: this.xAxis.name,
           data: this.xAxis.data,
           type: 'category',
-          boundaryGap: false
         },
-        yAxis: {
+       [!this.hor?'yAxis':'xAxis']: {
           name: this.yAxis,
           type: 'value'
         },
@@ -138,18 +135,18 @@ export default {
   },
   watch: {
     computedOption() {
-      this.myLineChart.setOption(this.computedOption)
+      this.myBarChart.setOption(this.computedOption)
     }
   },
   mounted() { 
-    this.myLineChart = ECharts.init(this.$refs.lineChart, this.theme, {renderer: 'svg'}) 
-    this.myLineChart.setOption(this.computedOption)
-    this.setChart(this.myLineChart)
+    this.myBarChart = ECharts.init(this.$refs.barChart, this.theme, {renderer: 'svg'}) 
+    this.myBarChart.setOption(this.computedOption)
+    this.setChart(this.myBarChart)
   }
 }
 </script>
 <style lang="scss" scoped>
-.ha-line-chart-default {
+.ha-bar-chart-default {
   width: 100%;
   height: 100%;
 }
