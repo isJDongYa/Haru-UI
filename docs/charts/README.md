@@ -38,8 +38,9 @@ sidebar: auto
   - 可选图表组件名：
 
   |图表组件名|图表组件名|图表组件名|
-  |----:|:----:|:----|:----|
-  |HaLineCate||||
+  |----:|:----:|:----|
+  |[**HaLineCate**](./README.md#ha-line-cate)|[**HaLineTime**](./README.md#ha-line-time)|[**HaBarCate**](./README.md#ha-bar-cate)|
+  |[**HaPie**](./README.md#ha-pie)|[**HaScatterReg**](./README.md#ha-scatter-reg)|[**HaCustomChart**](./README.md#ha-custom-chart)|
 
   3. 使用：
 
@@ -122,7 +123,7 @@ sidebar: auto
     },
     ```
 
-    1. 该数组默认值为：
+    7. 该数组默认值为：
     
     ```js
     [
