@@ -4,7 +4,9 @@ sidebar: auto
 
 # 图表
  
-- 声明：
+## 起步
+
+### 声明：
 
   1. 这些图表依赖于[**ECharts**](https://www.echartsjs.com)
   2. 理论上支持[**ECharts**](https://www.echartsjs.com)的所有图表
@@ -12,52 +14,59 @@ sidebar: auto
   4. 支持自定义，请参照[自定义图表](./README.md#自定义图表)
   5. 为了更好的性能，这些组件默认使用`svg`渲染
 
-- 使用：
+### 使用：
 
-  1. 如果还没有下载`haru-ui`, 请使用以下语句安装：
+**1. 如果还没有下载`haru-ui`, 请使用以下语句安装**：
 
 
-  ```js
-  npm install haru-ui --save
-  ```
-  :::warning 注意
-  1. 使用这些图表组件需要依赖[**ECharts**](https://www.echartsjs.com)
-  2. 而且`<ha-scatter-reg>`还需要额外依赖[**echarts-stat**](https://github.com/ecomfe/echarts-stat)
-  :::
+```js
+npm install haru-ui --save
+```
+:::warning 注意
+- 使用这些图表组件需要依赖[**ECharts**](https://www.echartsjs.com)
+- 而且`<ha-scatter-reg>`还需要额外依赖[**echarts-stat**](https://github.com/ecomfe/echarts-stat)
+:::
 
-  2. 引入：
+**2. 引入**：
 
-  - 引入全部图表
-  ```js
-  import HaCharts from 'haru-ui/charts'
+- 引入全部图表
+```js
+import HaCharts from 'haru-ui/dist/ha-charts'
 
-  Vue.use(HaCharts) // 注册所有图表，所有图表已经实现异步加载
-  ```
-  - 按需引入单个图表
-  ```js
-  import 图表组件名(PascalCase) from 'haru-ui/lib/charts/图表组件名(kebab-case)' // 图表组件名如下表所示
+Vue.use(HaCharts) // 注册所有图表，所有图表已经实现异步加载
+```
+- 按需引入单个图表
 
-  Vue.use(图表组件名(PascalCase))
-  ```
+:::danger 警告
+- 单组件引入时引用的是源码， 故在打包时需要支持`vue`和`sass`，以及`vue`的`jsx`语法的编译
+- 本组件库使用`webpack`打包编译
+:::
 
-  - 可选图表组件名：
+```js
+// 图表组件名如下表所示
+import 图表组件名(PascalCase) from 'haru-ui/lib/charts/图表组件名(kebab-case)' 
 
-  |图表组件名|图表组件名|图表组件名|
-  |----:|:----:|:----|
-  |[**HaLineCate**](./README.md#ha-line-cate)|[**HaLineTime**](./README.md#ha-line-time)|[**HaBarCate**](./README.md#ha-bar-cate)|
-  |[**HaPie**](./README.md#ha-pie)|[**HaScatterReg**](./README.md#ha-scatter-reg)|[**HaCustomChart**](./README.md#ha-custom-chart)|
+Vue.use(图表组件名(PascalCase))
+```
 
-  3. 使用：
+- 可选图表组件名：
 
-  ```html
-  <使用容器包裹，例如ha-rectangle> 
-    <ha-line-cate 传入prop></ha-line-cate>
-  </ha-rectangle>
-  ```
+|图表组件名|图表组件名|图表组件名|
+|----:|:----:|:----|
+|[**HaLineCate**](./README.md#ha-line-cate)|[**HaLineTime**](./README.md#ha-line-time)|[**HaBarCate**](./README.md#ha-bar-cate)|
+|[**HaPie**](./README.md#ha-pie)|[**HaScatterReg**](./README.md#ha-scatter-reg)|[**HaCustomChart**](./README.md#ha-custom-chart)|
 
-  :::warning 注意：
-  所有图表组件的默认宽高都为`100%`，使用时请包裹一个具有实际宽高的容器
-  :::
+**3. 使用**：
+
+```html
+<使用容器包裹，例如ha-rectangle> 
+ <ha-line-cate 传入prop></ha-line-cate>
+</ha-rectangle>
+```
+
+:::warning 注意：
+所有图表组件的默认宽高都为`100%`，使用时请包裹一个具有实际宽高的容器
+:::
 
 ## &lt;ha-line-cate>
 

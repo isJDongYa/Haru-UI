@@ -7,9 +7,10 @@ Vue.config.devtools = process.env.NODE_ENV === 'development'
 
 Vue.use(VueRouter)
 
-import Haru from '../lib'
-
+import Haru from '../dist/haru-ui'
+import HaCharts from '../dist/ha-charts'
 Vue.use(Haru)
+Vue.use(HaCharts)
 
 
 
@@ -20,7 +21,6 @@ import Containers from './view/containers.vue'
 import Stuffings from './view/stuffings.vue'
 import Materials from './view/materials.vue'
 import Others from './view/others.vue'
-import { from } from '_array-flatten@2.1.2@array-flatten'
 const router = new VueRouter({
    routes: [
      {

@@ -9,13 +9,13 @@ _**一个实验性质的组件库**_
 ## 简介
 
 - 名为“Haru UI”的组件库
-- [文档](https://hydrousdelta.github.io/Haru-UI)在这里
+- [**文档**](https://hydrousdelta.github.io/Haru-UI)在这里
 <!-- - [sample]()在这里 -->
 
 ## 特点
 
 - 实现了类似"坐标系统"的坐标器
-- 使用grid和flex布局实现自适应
+- 使用`grid`和`flex`布局实现自适应
 - 颜色可高度自定义
 - 物料 = 容器 + 填充物
 - 应用 = 坐标系 + 容器 + 填充物 = 坐标系 + 物料
@@ -24,27 +24,7 @@ _**一个实验性质的组件库**_
 
 ## 安装
 
-```js
-npm install haru-ui --save
-```
-
-- 全局
-
-```js
-import Haru from 'haru-ui'
-
-Vue.use(Haru)
-```
-
-- 单组件引入
-
-```js
-import 'haru-ui/style' //导入样式表
-
-import { HaCoordinater } from 'haru-ui' // 导入各个组件
-
-Vue.use(HaCoordinater)
-```
+[**参见文档**](https://hydrousdelta.github.io/Haru-UI/)
 
 ## 注意
 

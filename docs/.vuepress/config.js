@@ -12,19 +12,19 @@ module.exports = {
   ],
   themeConfig: {
     sidebar: [
-      ['/start/', '起步'],
-      ['/main/', '0. 全局'],
-      ['/coordinater/', '1. 坐标器'],
-      ['/containers/', '2. 容器'],
-      ['/stuffings/', '3. 填充物'],
-      ['/materials/', '4. 物料'],
-      ['/others/', '5. 其它'],
-      ['/epologue/', '后记']
-      
+      ['/guide/', '起步'],
+      ['/guide/main/', '0. 全局'],
+      ['/guide/coordinater/', '1. 坐标器'],
+      ['/guide/containers/', '2. 容器'],
+      ['/guide/stuffings/', '3. 填充物'],
+      ['/guide/materials/', '4. 物料'],
+      ['/guide/others/', '5. 其它']      
     ],
     nav: [
-      { text: '指南', link: '/start/' },
+      { text: '指南', link: '/guide/' },
+      { text: '图标', link: '/icons/' },
       { text: '图表', link: '/charts/' },
+      { text: '后记', link: '/epologue/' },
       // { text: 'API', link: '/api/' }
     ],
     logo: './logo.png',

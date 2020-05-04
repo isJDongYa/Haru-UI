@@ -1,5 +1,7 @@
 const path = require('path')
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
 console.log('-----------------------ENV:production-icons-----------------------')
 module.exports = {
   mode: 'production',
@@ -7,8 +9,8 @@ module.exports = {
   entry: path.resolve(__dirname, '../../lib/icons/index.js'),
   output: {
     path: path.resolve(__dirname, '../../dist'),
-    filename: 'ha-icon.js',
-    library: 'HaIcon',
+    filename: 'ha-icons.js',
+    library: 'HaIcons',
     libraryTarget: 'umd'
   },
   module: {
@@ -35,5 +37,12 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [   
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
+      generateStatsFile: true, // 是否生成stats.json文件
+      statsFilename: 'stats-icons.json',
+    })
+  ],
 }

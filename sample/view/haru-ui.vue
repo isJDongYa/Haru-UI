@@ -1,6 +1,6 @@
 <template>
   <ha-coordinater :grid="[[1180, 51, 51]]">
-    <ha-menu-horizontal :z="100" :bgColor="['bgc-blue', 'bgc-blue']" :menuList="menuList" :singleOpen="true" :coor="[[[1,1], [50,3]], [[1,1], [24, 3]]]"></ha-menu-horizontal>
+    <ha-menu-hor :z="100" :bgColor="['bgc-blue', 'bgc-blue']" :menuList="menuList" :singleOpen="true" :coor="[[[1,1], [50,3]], [[1,1], [24, 3]]]"></ha-menu-hor>
     <ha-rectangle :coor="[[[4,8],[43, 39]]]" :styleProp="{ border: 'solid 1px #ddd' }">
       <router-view></router-view>
     </ha-rectangle>

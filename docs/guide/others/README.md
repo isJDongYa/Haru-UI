@@ -235,7 +235,7 @@ changeShow() {
   <others-tooltip></others-tooltip>
 </doc-result>
 
-## 5.4 &lt;ha-detailBox>
+## 5.4 &lt;ha-detailbox>
 
 - 简介：
   
@@ -243,14 +243,19 @@ changeShow() {
 
 - props:
   
-  无porps
+  - location
+
+    1. 设置位置
+    2. 类型为`String`
+    3. 默认为`'rightBottom'`
+    4. 可选值为`'leftBottom'`, `'leftTop'`, `'rightBottom'`, `'rightTop'` 
 
 :::tip 使用方法：
-自定义一个具有`data-detail-box`属性、并且其值为`detailBox`的元素，即类似`<div data-detail-box="detailBox">`，放置于`<ha-detailBox>`的同一父节点中， 使它们成为兄弟节点，当鼠标进入`<ha-detailBox>`的范围内时，会将自定义的元素用于展示详情。
+自定义一个具有`data-detailbox`属性、并且其值为`detailbox`的元素，即类似`<div data-detailbox="detailbox">`，放置于`<ha-detailbox>`的同一父节点中， 使它们成为兄弟节点，当鼠标进入`<ha-detailbox>`的范围内时，会将自定义的元素用于展示详情。
 :::
 
 :::warning 注意
-1. 其中`<ha-detailBox>`的高度和宽带默认为100%。
+1. 其中`<ha-detailbox>`的高度和宽带默认为100%。
 2. 自定义元素需全部自定义，包括其`css`，也可使用组件
 :::
 
@@ -260,13 +265,13 @@ changeShow() {
 ```html
 <ha-coordinater :grid="[[0, 50, 50]]">
   <ha-rectangle :coor="[[[19,19], [12, 12]]]">
-    <ha-detailBox>
+    <ha-detailbox>
       <ha-button title="鼠标进入显示详情" bgColor="bgc-blue"></ha-button>
-    </ha-detailBox>
+    </ha-detailbox>
     <ha-card 
       width="300px" height="300px" 
       :bgColor="['bgc-red','bgc-lightBlue']" 
-      data-detail-box="detailBox" 
+      data-detailbox="detailbox" 
     >
       这是一个detailBox
     </ha-card>
@@ -276,7 +281,7 @@ changeShow() {
 
 结果：
 <doc-result height="200px">
-  <others-detailBox></others-detailBox>
+  <others-detailbox></others-detailbox>
 </doc-result>
 
 ## 5.5 $haru.notify()
@@ -344,7 +349,7 @@ click1() {
   duration: 4000, 
   location: 'topLeft', 
   bgColor: 'bgc-blue',
-  icon: require('@icons/信息.svg') 
+  icon: HaIcons['message_white']
   })
 },
 click2() {
@@ -353,7 +358,7 @@ click2() {
   duration: 4000, 
   location: 'topMiddle', 
   bgColor: 'bgc-red',
-  icon: require('@icons/信息.svg') 
+  icon: HaIcons['message_white']
   })
 },
 click3() {
@@ -362,7 +367,7 @@ click3() {
   duration: 4000, 
   location: 'topRight', 
   bgColor: 'bgc-green',
-  icon: require('@icons/信息.svg') 
+  icon: HaIcons['message_white']
   })
 },
 click4() {
@@ -371,7 +376,7 @@ click4() {
   duration: 4000, 
   location: 'bottomLeft', 
   bgColor: 'bgc-yellow',
-  icon: require('@icons/信息.svg') 
+  icon: HaIcons['message_white']
   })
 },
 click5() {
@@ -380,7 +385,7 @@ click5() {
   duration: 4000, 
   location: 'bottomMiddle', 
   bgColor: 'bgc-orange',
-  icon: require('@icons/信息.svg') 
+  icon: HaIcons['message_white']
   })
 },
 click6() {
@@ -389,7 +394,7 @@ click6() {
   duration: 4000, 
   location: 'bottomRight', 
   bgColor: 'bgc-purple',
-  icon: require('@icons/信息.svg') 
+  icon: HaIcons['message_white']
   })
 }
 ```

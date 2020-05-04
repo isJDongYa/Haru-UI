@@ -1,17 +1,20 @@
 {
   "name": "haru-ui",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Compoments or materials created with Vue",
   "private": false,
   "main": "dist/haru-ui.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --config ./webpack.config/webpack.config.dev.js",
-    "build:lib": "npm run build:main && npm run build:icons",
+    "build": "npm run build:main && npm run build:charts && npm run build:icons",
     "build:main": "cross-env NODE_ENV=production webpack --config ./webpack.config/lib/webpack.config.main.js  ",
+    "build:charts": "cross-env NODE_ENV=production webpack --config ./webpack.config/lib/webpack.config.charts.js  ",
     "build:icons": "cross-env NODE_ENV=production webpack --config ./webpack.config/lib/webpack.config.icons.js  ",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "a": "webpack-bundle-analyzer --port 8888 ./dist/stats.json",
+    "a:main": "webpack-bundle-analyzer --port 6666 ./dist/stats-main.json",
+    "a:charts": "webpack-bundle-analyzer --port 7777 ./dist/stats-charts.json",
+    "a:icons": "webpack-bundle-analyzer --port 8888 ./dist/stats-icons.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

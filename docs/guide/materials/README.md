@@ -1,6 +1,6 @@
 # 4. 物料
 
-## 4.1 &lt;ha-menu-vertical>
+## 4.1 &lt;ha-menu-ver>
 
 - 简介：
 
@@ -48,7 +48,7 @@
 
       ```js
       { // 第一层菜单
-        menuTitle: 'ha-menu-vertical-title', 
+        menuTitle: 'ha-menu-ver-title', 
         menuList: [
           { // 第二层菜单
             groupId: '1', // 必需，该组件以此判断是否为“group”
@@ -121,11 +121,11 @@
 代码：
 ```html
 <ha-coordinater :grid="[[0, 50, 50]]">
-  <ha-menu-vertical 
+  <ha-menu-ver 
     :coor="[[[15,1], [16, 50]]]" 
     :bgColor="['bgc-blue', 'bgc-lightBlue']" 
     :menuList="menuList"
-  ></ha-menu-vertical>
+  ></ha-menu-ver>
 </ha-coordinater>
 ```
 
@@ -138,7 +138,7 @@ menuList:{ // 第一层菜单
     { // 第二层菜单
       groupId: '1', // 必需，该组件以此判断是否为“group”
       menuTitle: 'groupTitle', 
-      icon: require('@icons/菜单.svg'),
+      icon: HaIcons['message_white'],
       menuList: [
         { // 第三层菜单
           groupId: '2', 
@@ -146,44 +146,44 @@ menuList:{ // 第一层菜单
           menuList: [
             { // 这里是item
               title: 'item', // 必需， 该组件以此判断是否为“item”
-              route: '/materials/#_4-1-ha-menu-vertical',
-              icon: require('@icons/首页.svg')
+              route: '/materials/#_4-1-ha-menu-ver',
+              icon: HaIcons['message_white']
             },
             { // 这里是item
               title: 'item', 
-              route: '/materials/#_4-1-ha-menu-vertical',
-              icon: require('@icons/设置.svg')
+              route: '/materials/#_4-1-ha-menu-ver',
+              icon: HaIcons['message_white']
             },
             { // 这里是item
               title: 'item',
-              route: '/materials/#_4-1-ha-menu-vertical',
+              route: '/materials/#_4-1-ha-menu-ver',
             },
             { // 这里是item
               title: 'item',
-              route: '/materials/#_4-1-ha-menu-vertical',
+              route: '/materials/#_4-1-ha-menu-ver',
             },
           ] 
         },
         { // 第三层菜单
           groupId: '3',
           menuTitle: 'g3',
-          icon: require('@icons/菜单.svg'),
+          icon: HaIcons['message_white'],
           menuList: [
             { // 这里是item
               title: 'item',
-              route: '/materials/#_4-1-ha-menu-vertical',
+              route: '/materials/#_4-1-ha-menu-ver',
             },
             { // 这里是item
               title: 'item',
-              route: '/materials/#_4-1-ha-menu-vertical',
+              route: '/materials/#_4-1-ha-menu-ver',
             },
             { // 这里是item
               title: 'item',
-              route: '/materials/#_4-1-ha-menu-vertical',
+              route: '/materials/#_4-1-ha-menu-ver',
             },
             { // 这里是item
               title: 'item',
-              route: '/materials/#_4-1-ha-menu-vertical',
+              route: '/materials/#_4-1-ha-menu-ver',
             },
           ] 
         }
@@ -198,7 +198,7 @@ menuList:{ // 第一层菜单
   <mat-menu-ver></mat-menu-ver>
 </doc-result>
 
-## 4.2 &lt;ha-menu-horizontal>
+## 4.2 &lt;ha-menu-hor>
 
 - 简介：
 
@@ -206,18 +206,18 @@ menuList:{ // 第一层菜单
 
 - props:
 
-  - 与`<ha-menu-vertical>`具有一致的props
+  - 与`<ha-menu-ver>`具有一致的props
 
 - 实例：
 
 代码：
 ```html
 <ha-coordinater :grid="[[0, 50, 50]]">
-  <ha-menu-horizontal 
+  <ha-menu-hor 
     :coor="[[[8,15], [32, 5]]]" 
     :bgColor="['bgc-blue', 'bgc-lightBlue']" 
     :menuList="menuList"
-  ></ha-menu-horizontal>
+  ></ha-menu-hor>
 </ha-coordinater>
 ```
 
@@ -230,7 +230,7 @@ menuList:{ // 第一层菜单
     { // 第二层菜单
       groupId: '1', // 必需，该组件以此判断是否为“group”
       menuTitle: 'groupTitle', 
-      icon: require('@icons/菜单.svg'),
+      icon: HaIcons['message_white'],
       menuList: [
         { // 第三层菜单
           groupId: '2', 
@@ -238,21 +238,21 @@ menuList:{ // 第一层菜单
           menuList: [
             { // 这里是item
               title: 'item', // 必需， 该组件以此判断是否为“item”
-              route: '/materials/#_4-2-ha-menu-horizontal,
-              icon: require('@icons/首页.svg')
+              route: '/materials/#_4-2-ha-menu-hor,
+              icon: HaIcons['message_white']
             },
             { // 这里是item
               title: 'item', 
-              route: '/materials/#_4-2-ha-menu-horizontal,
-              icon: require('@icons/设置.svg')
+              route: '/materials/#_4-2-ha-menu-hor,
+              icon: HaIcons['message_white']
             },
             { // 这里是item
               title: 'item',
-              route: '/materials/#_4-2-ha-menu-horizontal,
+              route: '/materials/#_4-2-ha-menu-hor,
             },
             { // 这里是item
               title: 'item',
-              route: '/materials/#_4-2-ha-menu-horizontal,
+              route: '/materials/#_4-2-ha-menu-hor,
             },
           ] 
         }
@@ -261,23 +261,23 @@ menuList:{ // 第一层菜单
     { // 第三层菜单
       groupId: '3',
       menuTitle: 'g3',
-      icon: require('@icons/菜单.svg'),
+      icon: HaIcons['message_white'],
       menuList: [
         { // 这里是item
           title: 'item',
-          route: '/materials/#_4-2-ha-menu-horizontal,
+          route: '/materials/#_4-2-ha-menu-hor,
         },
         { // 这里是item
           title: 'item',
-          route: '/materials/#_4-2-ha-menu-horizontal,
+          route: '/materials/#_4-2-ha-menu-hor,
         },
         { // 这里是item
           title: 'item',
-          route: '/materials/#_4-2-ha-menu-horizontal,
+          route: '/materials/#_4-2-ha-menu-hor,
         },
         { // 这里是item
           title: 'item',
-          route: '/materials/#_4-2-ha-menu-horizontal,
+          route: '/materials/#_4-2-ha-menu-hor,
         },
       ] 
     }

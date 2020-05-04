@@ -1,19 +1,17 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const path = require('path')
 
-
-console.log('-----------------------ENV:production-main-----------------------')
+console.log('-----------------------ENV:production-charts-----------------------')
 module.exports = {
   mode: 'production',
   target: "web",
-  entry: path.resolve(__dirname, '../../lib/index.js'),
+  entry: path.resolve(__dirname, '../../lib/charts/index.js'),
   output: {
     path: path.resolve(__dirname, '../../dist'),
-    filename: 'haru-ui.js',
-    library: 'Haru',
+    filename: 'ha-charts.js',
+    library: 'HaCharts',
     libraryTarget: 'umd'
   },
   module: {
@@ -56,13 +54,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
-    
     new BundleAnalyzerPlugin({
       analyzerMode: 'disabled', // 不启动展示打包报告的http服务器
       generateStatsFile: true, // 是否生成stats.json文件
-      statsFilename: 'stats-main.json',
+      statsFilename: 'stats-charts.json',
     })
   ],
   resolve: {

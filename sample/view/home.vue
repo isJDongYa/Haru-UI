@@ -10,9 +10,9 @@
                 </ha-tooltip>
               </ha-rectangle>
               <ha-rectangle :coor="[[[14,10], [5, 15]]]">
-                <ha-detailBox>
+                <ha-detailbox>
                   <ha-letter letter="a" :capital="false" fillColor="yellow"></ha-letter>
-                </ha-detailBox>
+                </ha-detailbox>
                 <ha-card width="200px" height="200px" :bgColor="['bgc-red','bgc-lightBlue']" data-detail-box="detailBox" letter="a" fillColor="blue">
                   这是一个ha-detailBox
                 </ha-card>

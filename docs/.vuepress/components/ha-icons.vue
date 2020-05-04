@@ -1,22 +1,16 @@
 <template>
-  <ha-scroll :bgColor="['bgc-grey']">
-    <div class="icon-con-con">
-      <div class="icon-con" v-for="(val, i) in iconsSrc">
-        <img :src="icons[val]" class="iconImg">
-        <div class="icon-name">{{ val }}</div>
-      </div>
+  <div class="icon-con-con">
+    <div class="icon-con" v-for="(val, i) in iconsSrc">
+      <img :src="icons[val]" class="iconImg">
+      <div class="icon-name">{{ val }}</div>
     </div>
-  </ha-scroll>
+  </div>
 </template>
 <script>
-import HaScroll from '@others/ha-scroll/HaScroll.vue'
 
 import HaIcons from '@icons'
 
 export default {
-  components: {
-    [HaScroll.name]: HaScroll
-  },
   data() {
     return {
       icons: {},

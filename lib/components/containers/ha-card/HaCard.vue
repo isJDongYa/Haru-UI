@@ -4,6 +4,7 @@
     :coor="$attrs['coor']" :hover="$attrs['hover']" 
     :border="$attrs['border']" :padding="$attrs['padding']" 
     :radius="$attrs['radius']" :haShow="$attrs['haShow']"
+    :z="$attrs['z']"
   >
     <!-- 垂直card -->
     <div :class="['ha-card-Ve-default', 'ha-card-Ve']" v-if="type==='Ver'">

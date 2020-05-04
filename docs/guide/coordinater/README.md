@@ -59,8 +59,8 @@
 
   - 当可视宽度大于1180px时为:
 
-![结果1](../assets/imgs/instances/ha-coordinater/ha-coordinater实例图1.png)
+![结果1](../../assets/imgs/ha-coordinater实例图1.png)
 
   - 当可视宽度大于580px并小于1180px时为:
   
-![结果2](../assets/imgs/instances/ha-coordinater/ha-coordinater实例图2.png)
+![结果2](../../assets/imgs/ha-coordinater实例图2.png)

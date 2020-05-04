@@ -1,22 +1,22 @@
 <template>
   <ha-coordinater :grid="[[0, 50, 50]]">
-    <ha-menu-horizontal 
+    <ha-menu-hor 
       :coor="[[[8,15], [32, 5]]]" 
       :bgColor="['bgc-blue', 'bgc-lightBlue']" 
       :menuList="menuList"
-    ></ha-menu-horizontal>
+    ></ha-menu-hor>
   </ha-coordinater>
 </template>
 <script>
 import HaCoordinater from '@coordinater/ha-coordinater/HaCoordinater.vue'
-import HaMenuHorizontal from '@materials/ha-menu-horizontal/ha-menu-horizontal.vue'
+import HaMenuHor from '@materials/ha-menu-hor/HaMenuHor.vue'
 
 import HaIcons from '@icons'
 
 export default {
   components: {
     [HaCoordinater.name]: HaCoordinater,
-    [HaMenuHorizontal.name]: HaMenuHorizontal
+    [HaMenuHor.name]: HaMenuHor
   },
   data() {
     return {
@@ -34,21 +34,21 @@ export default {
                 menuList: [
                   { // 这里是item
                     title: 'item', // 必需， 该组件以此判断是否为“item”
-                    route: '/materials/#_4-2-ha-menu-horizontal',
+                    route: '/materials/#_4-2-ha-menu-hor',
                     icon: HaIcons['message_white']
                   },
                   { // 这里是item
                     title: 'item', 
-                    route: '/materials/#_4-2-ha-menu-horizontal',
+                    route: '/materials/#_4-2-ha-menu-hor',
                     icon: HaIcons['message_white']
                   },
                   { // 这里是item
                     title: 'item',
-                    route: '/materials/#_4-2-ha-menu-horizontal',
+                    route: '/materials/#_4-2-ha-menu-hor',
                   },
                   { // 这里是item
                     title: 'item',
-                    route: '/materials/#_4-2-ha-menu-horizontal',
+                    route: '/materials/#_4-2-ha-menu-hor',
                   },
                 ] 
               }
@@ -61,19 +61,19 @@ export default {
             menuList: [
               { // 这里是item
                 title: 'item',
-                route: '/materials/#_4-2-ha-menu-horizontal',
+                route: '/materials/#_4-2-ha-menu-hor',
               },
               { // 这里是item
                 title: 'item',
-                route: '/materials/#_4-2-ha-menu-horizontal',
+                route: '/materials/#_4-2-ha-menu-hor',
               },
               { // 这里是item
                 title: 'item',
-                route: '/materials/#_4-2-ha-menu-horizontal',
+                route: '/materials/#_4-2-ha-menu-hor',
               },
               { // 这里是item
                 title: 'item',
-                route: '/materials/#_4-2-ha-menu-horizontal',
+                route: '/materials/#_4-2-ha-menu-hor',
               },
             ] 
           }
