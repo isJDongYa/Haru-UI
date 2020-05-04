@@ -27,7 +27,7 @@ module.exports = {
       { text: '后记', link: '/epologue/' },
       // { text: 'API', link: '/api/' }
     ],
-    logo: './logo.png',
+    logo: '/logo.png',
     repo: 'HydrousDelta/Haru-UI',
     // 如果你的文档不在仓库的根部
     docsDir: 'docs',
