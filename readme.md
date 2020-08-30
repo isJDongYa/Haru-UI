@@ -9,7 +9,7 @@ _**一个实验性质的组件库**_
 ## 简介
 
 - 名为“Haru UI”的组件库
-- [**文档**](https://hydrousdelta.github.io/Haru-UI)在这里
+- [**文档**](https://isJDongYa.github.io/Haru-UI)在这里
 <!-- - [sample]()在这里 -->
 
 ## 特点
@@ -24,11 +24,11 @@ _**一个实验性质的组件库**_
 
 ## 安装
 
-[**参见文档**](https://hydrousdelta.github.io/Haru-UI/)
+[**参见文档**](https://isJDongYa.github.io/Haru-UI/)
 
 ## 注意
 
-> 本组件库未经严格测试, 只作为为实验"坐标系统"的概念在前端中的应用所产生的组件库,如果要使用请自行测试.同时有bug的话也欢迎提交[issues](https://github.com/HydrousDelta/Haru-UI/issues)
+> 本组件库未经严格测试, 只作为为实验"坐标系统"的概念在前端中的应用所产生的组件库,如果要使用请自行测试.同时有bug的话也欢迎提交[issues](https://github.com/isJDongYa/Haru-UI/issues)
 
 ---
 
